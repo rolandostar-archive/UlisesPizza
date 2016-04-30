@@ -1,0 +1,93 @@
+.tabla-precios{
+    padding:0;
+    display: table;
+    table-layout: fixed;
+    margin-bottom: 3.125em;
+    text-align: center;
+    max-width: 100em;
+    margin: 0 auto;
+}
+
+.tabla-precios column{
+    display:table-cell;
+    text-align: center;
+}
+    column .paquete{
+        display: inline-block;
+        border: 1px solid #ddd;
+        margin: 0 0.5em 2em;
+        padding: 0 0 3em;
+        min-width: 15em;
+        background-color: white;
+    }
+
+
+.paq-head {
+    background: #111;
+    color: #fff;
+}
+    .paq-head h2 {
+        margin: 0;
+        padding-top: 1em;
+        font-size: 1em;
+        font-weight: normal;
+    }
+
+.precio {
+    font-size: 4.5em;
+    margin: 0.2em 0 0;
+    font-weight: 100;
+}
+    .precio span {
+        display: block;
+        text-transform: uppercase;
+        font-size: 0.2em;
+        padding-bottom: 2em;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+
+.lista-productos {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+    .lista-productos li {
+        padding: 0.8em 0;
+        background: #f7f7f7;
+        border-bottom: 1px solid #e7e7e7;
+    }
+
+.btn-pedir {
+    position: relative;
+    bottom: -1.5em;
+}
+
+.btn-pedir {
+	color: #000 !important;
+    border-radius: 2em;
+	background: #fff;
+    border: 1px solid #ccc;
+	display: inline-block;
+	padding: .5em 1em;
+	margin-bottom: 0;
+	font-weight: bold;
+	line-height: 1.2;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.btn-pedir:hover {
+	background-color: #E5E5E5;
+}
+
+.btn-pedir:active {
+	color: #fff !important;
+	background-color: royalblue;
+}
