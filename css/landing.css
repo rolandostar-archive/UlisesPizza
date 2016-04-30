@@ -9,7 +9,7 @@
 }
 
 .tabla-precios column{
-    display:table-cell;
+    display:block;
     text-align: center;
 }
     column .paquete{
@@ -90,4 +90,10 @@
 .btn-pedir:active {
 	color: #fff !important;
 	background-color: royalblue;
+}
+
+@media (min-width: 42em) {
+    .tabla-precios column{
+        display:table-cell;
+    }
 }
