@@ -8,11 +8,17 @@
 		<meta name="robots" content="index, follow">
 
 		<!-- icons -->
-		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="shortcut icon" href="/favicon.ico">
 
 		<!-- Override CSS file - add your own CSS rules -->
-		<link rel="stylesheet" href="../css/styles.css">
-		<link rel="stylesheet" href="../css/login.css">
+		<link rel="stylesheet" href="/Assets/css/styles.css">
+		<link rel="stylesheet" href="/Assets/css/login.css">
+		<style>
+			.small {
+				padding: 0;
+				margin: 0;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -25,33 +31,33 @@
 				</div>
 			</div>
 		</header>
-		<form class="form-login" method="post" action="#">
-			<div class="login">
-				<div class="form-white-background">
-					<div class="form-title-row">
-						<h1>Staff Login</h1>
-					</div>
-					<div class="form-row">
-						<label>
-							<span>Email</span>
-							<input type="email" name="email">
-						</label>
-					</div>
-					<div class="form-row">
-						<label>
-							<span>Password</span>
-							<input type="password" name="password">
-						</label>
-					</div>
-					<div class="form-row">
-						<button type="submit" class="btn">Log in</button>
+
+		<main class="container-narrow">
+			<form method="post" action="./index.html">
+				<div class="login">
+					<div class="form-white-background">
+						<div class="form-title-row">
+							<h1>Staff Login</h1>
+						</div>
+						<div class="form-row">
+							<label>
+								<span>Email</span>
+								<input type="email" name="email">
+							</label>
+						</div>
+						<div class="form-row">
+							<label>
+								<span>Password</span>
+								<input type="password" name="password">
+							</label>
+						</div>
+						<div class="form-row">
+							<button type="submit" class="btn">Log in</button>
+						</div>
 					</div>
 				</div>
-				<hr>
-				<a href="#" class="form-forgotten-password">¿Olvidaste tu Contrase&ntilde;a? &middot;</a>
-				<a href="#" class="form-create-an-account">Registro &rarr;</a>
-			</div>
-		</form>
+			</form>
+		</main>
 	</body>
 
 </html>

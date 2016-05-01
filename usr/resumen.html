@@ -20,10 +20,8 @@
 				width: 100%;
 			}
 
-			th.tabla-pedido,
-			td.tabla-pedido {
-				padding: 5px;
-				border: 1px solid black;
+			.tabla-pedido th {
+				background: #E38F27;
 			}
 
 			tr:nth-child(odd) {
@@ -34,7 +32,7 @@
 				margin-left: 30px;
 			}
 
-			.carrito button {
+			.carrito .btn {
 				margin: 15px auto;
 				background-color: white;
 				padding: 8px 32px;
@@ -42,9 +40,10 @@
 				border: 1.5px solid #E38F27;
 			}
 
-			.carrito button:hover {
+			.carrito .btn:hover {
 				background-color: #E38F27;
 				color: white;
+				cursor: pointer;
 			}
 
 			.carrito-content {
@@ -52,10 +51,7 @@
 				border: 1px solid black;
 				border-radius: 3px;
 				height: 400px;
-			}
-
-			.tabla-carrito {
-				width: auto;
+				overflow: hidden;
 			}
 
 			.pqt {
@@ -94,25 +90,29 @@
 				<div class="container">
 					<ul class="nav">
 						<li>¡Hola Ulises!</li>
+						<li><a href="/">Inicio</a></li>
 						<li><a href="/">Logout</a></li>
 					</ul>
 				</div>
+			</div>
+			<div class="header">
+				<h1 class=header-heading>Tu resumen</h1>
 			</div>
 		</header>
 
 		<main class="content flex-wrapper">
 			<div class="dyn-width-left">
-				<div class="pedidos-act">
+				<div>
 					<!-- Tabla de pedidos actuales -->
 					<h3>Pedidos Actuales</h3>
 					<table class="tabla-pedido">
 						<thead>
 							<tr>
-								<th bgcolor="#E38F27">Pizza</th>
-								<th bgcolor="#E38F27">Cantidad</th>
-								<th bgcolor="#E38F27">Precio</th>
-								<th bgcolor="#E38F27">Dirección</th>
-								<th bgcolor="#E38F27">Descripción</th>
+								<th>Pizza</th>
+								<th>Cantidad</th>
+								<th>Precio</th>
+								<th>Dirección</th>
+								<th>Descripción</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -168,16 +168,16 @@
 				</div>
 
 				<!-- Tabla de historial -->
-				<div class="historial">
+				<div>
 					<h3>Historial</h3>
 					<table class="tabla-pedido">
 						<thead>
 							<tr>
-								<th bgcolor="#E38F27">Pizza</th>
-								<th bgcolor="#E38F27">Cantidad</th>
-								<th bgcolor="#E38F27">Precio</th>
-								<th bgcolor="#E38F27">Dirección</th>
-								<th bgcolor="#E38F27">Descripción</th>
+								<th>Pizza</th>
+								<th>Cantidad</th>
+								<th>Precio</th>
+								<th>Dirección</th>
+								<th>Descripción</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -209,8 +209,8 @@
 							</tr>
 						</table>
 					</div>
-					<button class="btn">Agregar</button>
-					<button class="btn">Pedir</button>
+					<a class="btn" href="pedido.html">Agregar</a>
+					<a class="btn">Pedir</a>
 				</div>
 			</div>
 		</main>

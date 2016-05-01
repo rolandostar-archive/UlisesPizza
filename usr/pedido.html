@@ -12,17 +12,60 @@
 
 		<!-- Override CSS file - add your own CSS rules -->
 		<link rel="stylesheet" href="/Assets/css/styles.css">
+
 		<style type="text/css">
-			#Especialidad {
-				width: 20%;
-				height: 100%;
-				float: left;
+			.especialidad {
+				width: 15%;
+				text-align: center;
+				position: absolute;
+				;
 			}
 
-			#Armado {
+			.especialidad button {
+				display: block;
 				width: 80%;
-				height: 100%;
-				float: left;
+				margin: 5px auto;
+				background-color: white;
+				padding: 8px 32px;
+				color: black;
+				border: 1.5px solid #E38F27;
+			}
+
+			.especialidad button:hover {
+				background-color: #E38F27;
+				color: white;
+				cursor: pointer;
+			}
+
+			.form-footer {
+				text-align: center;
+			}
+
+			.form-footer label {
+				font-size: 1.375em;
+			}
+
+			.form-footer input[type="number"] {
+				font-size: 1em;
+				width: 50px;
+				text-align: center;
+			}
+
+			.large {
+				display: block;
+				margin: 20px auto 0;
+				border-radius: 2px;
+				font-weight: bold;
+				font-size: 20px;
+				padding: 15px 35px;
+			}
+
+			.armado {
+				padding: 15px;
+			}
+
+			.flex-wrapper {
+				display: flex;
 			}
 		</style>
 		<!--
@@ -49,279 +92,138 @@
 			<div class="nav-bar">
 				<div class="container">
 					<ul class="nav">
-						<li><a href="#">¡Hola Ulises!</a></li>
-						<li><a href="#">Logout</a></li>
+						<li><a href="/usr/resumen.html">¡Hola Ulises!</a></li>
+						<li><a href="/">Inicio</a></li>
+						<li><a href="/">Logout</a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="header">
-				<div class=container-narrow>
-					<h1 class=header-heading>Arma tu pizza</h1>
-				</div>
+				<h1 class=header-heading>Arma tu pizza</h1>
 			</div>
 		</header>
 
 		<main class="content">
-			<hr>
-			<div id="Especialidad">
+			<div class="especialidad">
 				<h3>Especialidades</h3>
-				<ul>
-					<li onclick="llena(1)">Camello Elevado</li>
-					<li onclick="llena(2)">Palceta</li>
-					<li onclick="llena(3)">Lamememaster</li>
-					<li onclick="llena(4)">Vegana</li>
-					<li onclick="llena(5)">Zarpada la pizza</li>
-					<li onclick="llena(6)">Pizza a la Bandeira</li>
-					<li onclick="llena(7)">Americana</li>
-					<li onclick="llena(8)">Le Pizza I</li>
-					<li onclick="llena(9)">Le Pizza II</li>
-					<li onclick="llena(10)">Doble Cocido</li>
-					<li onclick="llena(11)">Pepperonni</li>
-					<li onclick="llena(12)">Hawaiana</li>
-					<li onclick="llena(13)">Mexicana</li>
-					<li onclick="llena(14)">Carnes Frías</li>
-					<li onclick="llena(15)">Holoholo</li>
-					<li onclick="llena(16)">Abril de mi vida</li>
-				</ul>
+				<button>Camello Elevado</button>
+				<button>Palceta</button>
+				<button>Lamememaster</button>
+				<button>Vegana</button>
+				<button>Zarpada la pizza</button>
+				<button>Pizza a la Bandeira</button>
+				<button>Americana</button>
+				<button>Le Pizza I</button>
+				<button>Le Pizza II</button>
+				<button>Doble Cocido</button>
+				<button>Pepperonni</button>
+				<button>Hawaiana</button>
+				<button>Mexicana</button>
+				<button>Carnes Frías</button>
+				<button>Holoholo</button>
+				<button>Abril de mi vida</button>
 			</div>
-			<div id="Armado">
-				<h2> ELEGE EL TAMAÑO Y LA MASA PARA TU PIZZA </h2>
+			<form class="armado container-narrow" action="/usr/resumen.html">
+				<h2> ELIGE EL TAMAÑO Y LA MASA PARA TU PIZZA </h2>
 				<!-- Seccion de Pizza General -->
 				<h3> Tamaño: </h3>
-				<input type="radio" name="tam" value="1">
-				<label> Individual </label>
-				<input type="radio" name="tam" value="2">
-				<label> Mediana </label>
-				<input type="radio" name="tam" value="3">
-				<label> Familiar </label>
+				<table class="table">
+				  <tr>
+				    <td><input type="radio" name="tam" value="1"><label>Individual</label></td>
+				    <td><input type="radio" name="tam" value="2"><label>Mediana</label></td>
+				    <td><input type="radio" name="tam" value="3"><label>Familiar</label></td>
+				  </tr>
+				</table>
 				<h3> Tipo de Masa: </h3>
-				<table class="table table-striped">
+				<table class="table">
 					<tr>
-						<td>
-							<input type="radio" name="masa" value="1">
-							<label> Harina de Trigo </label>
-						</td>
-						<td>
-							<input type="radio" name="masa" value="2">
-							<label> Harina Integral </label>
-						</td>
-						<td>
-							<input type="radio" name="masa" value="3">
-							<label> Harina Sin Sal </label>
-						</td>
+						<td><input type="radio" name="masa" value="1"><label>Harina de Trigo</label></td>
+						<td><input type="radio" name="masa" value="2"><label>Harina Integral</label></td>
+						<td><input type="radio" name="masa" value="3"><label>Harina Sin Sal</label></td>
 					</tr>
 					<tr>
-						<td>
-							<input type="radio" name="masa" value="4">
-							<label> A la Piedra </label>
-						</td>
-						<td>
-							<input type="radio" name="masa" value="5">
-							<label> Masa dulce </label>
-						</td>
-						<td>
-							<input type="radio" name="masa" value="6">
-							<label> Crunch </label>
-						</td>
+						<td><input type="radio" name="masa" value="4"><label>A la Piedra</label></td>
+						<td><input type="radio" name="masa" value="5"><label>Masa dulce</label></td>
+						<td><input type="radio" name="masa" value="6"><label>Crunch</label></td>
 					</tr>
 				</table>
-				<hr>
 				<h2>INGREDIENTES</h2>
 				<!-- Seccion de Ingredientes -->
 				<h3 id="ing"> Clásicos: </h3>
-				<table class="table table-striped">
+				<table class="table">
 					<tr>
-						<td>
-							<input type="checkbox" name="cla">
-							<label> Morron </label>
-						</td>
-						<td>
-							<input type="checkbox" name="cla">
-							<label> Jamon Cocido </label>
-						</td>
-						<td>
-							<input type="checkbox" name="cla">
-							<label> Longaniza </label>
-						</td>
-						<td>
-							<input type="checkbox" name="cla">
-							<label> Queso Roquefort </label>
-						</td>
+						<td><input type="checkbox"><label>Morron</label></td>
+						<td><input type="checkbox"><label>Jamon Cocido</label></td>
+						<td><input type="checkbox"><label>Longaniza</label></td>
+						<td><input type="checkbox"><label>Queso Roquefort</label></td>
 					</tr>
 					<tr>
-						<td>
-							<input type="checkbox" name="cla">
-							<label> Doble Muzzarella </label>
-						</td>
-						<td>
-							<input type="checkbox" name="cla">
-							<label> Salsa Golf </label>
-						</td>
-						<td>
-							<input type="checkbox" name="cla">
-							<label> Mostaza </label>
-						</td>
-						<td>
-							<input type="checkbox" name="cla">
-							<label> Tomate en rodajas </label>
-						</td>
+						<td><input type="checkbox"><label>Doble Muzzarella</label></td>
+						<td><input type="checkbox"><label>Salsa Golf</label></td>
+						<td><input type="checkbox"><label>Mostaza</label></td>
+						<td><input type="checkbox"><label>Tomate en rodajas</label></td>
 					</tr>
 					<tr>
-						<td>
-							<input type="checkbox" name="cla">
-							<label> Filetes De Anchoas </label>
-						</td>
-						<td>
-							<input type="checkbox" name="cla">
-							<label> Queso Provolone </label>
-						</td>
-						<td>
-							<input type="checkbox" name="cla">
-							<label> Cebolla </label>
-						</td>
-						<td>
-							<input type="checkbox" name="cla">
-							<label> Mayonesa </label>
-						</td>
+						<td><input type="checkbox"><label>Filetes De Anchoas</label></td>
+						<td><input type="checkbox"><label>Queso Provolone</label></td>
+						<td><input type="checkbox"><label>Cebolla</label></td>
+						<td><input type="checkbox"><label>Mayonesa</label></td>
 					</tr>
 					<tr>
-						<td>
-							<input type="checkbox" name="cla">
-							<label> Ketchup </label>
-						</td>
-						<td>
-							<input type="checkbox" name="cla">
-							<label> Piña </label>
-						</td>
-						<td>
-							<input type="checkbox" name="cla">
-							<label> Pepperonni </label>
-						</td>
-						<td>
-							<input type="checkbox" name="cla">
-							<label> Salami </label>
-						</td>
+						<td><input type="checkbox"><label>Ketchup</label></td>
+						<td><input type="checkbox"><label>Piña</label></td>
+						<td><input type="checkbox"><label>Pepperonni</label></td>
+						<td><input type="checkbox" name="cla"><label> Salami</label></td>
 					</tr>
 				</table>
-				<h3 id="ing"> Especiales: </h3>
-				<table class="table table-striped">
+				<h3>Especiales:</h3>
+				<table>
 					<tr>
-						<td>
-							<input type="checkbox">
-							<label> Choclo En Granos</label>
-						</td>
-						<td>
-							<input type="checkbox">
-							<label> Anana</label>
-						</td>
-						<td>
-							<input type="checkbox">
-							<label> Champinones</label>
-						</td>
-						<td>
-							<input type="checkbox">
-							<label> Trozos de Atun </label>
-						</td>
-						<td>
-							<input type="checkbox">
-							<label> Queso Cheddar </label>
-						</td>
-						<td>
-							<input type="checkbox">
-							<label> Lomito Ahumado </label>
-						</td>
+						<td><input type="checkbox">Choclo en Granos</td>
+						<td><input type="checkbox">Anana</td>
+						<td><input type="checkbox">Champiñones</td>
+						<td><input type="checkbox">Trozos de Atun</td>
 					</tr>
 					<tr>
-						<td>
-							<input type="checkbox">
-							<label> Kanikama </label>
-						</td>
-						<td>
-							<input type="checkbox">
-							<label> Arvejas </label>
-						</td>
-						<td>
-							<input type="checkbox">
-							<label> Esparragos </label>
-						</td>
-						<td>
-							<input type="checkbox">
-							<label> Tomates Secos </label>
-						</td>
-						<td>
-							<input type="checkbox">
-							<label> Rucula </label>
-						</td>
-						<td>
-							<input type="checkbox">
-							<label> Palmitos </label>
-						</td>
+						<td><input type="checkbox">Queso Chedar</td>
+						<td><input type="checkbox">Lomito Ahumado</td>
+						<td><input type="checkbox">KaniKama</td>
+						<td><input type="checkbox">Arvejas</td>
 					</tr>
 					<tr>
-						<td>
-							<input type="checkbox">
-							<label> Trozos De Pollo </label>
-						</td>
-						<td>
-							<input type="checkbox">
-							<label> Espinaca </label>
-						</td>
-						<td>
-							<input type="checkbox">
-							<label> Jamon Crudo </label>
-						</td>
-						<td>
-							<input type="checkbox">
-							<label> Aceitunas Negras </label>
-						</td>
-						<td>
-							<input type="checkbox">
-							<label> Alcauciles </label>
-						</td>
-						<td>
-							<input type="checkbox">
-							<label> Albahaca </label>
-						</td>
+						<td><input type="checkbox">Esparragos</td>
+						<td><input type="checkbox">Tomates Secos</td>
+						<td><input type="checkbox">Rucula</td>
+						<td><input type="checkbox">Palmitos</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox">Trozos de Pollo</td>
+						<td><input type="checkbox">Espinaca</td>
+						<td><input type="checkbox">Jamon Crudo</td>
+						<td><input type="checkbox">Aceitunas Negras</td>
 					</tr>
 				</table>
-				<h3 id="ing"> Extravagantes: </h3>
+				<h3>Extravagantes:</h3>
 				<table class="table table-striped">
 					<tr>
-						<td>
-							<input type="checkbox">
-							<label> Chocolate </label>
-						</td>
-						<td>
-							<input type="checkbox">
-							<label> Duraznos </label>
-						</td>
+						<td><input type="checkbox"><label>Chocolate</label></td>
+						<td><input type="checkbox"><label>Duraznos</label></td>
 					</tr>
 					<tr>
-						<td>
-							<input type="checkbox">
-							<label> Cerezas </label>
-						</td>
-						<td>
-							<input type="checkbox">
-							<label> Salchichas </label>
-						</td>
+						<td><input type="checkbox"><label>Cerezas</label></td>
+						<td><input type="checkbox"><label>Salchichas</label></td>
 					</tr>
 					<tr>
-						<td>
-							<input type="checkbox">
-							<label> Panceta </label>
-						</td>
-						<td>
-							<input type="checkbox">
-							<label> Rocklets </label>
-						</td>
+						<td><input type="checkbox"><label>Panceta</label></td>
+						<td><input type="checkbox"><label>Rocklets</label></td>
 					</tr>
 				</table>
-				<p><a href="#" class="btn">Ordenar</a></p>
-				<p><a href="#" class="btn">Volver</a></p>
-				<button type="button" class="btn">Ordenar</button>
-				<button type="button" class="btn">Volver</button>
-			</div>
+				<div class="form-footer">
+					<label>Cantidad:</label>
+					<input type="number" name="quantity" min="1">
+					<input class="btn large" type="submit" value="Agregar a Carrito">
+				</div>
+			</form>
 		</main>
 		<div class="footer ">
 			&copy; Sindral Software 2016

@@ -1,3 +1,7 @@
+html{
+	overflow-y: scroll;
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -49,6 +53,8 @@ table {
 	border-spacing: 0;
 	border-collapse: collapse;
 	border-top: 1px solid #ddd;
+	width: 100%;
+	margin-bottom: 20px;
 }
 
 th, td {
@@ -173,12 +179,6 @@ a:active { color: red; }
 .btn:active {
 	color: #fff;
 	background-color: red;
-}
-
-.table {
-	width: 100%;
-	max-width: 100%;
-	margin-bottom: 20px;
 }
 
 .list-unstyled {
