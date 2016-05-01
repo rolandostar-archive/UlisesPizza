@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Little Ulises Pizza&trade; - Pedido</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="robots" content="index, follow">
+
+		<!-- icons -->
+		<link rel="shortcut icon" href="/favicon.ico">
+
+		<!-- Override CSS file - add your own CSS rules -->
+		<link rel="stylesheet" href="/Assets/css/styles.css">
+		<style type="text/css">
+			#Especialidad {
+				width: 20%;
+				height: 100%;
+				float: left;
+			}
+
+			#Armado {
+				width: 80%;
+				height: 100%;
+				float: left;
+			}
+		</style>
+		<!--
+		<script>
+			var i;
+			function llena(i){
+				switch(i) {
+					case 1:
+						var x = document.getElementByName("cla");
+						for (i = 0; i < x.length; i++)
+							if (x[i].type == "checkbox")
+								x[i].checked = true;
+						break;
+					default:
+						default alert("No estoy programado");
+				}
+			}
+		</script>
+		-->
+	</head>
+
+	<body>
+		<header>
+			<div class="nav-bar">
+				<div class="container">
+					<ul class="nav">
+						<li><a href="#">¡Hola Ulises!</a></li>
+						<li><a href="#">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="header">
+				<div class=container-narrow>
+					<h1 class=header-heading>Arma tu pizza</h1>
+				</div>
+			</div>
+		</header>
+
+		<main class="content">
+			<hr>
+			<div id="Especialidad">
+				<h3>Especialidades</h3>
+				<ul>
+					<li onclick="llena(1)">Camello Elevado</li>
+					<li onclick="llena(2)">Palceta</li>
+					<li onclick="llena(3)">Lamememaster</li>
+					<li onclick="llena(4)">Vegana</li>
+					<li onclick="llena(5)">Zarpada la pizza</li>
+					<li onclick="llena(6)">Pizza a la Bandeira</li>
+					<li onclick="llena(7)">Americana</li>
+					<li onclick="llena(8)">Le Pizza I</li>
+					<li onclick="llena(9)">Le Pizza II</li>
+					<li onclick="llena(10)">Doble Cocido</li>
+					<li onclick="llena(11)">Pepperonni</li>
+					<li onclick="llena(12)">Hawaiana</li>
+					<li onclick="llena(13)">Mexicana</li>
+					<li onclick="llena(14)">Carnes Frías</li>
+					<li onclick="llena(15)">Holoholo</li>
+					<li onclick="llena(16)">Abril de mi vida</li>
+				</ul>
+			</div>
+			<div id="Armado">
+				<h2> ELEGE EL TAMAÑO Y LA MASA PARA TU PIZZA </h2>
+				<!-- Seccion de Pizza General -->
+				<h3> Tamaño: </h3>
+				<input type="radio" name="tam" value="1">
+				<label> Individual </label>
+				<input type="radio" name="tam" value="2">
+				<label> Mediana </label>
+				<input type="radio" name="tam" value="3">
+				<label> Familiar </label>
+				<h3> Tipo de Masa: </h3>
+				<table class="table table-striped">
+					<tr>
+						<td>
+							<input type="radio" name="masa" value="1">
+							<label> Harina de Trigo </label>
+						</td>
+						<td>
+							<input type="radio" name="masa" value="2">
+							<label> Harina Integral </label>
+						</td>
+						<td>
+							<input type="radio" name="masa" value="3">
+							<label> Harina Sin Sal </label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="radio" name="masa" value="4">
+							<label> A la Piedra </label>
+						</td>
+						<td>
+							<input type="radio" name="masa" value="5">
+							<label> Masa dulce </label>
+						</td>
+						<td>
+							<input type="radio" name="masa" value="6">
+							<label> Crunch </label>
+						</td>
+					</tr>
+				</table>
+				<hr>
+				<h2>INGREDIENTES</h2>
+				<!-- Seccion de Ingredientes -->
+				<h3 id="ing"> Clásicos: </h3>
+				<table class="table table-striped">
+					<tr>
+						<td>
+							<input type="checkbox" name="cla">
+							<label> Morron </label>
+						</td>
+						<td>
+							<input type="checkbox" name="cla">
+							<label> Jamon Cocido </label>
+						</td>
+						<td>
+							<input type="checkbox" name="cla">
+							<label> Longaniza </label>
+						</td>
+						<td>
+							<input type="checkbox" name="cla">
+							<label> Queso Roquefort </label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="cla">
+							<label> Doble Muzzarella </label>
+						</td>
+						<td>
+							<input type="checkbox" name="cla">
+							<label> Salsa Golf </label>
+						</td>
+						<td>
+							<input type="checkbox" name="cla">
+							<label> Mostaza </label>
+						</td>
+						<td>
+							<input type="checkbox" name="cla">
+							<label> Tomate en rodajas </label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="cla">
+							<label> Filetes De Anchoas </label>
+						</td>
+						<td>
+							<input type="checkbox" name="cla">
+							<label> Queso Provolone </label>
+						</td>
+						<td>
+							<input type="checkbox" name="cla">
+							<label> Cebolla </label>
+						</td>
+						<td>
+							<input type="checkbox" name="cla">
+							<label> Mayonesa </label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" name="cla">
+							<label> Ketchup </label>
+						</td>
+						<td>
+							<input type="checkbox" name="cla">
+							<label> Piña </label>
+						</td>
+						<td>
+							<input type="checkbox" name="cla">
+							<label> Pepperonni </label>
+						</td>
+						<td>
+							<input type="checkbox" name="cla">
+							<label> Salami </label>
+						</td>
+					</tr>
+				</table>
+				<h3 id="ing"> Especiales: </h3>
+				<table class="table table-striped">
+					<tr>
+						<td>
+							<input type="checkbox">
+							<label> Choclo En Granos</label>
+						</td>
+						<td>
+							<input type="checkbox">
+							<label> Anana</label>
+						</td>
+						<td>
+							<input type="checkbox">
+							<label> Champinones</label>
+						</td>
+						<td>
+							<input type="checkbox">
+							<label> Trozos de Atun </label>
+						</td>
+						<td>
+							<input type="checkbox">
+							<label> Queso Cheddar </label>
+						</td>
+						<td>
+							<input type="checkbox">
+							<label> Lomito Ahumado </label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox">
+							<label> Kanikama </label>
+						</td>
+						<td>
+							<input type="checkbox">
+							<label> Arvejas </label>
+						</td>
+						<td>
+							<input type="checkbox">
+							<label> Esparragos </label>
+						</td>
+						<td>
+							<input type="checkbox">
+							<label> Tomates Secos </label>
+						</td>
+						<td>
+							<input type="checkbox">
+							<label> Rucula </label>
+						</td>
+						<td>
+							<input type="checkbox">
+							<label> Palmitos </label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox">
+							<label> Trozos De Pollo </label>
+						</td>
+						<td>
+							<input type="checkbox">
+							<label> Espinaca </label>
+						</td>
+						<td>
+							<input type="checkbox">
+							<label> Jamon Crudo </label>
+						</td>
+						<td>
+							<input type="checkbox">
+							<label> Aceitunas Negras </label>
+						</td>
+						<td>
+							<input type="checkbox">
+							<label> Alcauciles </label>
+						</td>
+						<td>
+							<input type="checkbox">
+							<label> Albahaca </label>
+						</td>
+					</tr>
+				</table>
+				<h3 id="ing"> Extravagantes: </h3>
+				<table class="table table-striped">
+					<tr>
+						<td>
+							<input type="checkbox">
+							<label> Chocolate </label>
+						</td>
+						<td>
+							<input type="checkbox">
+							<label> Duraznos </label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox">
+							<label> Cerezas </label>
+						</td>
+						<td>
+							<input type="checkbox">
+							<label> Salchichas </label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox">
+							<label> Panceta </label>
+						</td>
+						<td>
+							<input type="checkbox">
+							<label> Rocklets </label>
+						</td>
+					</tr>
+				</table>
+				<p><a href="#" class="btn">Ordenar</a></p>
+				<p><a href="#" class="btn">Volver</a></p>
+				<button type="button" class="btn">Ordenar</button>
+				<button type="button" class="btn">Volver</button>
+			</div>
+		</main>
+		<div class="footer ">
+			&copy; Sindral Software 2016
+		</div>
+	</body>
+
+</html>
