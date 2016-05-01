@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Little Ulises Pizza&trade;</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="robots" content="index, follow">
+
+		<!-- icons -->
+		<link rel="shortcut icon" href="../favicon.ico">
+
+		<!-- Override CSS file - add your own CSS rules -->
+		<link rel="stylesheet" href="../css/styles.css">
+
+		<!-- Estilos agregados para tablas y carrito -->
+		<style>
+
+			.tabla-pedido {
+				float: left;
+				width: 80%;
+			}
+
+			th.tabla-pedido, td.tabla-pedido {
+    			padding: 5px;
+    			border: 1px solid black;
+			}
+
+			tr:nth-child(odd){background-color: #f2f2f2}
+
+			.carrito {
+				float: left;
+				width: 6.5cm;
+				margin: 3cm 0cm 0cm 2.5cm;
+			}
+
+			.carrito-content {
+				background-color: #ffffff;
+				border:1px solid black;
+   				border-radius: 3px;
+    			height: 400px;
+			}
+
+			.tabla-carrito {
+				width: 100%;
+			}
+
+			.button {
+    			background-color: #4CAF50; /* Green */
+   				border: none;
+    			color: white;
+    			text-align: center;
+    			text-decoration: none;
+    			display: inline-block;
+    			font-size: 14px;
+    			margin: 8px 0px;
+    			transition-duration: 0.4s;
+    			cursor: pointer;
+    			border-radius: 4px;
+    		}
+
+			.button1 {
+    			background-color: white; 
+   				padding: 8px 22px;
+   				margin: 0px 12px;
+    			color: black; 
+    			border: 1.5px solid #E38F27;
+			}
+
+			.button1:hover {
+  				background-color: #E38F27;
+    			color: white;
+			}
+
+			.button2 {
+    			background-color: white; 
+   				padding: 8px 32px;
+    			color: black; 
+    			border: 1.5px solid #E38F27;
+			}
+
+			.button2:hover {
+    			background-color: #E38F27;
+    			color: white;
+			}
+
+			.pqt {
+				clear:left;
+				float:left;
+				width: 80%;
+				margin: 1.5cm 0cm;
+				text-align: center;
+    			color: #fff;
+			}
+
+			.pqt-box {
+				display: inline-block;
+				margin: 0cm 0.4cm 0cm 0cm;
+			    padding: 0.6cm;
+    			background: #111;
+        		font-size: 0.7em;
+        		font-weight: normal
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+		<header>
+			<div class="nav-bar">
+				<div class="container">
+					<ul class="nav">
+						<li><a href="#">¡Hola xXx Pussy Obliverator xXx!</a></li>
+						<li><a href="#">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<div style="width: 70%">
+		<main class="content">
+			<div class="main">
+
+				<!-- Tabla de pedidos actuales -->
+				<h3>Pedidos Actuales</h3>
+				<table class="tabla-pedido">
+					<thead>
+						<tr>
+							<th bgcolor="#E38F27">Pizza</th>
+							<th bgcolor="#E38F27">Cantidad</th>
+							<th bgcolor="#E38F27">Precio</th>
+							<th bgcolor="#E38F27">Dirección</th>
+							<th bgcolor="#E38F27">Descripción</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Hawaiiana</td>
+							<td>1</td>
+							<td>$129</td>
+							<td>
+							Av. Juan de Dios Bátiz s/n, Gustavo A. Madero, Lindavista, 07328
+							</td>
+							<td>
+							Pizza hawaiiana grande, masa tradicional.
+							</td>
+						</tr>
+						<tr>
+							<td>Mexicana</td>
+							<td>2</td>
+							<td>$258</td>
+							<td>
+							Lázaro Cárdenas 152, San Bartolo Atepehuacan, 07730
+							</td>
+							<td>
+							Pizza mexicana mediana, masa tradicional con orilla de queso.
+							</td>
+						</tr>
+						<tr>
+							<td>Personalizada</td>
+							<td>1</td>
+							<td>$189</td>
+							<td>
+							Av. Juan de Dios Bátiz s/n, Gustavo A. Madero, Lindavista, 07328
+							</td>
+							<td>Pizza de peperoni con champiñones, masa crujiente.</td>
+						</tr>
+					</tbody>
+				</table>
+ 
+ 				<!-- Paquetes pa' enganchar usuario -->
+				<div class="pqt">
+					<div class="pqt-box" style="background-color:blue">
+						<h2>Paquete 1</h2>
+						<h4>$125</h4>
+					</div>
+					<div class="pqt-box" style="background-color:red">
+						<h2>Paquete 2</h2>
+						<h4>$289</h4>
+					</div>
+					<div class="pqt-box" style="background-color:green">
+						<h2>Paquete 3</h2>
+						<h4>$349</h4>
+					</div>
+				</div>
+
+				<!-- Tabla de historial -->
+				<h3 style="clear:both">Historial</h3>
+				<table class="tabla-pedido">
+					<thead>
+						<tr>
+							<th bgcolor="#E38F27">Pizza</th>
+							<th bgcolor="#E38F27">Cantidad</th>
+							<th bgcolor="#E38F27">Precio</th>
+							<th bgcolor="#E38F27">Dirección</th>
+							<th bgcolor="#E38F27">Descripción</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Mexicana</td>
+							<td>2</td>
+							<td>$258</td>
+							<td>
+							Lázaro Cárdenas 152, San Bartolo Atepehuacan, 07730
+							</td>
+							<td>
+							Pizza mexicana mediana, masa tradicional con orilla de queso.
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</main>
+		</div>
+		<!-- Carrito: Colocar a carrito dentro del contenedor de 'main' ocasiona problemas -->
+		<div class="carrito">
+			<h3>Carrito</h3>
+			<div class="carrito-content">
+				<table class="tabla-carrito">
+					<tr>
+						<td>1</td>
+						<td>Pizza Personalizada</td>
+						<td>$189</td>
+					</tr>						
+				</table>
+			</div>
+			<div>
+				<button class="button button1">Agregar</button>
+				<button class="button button2">Pedir</button>
+			</div>
+		</div>
+
+		<div class="footer ">
+			&copy; Sindral Software 2016
+		</div>
+
+	</body>
+
+</html>
