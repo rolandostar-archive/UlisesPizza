@@ -13,221 +13,130 @@
 		<!-- Override CSS file - add your own CSS rules -->
 		<link rel="stylesheet" href="/Assets/css/styles.css">
 
+        <!-- Estilos agregados --> 
 		<style type="text/css">
-			.especialidad {
-				width: 15%;
-				text-align: center;
-				position: absolute;
-				;
-			}
+            
+            .content-pedido {
+                flex: 1;
+            }
+            
+            .header-pedido {
+                text-align: center;
+                margin: 0;
+            }
+            
+            .header-secciones {
+                text-align: center;
+                padding-top: 1.5em;
+            }
+            
+            .content-div {
+                width: 100%;
+                padding: 1em 1.25em 0em 1.25em;
+                display: flex;
+            }
+            
+            .tamaño-left {
+                flex: 1;
+                width: 50%;
+                min-width: 20em;
+                padding-left: 5em;
+                padding-right: 2.5em;
+                text-align: center;
+            }
+            
+            .tamaño-right {
+                flex 1;
+                width: 50%;
+                min-width: 20em;
+                padding-left: 2.5em;
+                padding-right: 5em;
+                text-align: center;
+            }
+            
+            .content-form {
+                text-align: center;
+                margin: 0;
+                flex: 1;
 
-			.especialidad button {
-				display: block;
-				width: 80%;
-				margin: 5px auto;
-				background-color: white;
-				padding: 8px 32px;
-				color: black;
-				border: 1.5px solid #E38F27;
-			}
-
-			.especialidad button:hover {
-				background-color: #E38F27;
-				color: white;
-				cursor: pointer;
-			}
-
-			.form-footer {
-				text-align: center;
-			}
-
-			.form-footer label {
-				font-size: 1.375em;
-			}
-
-			.form-footer input[type="number"] {
-				font-size: 1em;
-				width: 50px;
-				text-align: center;
-			}
-
-			.large {
-				display: block;
-				margin: 20px auto 0;
-				border-radius: 2px;
-				font-weight: bold;
-				font-size: 20px;
-				padding: 15px 35px;
-			}
-
-			.armado {
-				padding: 15px;
-			}
-
-			.flex-wrapper {
-				display: flex;
-			}
+            }
+            
+            .base {
+                width: 100%;
+                text-align: center;
+            }
+            
 		</style>
-		<!--
-		<script>
-			var i;
-			function llena(i){
-				switch(i) {
-					case 1:
-						var x = document.getElementByName("cla");
-						for (i = 0; i < x.length; i++)
-							if (x[i].type == "checkbox")
-								x[i].checked = true;
-						break;
-					default:
-						default alert("No estoy programado");
-				}
-			}
-		</script>
-		-->
+
 	</head>
 
 	<body>
+        
 		<header>
 			<div class="nav-bar">
 				<div class="container">
 					<ul class="nav">
 						<li><a href="/usr/resumen.html">¡Hola Ulises!</a></li>
 						<li><a href="/">Inicio</a></li>
+						<li><a href="/">Carrito</a></li>
 						<li><a href="/">Logout</a></li>
 					</ul>
 				</div>
 			</div>
-			<div class="header">
-				<h1 class=header-heading>Arma tu pizza</h1>
-			</div>
 		</header>
-
-		<main class="content">
-			<div class="especialidad">
-				<h3>Especialidades</h3>
-				<button>Camello Elevado</button>
-				<button>Palceta</button>
-				<button>Lamememaster</button>
-				<button>Vegana</button>
-				<button>Zarpada la pizza</button>
-				<button>Pizza a la Bandeira</button>
-				<button>Americana</button>
-				<button>Le Pizza I</button>
-				<button>Le Pizza II</button>
-				<button>Doble Cocido</button>
-				<button>Pepperonni</button>
-				<button>Hawaiana</button>
-				<button>Mexicana</button>
-				<button>Carnes Frías</button>
-				<button>Holoholo</button>
-				<button>Abril de mi vida</button>
-			</div>
-			<form class="armado container-narrow" action="/usr/resumen.html">
-				<h2> ELIGE EL TAMAÑO Y LA MASA PARA TU PIZZA </h2>
-				<!-- Seccion de Pizza General -->
-				<h3> Tamaño: </h3>
-				<table class="table">
-				  <tr>
-				    <td><input type="radio" name="tam" value="1"><label>Individual</label></td>
-				    <td><input type="radio" name="tam" value="2"><label>Mediana</label></td>
-				    <td><input type="radio" name="tam" value="3"><label>Familiar</label></td>
-				  </tr>
-				</table>
-				<h3> Tipo de Masa: </h3>
-				<table class="table">
-					<tr>
-						<td><input type="radio" name="masa" value="1"><label>Harina de Trigo</label></td>
-						<td><input type="radio" name="masa" value="2"><label>Harina Integral</label></td>
-						<td><input type="radio" name="masa" value="3"><label>Harina Sin Sal</label></td>
-					</tr>
-					<tr>
-						<td><input type="radio" name="masa" value="4"><label>A la Piedra</label></td>
-						<td><input type="radio" name="masa" value="5"><label>Masa dulce</label></td>
-						<td><input type="radio" name="masa" value="6"><label>Crunch</label></td>
-					</tr>
-				</table>
-				<h2>INGREDIENTES</h2>
-				<!-- Seccion de Ingredientes -->
-				<h3 id="ing"> Clásicos: </h3>
-				<table class="table">
-					<tr>
-						<td><input type="checkbox"><label>Morron</label></td>
-						<td><input type="checkbox"><label>Jamon Cocido</label></td>
-						<td><input type="checkbox"><label>Longaniza</label></td>
-						<td><input type="checkbox"><label>Queso Roquefort</label></td>
-					</tr>
-					<tr>
-						<td><input type="checkbox"><label>Doble Muzzarella</label></td>
-						<td><input type="checkbox"><label>Salsa Golf</label></td>
-						<td><input type="checkbox"><label>Mostaza</label></td>
-						<td><input type="checkbox"><label>Tomate en rodajas</label></td>
-					</tr>
-					<tr>
-						<td><input type="checkbox"><label>Filetes De Anchoas</label></td>
-						<td><input type="checkbox"><label>Queso Provolone</label></td>
-						<td><input type="checkbox"><label>Cebolla</label></td>
-						<td><input type="checkbox"><label>Mayonesa</label></td>
-					</tr>
-					<tr>
-						<td><input type="checkbox"><label>Ketchup</label></td>
-						<td><input type="checkbox"><label>Piña</label></td>
-						<td><input type="checkbox"><label>Pepperonni</label></td>
-						<td><input type="checkbox" name="cla"><label> Salami</label></td>
-					</tr>
-				</table>
-				<h3>Especiales:</h3>
-				<table>
-					<tr>
-						<td><input type="checkbox">Choclo en Granos</td>
-						<td><input type="checkbox">Anana</td>
-						<td><input type="checkbox">Champiñones</td>
-						<td><input type="checkbox">Trozos de Atun</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox">Queso Chedar</td>
-						<td><input type="checkbox">Lomito Ahumado</td>
-						<td><input type="checkbox">KaniKama</td>
-						<td><input type="checkbox">Arvejas</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox">Esparragos</td>
-						<td><input type="checkbox">Tomates Secos</td>
-						<td><input type="checkbox">Rucula</td>
-						<td><input type="checkbox">Palmitos</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox">Trozos de Pollo</td>
-						<td><input type="checkbox">Espinaca</td>
-						<td><input type="checkbox">Jamon Crudo</td>
-						<td><input type="checkbox">Aceitunas Negras</td>
-					</tr>
-				</table>
-				<h3>Extravagantes:</h3>
-				<table class="table table-striped">
-					<tr>
-						<td><input type="checkbox"><label>Chocolate</label></td>
-						<td><input type="checkbox"><label>Duraznos</label></td>
-					</tr>
-					<tr>
-						<td><input type="checkbox"><label>Cerezas</label></td>
-						<td><input type="checkbox"><label>Salchichas</label></td>
-					</tr>
-					<tr>
-						<td><input type="checkbox"><label>Panceta</label></td>
-						<td><input type="checkbox"><label>Rocklets</label></td>
-					</tr>
-				</table>
-				<div class="form-footer">
-					<label>Cantidad:</label>
-					<input type="number" name="quantity" min="1">
-					<input class="btn large" type="submit" value="Agregar a Carrito">
-				</div>
-			</form>
+        
+		<main class="content-pedido">
+            <div class="header">
+                <h2 class=header-pedido>¡Arma tu Pizza!</h2>
+            </div>
+            
+            <!------------ Formulario General para la Página ---------->
+            <form>
+                
+                <!--------------- Sección Tamaño -------------------->
+                <h3 class="header-secciones">Tamaño</h3><hr>
+                <div class="content-div">
+                    <div class="tamaño-left">
+                        <div class="content-form">
+                            <label>Tamaño:</label>
+                            <select name="tamaño">
+                              <option value="personal">Personal</option>
+                              <option value="mediana">Mediana</option>
+                              <option value="fiat">Familiar</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="tamaño-right">
+                        <div class="content-form">
+                            <label>Tipo de Masa:</label>
+                            <select name="tipo-masa">
+                              <option value="harina-trigo">Harina de Trigo</option>
+                              <option value="harina-sal">Harina sin Sal</option>
+                              <option value="piedra">A la Piedra</option>
+                              <option value="dulce">Masa Dulce</option>
+                              <option value="crunch">Crunch</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!---------------- Sección Base --------------------->
+                <h3 class="header-secciones">Base</h3><hr>
+                <div class="content-div">
+                    <div class="base">
+                        <input type="radio" name="base" value="pepperoni" checked>Pepperoni<br>
+                        <input type="radio" name="base" value="hawaiiana">Hawaiiana<br>
+                        <input type="radio" name="base" value="mexicana">Mexicana<br>
+                        <input type="radio" name="base" value="americana">Americana<br>
+                        <input type="radio" name="base" value="vegana">Vegana<br>
+                        <input type="radio" name="base" value="le-pizza">Le Pizza 
+                    </div>
+                </div>
+                
+            </form>
 		</main>
-		<div class="footer ">
+		<div class="footer">
 			&copy; Sindral Software 2016
 		</div>
 	</body>
-
 </html>
