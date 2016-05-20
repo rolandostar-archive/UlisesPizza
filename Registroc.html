@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Little Ulises Pizza&trade;</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="robots" content="index, follow">
+
+		<!-- icons -->
+		<link rel="shortcut icon" href="/favicon.ico">
+
+		<!-- Override CSS file - add your own CSS rules -->
+		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="login.css">
+	</head>
+
+	<body>
+		<header>
+			<div class="nav-bar">
+				<div class="container">
+					<ul class="nav">
+						<li><a href="/">Inicio</a></li>
+						<li><a href="/">Sucursales</a></li>
+						<li><a href="/">Menu</a></li>
+						<li><a href="/">Login</a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		<form class="form-login" method="post" action="./resumen.html">
+			<div class="login">
+				<div class="form-white-background">
+					<div class="form-title-row">
+						<h1>Registro</h1>
+					</div>
+					<div class="form-row">
+						<label>
+							<span>Nombre:</span>
+							<input type="text" name="nombre" required>
+						</label>
+					</div>
+
+					<div class="form-row">
+						<label>
+							<span>Apellidos:</span>
+							<input type="text" name="apellidos" required>
+						</label>
+					</div>
+
+					<div class="form-row">
+						<label>
+							<span>Fecha de nacimiento:</span>
+
+							<input type="date" name="fecha" min="1998-01-01" max="2016-12-31" required>
+						</label>
+					</div>
+
+
+					<div class="form-row">
+						<label>
+							<span>Genero:</span>
+							<td>
+							Hombre:
+							<input type="radio" name="genero" value="M">
+							Mujer:
+							<input type="radio" name="genero" value="F">
+							Sin especificar:
+							<input type="radio" name="genero" value="S">
+						</label>
+					</div>
+
+
+					<div class="form-row">
+						<label>
+							<span>Telefono:</span>
+
+							<input type="tel" name="telefono" required>
+						</label>
+					</div>
+
+
+					<div class="form-row">
+						<label>
+							<span>Correo Electronico:
+							<input type="email" name="email">
+						</label>
+					</div>
+
+
+					<div class="form-row">
+						<label>
+							<span>Password</span>
+							<input type="password" name="password" placeholder="Password" id="password" required>
+						</label>
+					</div>
+
+					<div class="form-row">
+						<label>
+							<span>Confirmar password</span>
+							<input type="password" name="password" placeholder="Confirmar password" id="confirm_password" required>
+						</label>
+					</div>
+
+
+					<div class="form-row">
+						<button type="submit" class="btn">Registrar</button>
+					</div>
+				</div>
+				<hr>
+				<a href="#" class="form-create-an-account">Registro &rarr;</a>
+			</div>
+		</form>
+	</body>
+
+</html>
