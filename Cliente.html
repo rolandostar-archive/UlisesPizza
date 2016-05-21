@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Little Ulises Pizza&trade; - Pedidos actuales</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="robots" content="index, follow">
+
+		<!-- icons -->
+		<link rel="shortcut icon" href="/favicon.ico">
+
+		<!-- Override CSS file - add your own CSS rules -->
+		<link rel="stylesheet" href="styles.css">
+
+		<style>
+			body {
+				background: none;
+			}
+
+			.pedidos-act {
+				flex-grow: 1;
+			}
+
+			.tabla-pedido {
+				margin: 0 auto;
+				width: 100%;
+			}
+
+			.tabla-pedido th {
+				background: #E38F27;
+			}
+
+			tr:nth-child(odd) {
+				background-color: #f2f2f2
+			}
+
+			.flex-wrapper {
+				display: flex;
+			}
+
+			.cooking {
+				width: 50px;
+				height: 50px;
+				background-color: red;
+			}
+
+			.ready {
+				width: 50px;
+				height: 50px;
+				background-color: green;
+			}
+
+			.toggle {
+				cursor: pointer;
+			}
+		</style>
+
+
+
+	</head>
+
+	<body>
+		<header>
+			<div class="nav-bar">
+				<div class="container">
+					<ul class="nav">
+						<li>Hola !!!!!!</li>
+						<li>Inicio</li>
+						<li>Resumen</li>
+						<li>Carrito</li>
+						<li>Logout</li>
+						<li><a href="./login.html">Salir</a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<main class="content">
+			<div class="container">
+				<!-- Tabla de pedidos actuales -->
+				<h3>Pedidos Actuales</h3>
+				<table class="tabla-pedido">
+					<thead>
+						<tr>
+							<th>Hora de pedido</th>
+							<th>Fecha de pedido</th>
+							<th>Precio</th>
+							<th>Direccion</th>
+							<th>Descripcion</th>
+							<th>Estado</th>
+							<th>Hora estimada de entrega</th>
+							
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>7:54 P.M</td>
+							<td>08/05/2016</td>
+							<td>
+								$199
+							</td>
+							<td>
+								Av. Juan de Dios Batiz s/n<br>
+								Gustavo A. Madero<br>
+								Nueva industria vallejo 08800
+							</td>
+							<td>
+								Pizza hawaiiana grande<br>
+								Pizza de pepperoni mediana
+							</td>
+							<td>
+							En camino
+							
+							<input type="reset" value="Cancelar"/>	
+							</td>
+							
+												
+						</tr>
+
+
+						<tr>
+							<td>8:09 P.M</td>
+							<td>08/05/2016</td>
+							<td>
+								$129
+							</td>
+							<td>
+								Av. Instituto Politecnico Nacional s/n<br>
+								Gustavo A. Madero<br>
+								Lindavista 
+							</td>
+							<td>
+								Pizza hawaiiana grande<br>
+								Pizza de pepperoni mediana
+							</td>
+							<td>
+							Cocinando
+							
+							<input type="reset" value="Cancelar"/>	
+							</td>
+							<td>
+								Se generara si el estado del pedido es cocinando, lista para salir y en camino
+							</td>
+							
+												
+						</tr>
+
+
+					</tbody>
+				</table>
+
+			</div>
+
+<main class="content">
+			<div class="tabla-precios">
+				<column>
+					<div class="paquete">
+						<div class="paq-head" style="background: #212121;">
+							<h2>Paquete 1</h2>
+							<span class="precio">
+								$125 <span>Para compartir</span>
+							</span>
+						</div>
+						<ul class="lista-productos">
+							<li>2 Pizzas Grandes
+								<br/>(1 Ingrediente)</li>
+							<li>Refresco Cualquier Sabor</li>
+						</ul>
+						<a class="btn-pedir" href="#" role="button">Pedir</a>
+					</div>
+				</column>
+				<column>
+					<div class="paquete">
+						<div class="paq-head" style="background: blue;">
+							<h2>Paquete 2</h2>
+							<span class="precio">
+								$125 <span>Para compartir</span>
+							</span>
+						</div>
+						<ul class="lista-productos">
+							<li>2 Pizzas Grandes
+								<br/>(1 Ingrediente)</li>
+							<li>Refresco Cualquier Sabor</li>
+						</ul>
+						<a class="btn-pedir" href="#" role="button">Pedir</a>
+					</div>
+				</column>
+				<column>
+					<div class="paquete">
+						<div class="paq-head" style="background: red;">
+							<h2>Paquete 3</h2>
+							<span class="precio">
+								$125 <span>Para compartir</span>
+							</span>
+						</div>
+						<ul class="lista-productos">
+							<li>2 Pizzas Grandes
+								<br/>(1 Ingrediente)</li>
+							<li>Refresco Cualquier Sabor</li>
+						</ul>
+						<a class="btn-pedir" href="#" role="button">Pedir</a>
+					</div>
+				</column>
+				<column>
+					<div class="paquete">
+						<div class="paq-head" style="background: green;">
+							<h2>Paquete 4</h2>
+							<span class="precio">
+								$125 <span>Para compartir</span>
+							</span>
+						</div>
+						<ul class="lista-productos">
+							<li>2 Pizzas Grandes
+								<br/>(1 Ingrediente)</li>
+							<li>Refresco Cualquier Sabor</li>
+						</ul>
+						<a class="btn-pedir" href="#" role="button">Pedir</a>
+					</div>
+				</column>
+			</div>
+
+
+
+			<br>
+			<br>
+
+
+			<main class="content">
+			<div class="container">
+				<!-- Tabla de pedidos actuales -->
+				<h3>Historial de Pedidos</h3>
+				<table class="tabla-pedido">
+					<thead>
+						<tr>
+							<th>Hora de pedido</th>
+							<th>Hora de entrega</th>
+							<th>Fecha de pedido</th>
+							<th>Precio</th>
+							<th>Direccion</th>
+							<th>Descripcion</th>
+							<th>Estado</th>
+							<th>Calificacion</th>
+							
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>7:54 P.M</td>
+							<td>7:54 P.M</td>
+							<td>
+								08/05/2016
+							</td>
+							<td>
+								$129
+							</td>
+							<td>
+								Av. Juan de Dios Batiz s/n<br>
+								Gustavo A. Madero<br>
+								Nueva industria vallejo 08800
+							</td>
+							<td>
+								Pizza hawaiiana grande<br>
+								Pizza de pepperoni mediana
+						
+							</td>
+							<td>
+							Cocinando
+							
+							
+							</td>
+
+							<td>
+
+								<form>
+  									<p class="clasificacion">
+								    <input id="radio1" type="radio" name="estrellas" value="5"><!--
+								    --><label for="radio1">★</label><!--
+								    --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+								    --><label for="radio2">★</label><!--
+								    --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+								    --><label for="radio3">★</label><!--
+								    --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+								    --><label for="radio4">★</label><!--
+								    --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+								    --><label for="radio5">★</label>
+								  </p>
+								</form>
+
+
+
+
+							</td>
+							
+												
+						</tr>
+
+<tr>
+							<td>7:54 P.M</td>
+							<td>7:54 P.M</td>
+							<td>
+								08/05/2016
+							</td>
+							<td>
+								$129
+							</td>
+							<td>
+								Av. Juan de Dios Batiz s/n<br>
+								Gustavo A. Madero<br>
+								Nueva industria vallejo 08800
+							</td>
+							<td>
+								Pizza hawaiiana grande<br>
+								Pizza de pepperoni mediana
+						
+							</td>
+							<td>
+							Cocinando
+							
+							
+							</td>
+
+							<td>
+								
+								<form>
+  									<p class="clasificacion">
+								    <input id="radio1" type="radio" name="estrellas" value="5"><!--
+								    --><label for="radio1">★</label><!--
+								    --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+								    --><label for="radio2">★</label><!--
+								    --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+								    --><label for="radio3">★</label><!--
+								    --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+								    --><label for="radio4">★</label><!--
+								    --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+								    --><label for="radio5">★</label>
+								  </p>
+								</form>
+
+
+
+
+							</td>
+							
+												
+						</tr>
+
+
+					</tbody>
+				</table>
+
+			</div>
+
+
+
+
+			
+
+			<td style="text-aling:right"><button name="Check out">Confirmar Pedido</button></td>
+
+
+			
+		</main>
+
+
+		<script>
+			function changeImage(e) {
+				var image = e;
+				if (image.src.match("ready")) {
+					image.src = "cook.png";
+				} else {
+					image.src = "ready.png";
+				}
+			}
+		</script>
+
+	</body>
+
+
+</html>
