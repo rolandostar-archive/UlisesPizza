@@ -32,7 +32,7 @@
             
             .content-div {
                 width: 100%;
-                padding: 1em 1.25em 0em 1.25em;
+                padding-top: 1.25;
                 display: flex;
             }
             
@@ -41,24 +41,17 @@
                 width: 50%;
                 min-width: 20em;
                 padding-left: 5em;
-                padding-right: 2.5em;
-                text-align: center;
+                margin-right: 5em;
+                text-align: right;
             }
             
             .tamaño-right {
-                flex 1;
-                width: 50%;
-                min-width: 20em;
-                padding-left: 2.5em;
-                padding-right: 5em;
-                text-align: center;
-            }
-            
-            .content-form {
-                text-align: center;
-                margin: 0;
                 flex: 1;
-
+                width: 50%;
+                min-width: 10em;
+                padding-right: 5em;
+                margin-left: 5em;
+                text-align: left;
             }
             
             .base {
@@ -94,29 +87,25 @@
             <form>
                 
                 <!--------------- Sección Tamaño -------------------->
-                <h3 class="header-secciones">Tamaño</h3><hr>
+                <h3 class="header-secciones">Tamaño</h3><hr>      
                 <div class="content-div">
                     <div class="tamaño-left">
-                        <div class="content-form">
-                            <label>Tamaño:</label>
-                            <select name="tamaño">
-                              <option value="personal">Personal</option>
-                              <option value="mediana">Mediana</option>
-                              <option value="fiat">Familiar</option>
-                            </select>
-                        </div>
+                        <label>Tamaño:</label>
+                        <select name="tamaño">
+                            <option value="personal">Personal</option>
+                            <option value="mediana">Mediana</option>
+                            <option value="fiat">Familiar</option>
+                        </select>
                     </div>
                     <div class="tamaño-right">
-                        <div class="content-form">
-                            <label>Tipo de Masa:</label>
-                            <select name="tipo-masa">
-                              <option value="harina-trigo">Harina de Trigo</option>
-                              <option value="harina-sal">Harina sin Sal</option>
-                              <option value="piedra">A la Piedra</option>
-                              <option value="dulce">Masa Dulce</option>
-                              <option value="crunch">Crunch</option>
-                            </select>
-                        </div>
+                        <label>Tipo de Masa:</label>
+                        <select name="tipo-masa">
+                            <option value="harina-trigo">Harina de Trigo</option>
+                            <option value="harina-sal">Harina sin Sal</option>
+                            <option value="piedra">A la Piedra</option>
+                            <option value="dulce">Masa Dulce</option>
+                            <option value="crunch">Crunch</option>
+                        </select>
                     </div>
                 </div>
                 
