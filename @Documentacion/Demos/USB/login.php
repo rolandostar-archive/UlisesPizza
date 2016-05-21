@@ -27,8 +27,8 @@ if (strpos($_POST['email'], '@') !== false) {
         <!-- icons -->
         <link rel="shortcut icon" href="/favicon.ico">
 
-        <link rel="stylesheet" href="/Assets/css/styles.css">
-        <link rel="stylesheet" href="/Assets/css/login.css">
+        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/css/login.css">
         <script type="text/javascript" src="js/hotkeys.min.js"></script>
 
 

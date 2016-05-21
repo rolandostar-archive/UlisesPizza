@@ -11,7 +11,7 @@ body {
 	display: flex;
 	min-height: 100vh;
 	flex-direction: column;
-	background: transparent url("../img/photo-montage1.png") no-repeat center bottom;
+	background: transparent url("/img/photo-montage1.png") no-repeat center bottom;
 	background-position: bottom -50px center;
 	background-color: #fff;
 }
@@ -47,7 +47,7 @@ hr {
 	border: 0;
 	border-top: 1px solid #ddd;
 }
-
+/*
 table {
 	background-color: transparent;
 	border-spacing: 0;
@@ -63,7 +63,7 @@ th, td {
 	text-align: left;
 	border-bottom: 1px solid #ddd;
 }
-
+*/
 a:link { color: royalblue; }
 a:visited { color: purple; }
 a:focus { color: black; }
@@ -91,7 +91,7 @@ a:active { color: red; }
 
 .banner{
 	text-align: center;
-	background: transparent url('../img/Pizza-HD-Wallpaper.jpg') 0 0 no-repeat fixed;
+	background: transparent url('/img/Pizza-HD-Wallpaper.jpg') 0 0 no-repeat fixed;
     background-size: cover;
     background-position: bottom center;
     height: 200px;

@@ -10,8 +10,8 @@
         <!-- icons -->
         <link rel="shortcut icon" href="/favicon.ico">
 
-        <link rel="stylesheet" href="/Assets/css/styles.css">
-        <link rel="stylesheet" href="/Assets/css/login.css">
+        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/css/login.css">
         <style>
             .small {
                 padding: 0;

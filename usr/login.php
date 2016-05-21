@@ -11,8 +11,8 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 
 		<!-- Override CSS file - add your own CSS rules -->
-		<link rel="stylesheet" href="/Assets/css/styles.css">
-		<link rel="stylesheet" href="/Assets/css/login.css">
+		<link rel="stylesheet" href="/css/styles.css">
+		<link rel="stylesheet" href="/css/login.css">
 	</head>
 
 	<body>
@@ -25,7 +25,7 @@
 				</div>
 			</div>
 		</header>
-		<form class="form-login" method="post" action="./resumen.html">
+		<form class="form-login" method="post" action="./resumen.php">
 			<div class="login">
 				<div class="form-white-background">
 					<div class="form-title-row">

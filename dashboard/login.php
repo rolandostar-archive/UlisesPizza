@@ -11,8 +11,8 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 
 		<!-- Override CSS file - add your own CSS rules -->
-		<link rel="stylesheet" href="/Assets/css/styles.css">
-		<link rel="stylesheet" href="/Assets/css/login.css">
+		<link rel="stylesheet" href="/css/styles.css">
+		<link rel="stylesheet" href="/css/login.css">
 		<style>
 			.small {
 				padding: 0;
@@ -33,7 +33,7 @@
 		</header>
 
 		<main class="container-narrow">
-			<form method="post" action="./index.html">
+			<form method="post" action="./index.php">
 				<div class="login">
 					<div class="form-white-background">
 						<div class="form-title-row">

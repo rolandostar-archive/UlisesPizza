@@ -11,8 +11,8 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 
 		<!-- CSS  -->
-		<link rel="stylesheet" href="/Assets/css/styles.css">
-		<link rel="stylesheet" href="/Assets/css/landing.css">
+		<link rel="stylesheet" href="/css/styles.css">
+		<link rel="stylesheet" href="/css/landing.css">
 
 		<!-- Font -->
 		<link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -24,13 +24,13 @@
 				<div class="container">
 					<ul class="nav">
 						<li><a href="/">Inicio</a></li>
-						<li><a href="/sucursales.html">Sucursales</a></li>
-						<li><a href="/usr/login.html">Login</a></li>
+						<li><a href="/sucursales.php">Sucursales</a></li>
+						<li><a href="/usr/login.php">Login</a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="banner">
-				<img src="/Assets/img/Logo.png" class="img-responsive" width="600px" />
+				<img src="/img/Logo.png" class="img-responsive" width="600px" />
 			</div>
 		</header>
 

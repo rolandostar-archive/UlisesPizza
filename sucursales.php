@@ -9,7 +9,7 @@
 
 		<!-- icons -->
 		<link rel="shortcut icon" href="/favicon.ico">
-		<link rel="stylesheet" href="/Assets/css/styles.css">
+		<link rel="stylesheet" href="/css/styles.css">
 
 		<style>
 			html,
@@ -73,7 +73,7 @@
 					<ul class="nav">
 						<li><a href="/">Inicio</a></li>
 						<li><a href="#">Sucursales</a></li>
-						<li><a href="/usr/login.html">Login</a></li>
+						<li><a href="/usr/login.php">Login</a></li>
 					</ul>
 				</div>
 			</div>

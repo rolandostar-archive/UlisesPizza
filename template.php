@@ -11,7 +11,7 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 
 		<!-- Override CSS file - add your own CSS rules -->
-		<link rel="stylesheet" href="/Assets/css/styles.css">
+		<link rel="stylesheet" href="/css/styles.css">
 	</head>
 
 	<body>
@@ -21,7 +21,7 @@
 					<ul class="nav">
 						<li><a href="/">Inicio</a></li>
 						<li><a href="#">Sucursales</a></li>
-						<li><a href="/usr/login.html">Login</a></li>
+						<li><a href="/usr/login.php">Login</a></li>
 					</ul>
 				</div>
 			</div>

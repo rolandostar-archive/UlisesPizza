@@ -11,7 +11,7 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 
 		<!-- Override CSS file - add your own CSS rules -->
-		<link rel="stylesheet" href="/Assets/css/styles.css">
+		<link rel="stylesheet" href="/css/styles.css">
 
 		<style>
 			body {
@@ -66,7 +66,7 @@
 				<div class="container">
 					<ul class="nav">
 						<li>Dashboard: FH43</li>
-						<li><a href="./login.html">Salir</a></li>
+						<li><a href="./login.php">Salir</a></li>
 					</ul>
 				</div>
 			</div>

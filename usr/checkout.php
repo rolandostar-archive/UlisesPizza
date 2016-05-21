@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
 		<!-- Override CSS file - add your own CSS rules -->
-		<link rel="stylesheet" href="/Assets/css/styles.css">
+		<link rel="stylesheet" href="/css/styles.css">
 
         <!-- Estilos agregados --> 
 		<style type="text/css">
@@ -113,7 +113,7 @@
 			<div class="nav-bar">
 				<div class="container">
 					<ul class="nav">
-						<li><a href="/usr/resumen.html">¡Hola Ulises!</a></li>
+						<li><a href="/usr/resumen.php">¡Hola Ulises!</a></li>
 						<li><a href="/">Inicio</a></li>
 						<li><a href="/">Carrito</a></li>
 						<li><a href="/">Logout</a></li>

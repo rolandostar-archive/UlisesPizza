@@ -11,7 +11,7 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 
 		<!-- Override CSS file - add your own CSS rules -->
-		<link rel="stylesheet" href="/Assets/css/styles.css">
+		<link rel="stylesheet" href="/css/styles.css">
 
         <!-- Estilos agregados --> 
 		<style type="text/css">
@@ -142,7 +142,7 @@
 			<div class="nav-bar">
 				<div class="container">
 					<ul class="nav">
-						<li><a href="/usr/resumen.html">¡Hola Ulises!</a></li>
+						<li><a href="/usr/resumen.php">¡Hola Ulises!</a></li>
 						<li><a href="/">Inicio</a></li>
 						<li><a href="/">Carrito</a></li>
 						<li><a href="/">Logout</a></li>
@@ -156,10 +156,10 @@
                 <h2 class=header-pedido>¡Arma tu Pizza!</h2>
             </div>
             
-            <!------------ Formulario General para la Página ---------->
+            <!-- Formulario General para la Página -->
             <form>
                 
-                <!--------------- Sección Tamaño -------------------->
+                <!-- Sección Tamaño -->
                 <h3 class="header-secciones">Tamaño</h3><hr>      
                 <div class="content-div">
                     <div class="tamaño-left">
@@ -182,7 +182,7 @@
                     </div>
                 </div>
                 
-                <!---------------- Sección Base --------------------->
+                <!-- Sección Base -->
                 <h3 class="header-secciones">Elige una base para tu pizza</h3><hr>
                 <div class="content-div">
                     <div class="base-left">
@@ -199,7 +199,7 @@
                     </div>
                 </div>
                                 
-                <!---------------- Sección Extras ------------------->
+                <!-- Sección Extras -->
                 <h3 class="header-secciones">¿Deseas añadir ingredientes?</h3><hr>
                 
                 <div class="content-div">
@@ -235,7 +235,7 @@
                     </div>
                 </div>
                 
-                <!-------------- Sección Finalizar ------------------>
+                <!-- Sección Finalizar -->
                 <h3 class="header-secciones">Confirmación de Orden</h3><hr>
                 <div class="content-div-finalizar">
                     <div class="finalizar-left">
