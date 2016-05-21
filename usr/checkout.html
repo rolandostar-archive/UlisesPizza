@@ -9,6 +9,7 @@
 
 		<!-- icons -->
 		<link rel="shortcut icon" href="/favicon.ico">
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
 		<!-- Override CSS file - add your own CSS rules -->
 		<link rel="stylesheet" href="/Assets/css/styles.css">
@@ -27,18 +28,20 @@
             
             .content-div {
                 width: 100%;
-                padding: 3em 1.25em;
+                padding: 3em 0em;
                 display: flex;
             }
+        
             
             .datos-entrega {
                 width: 50%;
-                min-width: 30em;
-                margin-left: 7%;
+                min-width: 27em;
+                margin-left: 10%;
             }
             
             .content-form {
                 text-align: right;
+                padding-right: 0.5em;
                 margin: 0;
                 flex: 1;
 
@@ -53,28 +56,47 @@
                 width: 50%;
                 min-width: 20em;
                 padding-left: 5em;
-                padding-right: 5em;
-                text-align: center;
-            }
-            
-            .direccion-right {
-                width: 50%;
-                min-width: 20em;
-                padding-right: 5em;
-                text-align: center;
+                margin-right: 5em;
+                text-align: right;
             }
             
             .text-area {
-                width: 25em;
+                width: 22.5em;
                 height: 5em;
+            }
+            
+            .direccion-right {
+                flex: 1;
+                width: 50%;
+                min-width: 10em;
+                padding-right: 5em;
+                margin-left: 5em;
+                text-align: left;
+            }
+            
+            .pago-left {
+                width: 40%;
+                min-width: 5em;
+                margin-right: 0.5em;
+            }
+            
+            .pago-right {
+                flex: 1;
+                width: 50%;
+                min-width: 10em;
+                text-align: left;
             }
             
             .forma-pago {
                 text-align: left;
                 width: 50%;
-                min-width: 20em;
-                margin: 0 40%;
+                min-width: 19em;
                 flex: 1;
+            }
+            
+            .submit-checkout {
+                width: 22.25em;
+                text-align: center;
             }
             
 		</style>
@@ -131,12 +153,10 @@
 
                 <div class="content-div">
                     <div class="direccion-left">
-                        <div>
-                            <p>Introduce la dirección completa de entrega:</p>
-                            <textarea class="text-area"></textarea>
-                            <br><br>
-                            <input type="submit" value="Actualizar Mapa" />
-                        </div>
+                        <p>Introduce la dirección completa de entrega:</p>
+                        <textarea class="text-area"></textarea>
+                        <br><br>
+                        <input type="submit" value="Actualizar Mapa" />
                     </div>
                     <div class="direccion-right">
                         <p>Aquí se colocará el mapa de ubicación de google maps</p>
@@ -148,17 +168,25 @@
                     <h2 class=header-checkout>Forma de Pago</h2>
                 </div>
                 <div class="content-div">
-                    <div class="forma-pago">
-                        <input type="radio" name="pago" value="efectivo" checked>
-                        Efectivo (Pago a la entrega)<br><br>
-                        <input type="radio" name="pago" value="credito"> 
-                        Tarjeta de Crécito (Pago a la entrega)<br><br>
-                        <input type="radio" name="pago" value="paypal"> 
-                        Paypal (Proceder a pantalla de pago)<br><br>
-                        <input type="submit" value="Confirmar Pedido" 
+                    <div class="pago-left"></div>
+                    <div class="pago-right">
+                        <div class="forma-pago">
+                            <i class="fa fa-money" style="font-size:28px;"></i>
+                            <input type="radio" name="pago" value="efectivo" checked>
+                            Efectivo (Pago a la entrega)<br><br>
+                            <i class="fa fa-credit-card" style="font-size:28px;"></i>
+                            <input type="radio" name="pago" value="credito"> 
+                            Tarjeta de Crécito (Pago a la entrega)<br><br>
+                            <i class="fa fa-cc-paypal" style="font-size:24px;"></i>
+                            <input type="radio" name="pago" value="paypal"> 
+                            Paypal (Proceder a pantalla de pago)<br><br>
+                            <div class="submit-checkout">
+                            <input type="submit" value="Confirmar Pedido">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                    
+                
             </form>
 		</main>
 		<div class="footer">
