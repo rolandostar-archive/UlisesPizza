@@ -138,13 +138,12 @@
 			</div>
 			<br>
 			<br>
-			<h4>Cometarios</h4>
-			<textarea name="comentarios" rows="10" cols="175">Escribe aquí tus comentarios</textarea>
+				
 
-			<td style="text-aling:right"><button name="Check out">Confirmar Pedido</button></td>
+			<button name="Check out">Agregar Otra Pizza</button>
 
 
-			<td style="text-aling:right"><button name="Check out">Check Out</button></td>
+			<a class="btn" href="./checkout.php">Check Out</a>
 		</main>
 
 

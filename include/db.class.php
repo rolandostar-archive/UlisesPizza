@@ -6,11 +6,10 @@ class database{
 
     public function __construct(){
         $path = realpath($_SERVER['DOCUMENT_ROOT'].'/../'); // Configracion fuera de webroot
-        echo $path.'/config.ini';
         $config = parse_ini_file($path.'/config.ini'); // Configuracion
 
         // Database Source Name
-        $dsn = 'mysql:host=' . $config['host'] . ';dbname=' . $config['dbname'];
+        $dsn = 'mysql:host=' . $config['host'] . ';dbname=' . $config['dbname'].';charset=utf8';
         $options = array(
             PDO::ATTR_PERSISTENT => true, 
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION

@@ -1,3 +1,8 @@
+body{
+    background: transparent url("/img/photo-montage1.png") no-repeat center bottom;
+    background-position: bottom -50px center;
+}
+
 .tabla-precios{
     padding:0;
     display: table;

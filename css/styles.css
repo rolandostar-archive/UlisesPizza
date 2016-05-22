@@ -11,8 +11,6 @@ body {
 	display: flex;
 	min-height: 100vh;
 	flex-direction: column;
-	background: transparent url("/img/photo-montage1.png") no-repeat center bottom;
-	background-position: bottom -50px center;
 	background-color: #fff;
 }
 

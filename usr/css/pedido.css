@@ -1,0 +1,100 @@
+.content-pedido {
+    flex: 1;
+}
+.header-pedido {
+    text-align: center;
+    margin: 0;
+}
+.header-secciones {
+    text-align: center;
+    padding-top: 1.5em;
+}
+.content-div {
+    width: 100%;
+    display: flex;
+}
+.tamaño-left {
+    flex: 1;
+    width: 50%;
+    min-width: 20em;
+    padding-left: 5em;
+    margin-right: 5em;
+    text-align: right;
+}
+.tamaño-right {
+    flex: 1;
+    width: 50%;
+    min-width: 10em;
+    padding-right: 5em;
+    margin-left: 5em;
+    text-align: left;
+}
+.base-left {
+    flex: 1;
+    width: 60%;
+    min-width: 20em;
+    margin-right: 5em;
+    text-align: right;
+}
+.base-right {
+    flex: 1;
+    width: 10em;
+    min-width: 10em;
+    padding-right: 5em;
+    margin-left: 5em;
+    text-align: left;
+}
+.extras-left {
+    flex: 1;
+    width: 30%;
+    min-width: 10em;
+    padding-left: 5em;
+    margin-right: 2.5em;
+    text-align: right;
+}
+.extras-center {
+    flex: 1;
+    width: 30%;
+    min-width: 10em;
+    padding left: 0;
+    padding-right: 0;
+    text-align: center;
+}
+.extras-right {
+    flex: 1;
+    width: 30%;
+    min-width: 10em;
+    padding-right: 5em;
+    margin-left: 2.5em;
+    text-align: left;
+}
+.content-div-finalizar {
+    width: 100%;
+    padding-bottom: 2em;
+    display: flex;
+}
+.finalizar-left {
+    flex: 1;
+    width: 60%;
+    min-width: 20em;
+    padding-left: 5em;
+    margin-right: 1.25em;
+    text-align: right;
+}
+.finalizar-right {
+    flex: 1;
+    width: 10em;
+    min-width: 10em;
+    padding-right: 5em;
+    margin-left: 1.25em;
+    text-align: left;
+}
+.submit-pedido {
+    width: 100%;
+    margin-bottom: 2em;
+    text-align: center;
+}
+.submit-pedido input {
+    width: 10em;
+    height: 2em;
+}

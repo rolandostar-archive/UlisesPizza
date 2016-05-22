@@ -17,10 +17,7 @@
         <!-- Estilos agregados --> 
 		<style type="text/css">
             
-            .content-checkout {
-                flex: 1;
-            }
-            
+           
             .header-checkout {
                 text-align: center;
                 margin: 0;
@@ -102,6 +99,12 @@
                 width: 22.25em;
                 text-align: center;
             }
+
+            .comments {
+                padding: 10px auto;
+                margin: 50px auto;
+                text-align: center;
+            }
             
 		</style>
 
@@ -122,12 +125,11 @@
 			</div>
 		</header>
         
-		<main class="content-checkout">
-            
-            <!------------ Formulario General para la Página ---------->
+		<main>
+            <!-- Formulario General para la Página -->
             <form>
                 
-                <!--------------- Datos de Entrega -------------------->
+                <!-- Datos de Entrega -->
                 <div class="header">
                     <h2 class=header-checkout>Datos de Entrega</h2>
                 </div>
@@ -150,7 +152,7 @@
                     </div>
                 </div>
 
-                <!--------------- Direccion de Entrega ---------------->
+                <!-- Direccion de Entrega -->
                 <div class="header">
                     <h2 class=header-checkout>Dirección de Entrega</h2>
                 </div>
@@ -167,7 +169,14 @@
                     </div>
                 </div>
 
-                <!------------------- Forma de Pago ------------------->
+                <div class="header">
+                    <h2 class=header-checkout>Comentarios</h2>
+                </div>
+                <div class="container-narrow comments">
+                    <textarea rows="6" cols="80"></textarea>
+                </div>
+
+                <!-- Forma de Pago -->
                 <div class="header">
                     <h2 class=header-checkout>Forma de Pago</h2>
                 </div>

@@ -139,6 +139,21 @@
 					<a class="btn-pedir" href="#" role="button">Pedir</a>
 				</div>
 			</column>
+			<column>
+			<div class="paquete">
+				<div class="paq-head" style="background: #E38F27;">
+					<h2>Personalizada</h2>
+					<span class="precio">
+						Armala!<span>Como tu quieras</span>
+					</span>
+				</div>
+				<ul class="lista-productos">
+					<li>Masa y Tamaño a escojer</li>
+					<li>Los ingredientes que<br>tu quieras</li>
+					</ul>
+					<a class="btn-pedir" href="./pedido.php" role="button">Personalizar</a>
+				</div>
+			</column>
 		</div>
 
 		<!-- Tabla de historial -->
