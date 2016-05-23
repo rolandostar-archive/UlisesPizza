@@ -41,7 +41,10 @@ $db = new database();
     <!-- Formulario General para la Página -->
     <form action="confirmar.php" id="pedido">
       <!-- Sección Tamaño -->
-      <h3 class="header-secciones">Tamaño</h3><hr>      
+      <h3 class="header-secciones">Tamaño</h3><hr>
+      <div class="content-div">
+      <img src="./img/size_chart.png" style="margin: 0 auto 30px auto;">
+      </div>
       <div class="content-div">
         <div class="tamaño-left">
           <label>Tamaño:</label>
@@ -173,7 +176,7 @@ btn.onclick = function() {
     case 2: precio += 90; console.log("case 2"); break;
   }
   label[3].innerHTML = ingredientes.substring(0,(ingredientes.length-2));
-  label[4].innerHTML = "$"+precio; //TODO: Falta agregar precio de tamaño
+  label[4].innerHTML = "$"+(precio+20); //TODO: Falta agregar precio de tamaño
   modal.style.display = "block";
 }
 
