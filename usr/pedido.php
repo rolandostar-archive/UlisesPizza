@@ -26,10 +26,17 @@ if(isset($_SESSION['email'])){
     <div class="nav-bar">
       <div class="container">
         <ul class="nav">
-          <li><a href="/usr/resumen.php">¡Hola Ulises!</a></li>
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/">Carrito</a></li>
-          <li><a href="/">Logout</a></li>
+          <?php if(isset($_SESSION['email'])): ?>
+            <li><a href="/usr/resumen.php">¡Hola <?php echo $_SESSION["nombre"];?>!</a></li>';
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/sucursales.php">Sucursales</a></li>
+            <li><a href="/usr/carrito.php">Carrito</a></li>
+            <li><a href="/usr/logout.php">Logout</a></li>
+          <?php else: ?>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/sucursales.php">Sucursales</a></li>
+            <li><a href="/usr/login.php">Login</a></li>
+          <?php endif; ?>
         </ul>
       </div>
     </div>

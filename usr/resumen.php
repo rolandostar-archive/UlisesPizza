@@ -23,14 +23,19 @@ if(isset($_SESSION['email']))
 	<header>
 		<div class="nav-bar">
 			<div class="container">
-					<ul class="nav">
-						<li>Hola Ulises!</li>
-						<li>Inicio</li>
-						<li>Resumen</li>
-						<li>Carrito</li>
-						<li>Logout</li>
-						<li><a href="./login.php">Salir</a></li>
-					</ul>
+				<ul class="nav">
+					<?php if(isset($_SESSION['email'])): ?>
+						<li><a href="/usr/resumen.php">¡Hola <?php echo $_SESSION["nombre"];?>!</a></li>';
+  						<li><a href="/">Inicio</a></li>
+						<li><a href="/sucursales.php">Sucursales</a></li>
+						<li><a href="/usr/carrito.php">Carrito</a></li>
+						<li><a href="/usr/logout.php">Logout</a></li>
+					<?php else: ?>
+  						<li><a href="/">Inicio</a></li>
+						<li><a href="/sucursales.php">Sucursales</a></li>
+						<li><a href="/usr/login.php">Login</a></li>
+					<?php endif; ?>
+				</ul>
 			</div>
 		</div>
 		<div class="header">
