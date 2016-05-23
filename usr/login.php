@@ -41,7 +41,7 @@
 					<div class="form-row">
 						<label>
 							<span>Email</span>
-							<input type="email" name="email">
+							<input type="email" name="email" required>
 						</label>
 					</div>
 					<div class="form-row">
@@ -51,7 +51,7 @@
 						</label>
 					</div>
 					<div class="form-row">
-						<input type="submit" class="btn" name="login" value="Iniciar Sesión">
+						<button type="submit" class="btn" name="login" >Iniciar Sesi&oacute;n</button>
 				</div>
 				<hr>
 				<a href="#" class="form-forgotten-password">¿Olvidaste tu Contrase&ntilde;a? &middot;</a>
