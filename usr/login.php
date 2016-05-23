@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	if(isset($_SESSION['email'])){
+	echo '<script> window.location="resumen.php"; </script>';
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +32,7 @@
 				</div>
 			</div>
 		</header>
-		<form class="form-login" method="post" action="./resumen.php">
+		<form class="form-login" method="post" action="validar.php">
 			<div class="login">
 				<div class="form-white-background">
 					<div class="form-title-row">
@@ -44,8 +51,7 @@
 						</label>
 					</div>
 					<div class="form-row">
-						<button type="submit" class="btn">Log in</button>
-					</div>
+						<input type="submit" class="btn" name="login" value="Iniciar Sesión">
 				</div>
 				<hr>
 				<a href="#" class="form-forgotten-password">¿Olvidaste tu Contrase&ntilde;a? &middot;</a>

@@ -1,3 +1,7 @@
+<?php
+session_start();
+if(isset($_SESSION['email'])) {?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -159,6 +163,10 @@
 		</script>
 
 	</body>
-
-
 </html>
+
+<?php
+}else{
+    echo '<script> window.location="login.php"; </script>';
+}
+?>

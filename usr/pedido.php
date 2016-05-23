@@ -4,7 +4,7 @@ session_start();
 require_once('db.class.php');
 
 $db = new database();
-//if(isset($_SESSION['user'])) {
+if(isset($_SESSION['email'])){ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -244,3 +244,8 @@ window.onclick = function(event) {
 </script>
 </body>
 </html>
+<?php
+}else{
+  echo '<script> window.location="login.php"; </script>';
+}
+?>
