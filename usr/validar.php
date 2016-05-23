@@ -22,15 +22,15 @@
 				$db->bind(':pass', $_POST['password']);
 				$result = $db->resultset();
 				if (!empty($result)) {
-					echo 'Success';
 					$_SESSION["email"] = $result[0]['correo']; 
+					$_SESSION["nombre"] = $result[0]['nombre'];
 				  	echo 'Iniciando sesión para '.$_SESSION['correo'].' <p>';
 					echo '<script> window.location="resumen.php"; </script>';
-				
 				}
 				
 				else{
-					echo 'Failure';
+					echo '<script> alert("El correo electrónico y/o la contraseña que ingresaste no coinciden con niguna cuenta. Regístrate para crear una cuenta.");</script>';
+					echo '<script> window.location="login.php"; </script>';
 				}
 			}
 		?>	
