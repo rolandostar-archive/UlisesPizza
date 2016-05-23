@@ -212,7 +212,7 @@
 		});
 
 		function submitForm() {
-		    var url = "calify.php"; // the script where you handle the form input.
+		    var url = "rate.php"; // the script where you handle the form input.
 		    $.ajax({
 		    	type: "POST",
 		    	url: url,

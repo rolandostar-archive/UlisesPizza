@@ -1,9 +1,10 @@
 <?php
 //set_include_path(get_include_path() . PATH_SEPARATOR . ""php);
+session_start();
 require_once('db.class.php');
 
 $db = new database();
-
+//if(isset($_SESSION['user'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,16 +39,16 @@ $db = new database();
       <h2 class=header-pedido>¡Arma tu Pizza!</h2>
     </div>
     <!-- Formulario General para la Página -->
-    <form action="carrito.php">
+    <form action="confirmar.php" id="pedido">
       <!-- Sección Tamaño -->
       <h3 class="header-secciones">Tamaño</h3><hr>      
       <div class="content-div">
         <div class="tamaño-left">
           <label>Tamaño:</label>
           <select name="tamaño">
-            <option value="1">Personal</option>
-            <option value="2">Mediana</option>
-            <option value="3">Familiar</option>
+            <option value="0">Personal</option>
+            <option value="1">Mediana</option>
+            <option value="2">Familiar</option>
           </select>
         </div>
         <div class="tamaño-right">
@@ -69,9 +70,9 @@ $db = new database();
           <?php
           $db -> query('SELECT nombre FROM especialidad');
           $result = $db->resultset();
-          echo "<input type=\"radio\" name=\"base\" value=\"0\">Personalizada<br>\n\r";
+          echo "<input type=\"radio\" name=\"base\" value=\"0\"><span>Personalizada</span><br>\n\r";
           foreach ($result as $index => $row) {
-            echo "\t\t\t<input type=\"radio\" name=\"base\" value=\"".++$index.'">'.$row['nombre']."<br>\r\n";
+            echo "\t\t\t<input type=\"radio\" name=\"base\" value=\"".++$index.'"><span>'.$row['nombre']."</span><br>\r\n";
           }?>
         </div>
         <div class="base-right">
@@ -95,7 +96,7 @@ $db = new database();
             for($j=0;$j<3;$j++){
               $current = $i+($j*$loop);
               if ($current < $count)
-                echo "\t".'<td><input type="checkbox" name="ingrediente" value="'.($current+1).'">'.$result[$current]['nombre']." - <b>$".$result[$current]['precioUnit']."</b></td>\r\n";
+                echo "\t".'<td><input type="checkbox" name="ingrediente" value="'.($current+1).'"><span>'.$result[$current]['nombre']."</span> - $<span>".$result[$current]['precioUnit']."</span></td>\r\n";
             }
             echo "\t</tr>\r\n";
           }
@@ -103,40 +104,99 @@ $db = new database();
         </table>
       </div>
 
-      <!-- Sección Finalizar -->
+      
+    </form>
+    <hr>
+    <div class="submit-pedido">
+      <button class="btn" id="myBtn">A&ntilde;adir Pedido</button>
+    </div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">x</span>
+    <!-- Sección Finalizar -->
       <h3 class="header-secciones">Confirmación de Orden</h3><hr>
       <div class="content-div-finalizar">
         <div class="finalizar-left">
           <label>Pizza:</label><br><br>
           <label>Tamaño:</label><br><br>
           <label>Tipo de Masa:</label><br><br>
-          <label>Extras:</label><br><br>
+          <label>Ingredientes:</label><br><br>
           <b><label>Precio Total:</label></b>
         </div>
         <div class="finalizar-right">
-          <label>Hawaiiana</label><br><br>
-          <label>Personal</label><br><br>
-          <label>Harina de Trigo</label><br><br>
-          <label>Especial 1, Especial 3, Habanero</label><br><br>
-          <b><label>$ 299</label></b>
+          <label name="confirmar">Selecciona una Base.</label><br><br>
+          <label name="confirmar">Selecciona un Tamaño</label><br><br>
+          <label name="confirmar">Selecciona un Tipo de Masa</label><br><br>
+          <label name="confirmar">-</label><br><br>
+          <b><label name="confirmar">$ -</label></b>
         </div>
       </div>
       <div class="submit-pedido">
-        <input type="submit" value="Añadir Pedido">
-      </div>
+       <button class="btn" id="myBtn">Confirmar</button>
+    </div>
+  </div>
 
-    </form>
+</div>
+
   </main>
   <div class="footer">
    &copy; Sindral Software 2016
  </div>
+
+ <script>
+var modal = document.getElementById('myModal');
+var btn = document.getElementById("myBtn");
+var span = document.getElementsByClassName("close")[0];
+
+var form = document.getElementById("pedido");
+var label = document.getElementsByName("confirmar");
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  label[0].innerHTML = form.elements['base'][form.elements['base'].value].nextSibling.innerHTML;
+  label[1].innerHTML = form.elements['tamaño'].options[form.elements['tamaño'].selectedIndex].innerHTML;
+  label[2].innerHTML = form.elements['tipo-masa'].options[form.elements['tipo-masa'].selectedIndex].innerHTML;
+  var ingredientes = "";
+  var precio = 0;
+  for (var i in form.elements['ingrediente']) {
+    if (form.elements['ingrediente'][i].checked){
+      ingredientes += form.elements['ingrediente'][i].nextSibling.innerHTML+", ";
+      precio += parseInt(form.elements['ingrediente'][i].nextSibling.nextSibling.nextSibling.innerHTML);
+    }
+  }
+  switch(parseInt(form.elements['tamaño'].value)){
+    case 0: precio += 30; console.log("case 0"); break;
+    case 1: precio += 60; console.log("case 1"); break;
+    case 2: precio += 90; console.log("case 2"); break;
+  }
+  label[3].innerHTML = ingredientes.substring(0,(ingredientes.length-2));
+  label[4].innerHTML = "$"+precio; //TODO: Falta agregar precio de tamaño
+  modal.style.display = "block";
+}
+
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
  <script>
   <?php
   $db -> query('SELECT descripcion FROM especialidad');
   $result = $db->resultset();
-  echo "var desc = [\"Personaliza tu pizza con los ingreidentes que quieras!\",";
+  echo "var desc = [\"Personaliza tu pizza con los ingredientes que quieras!\",";
   foreach ($result as $index => $row) {
     echo '"'.$row['descripcion'].'"';
     if ($row !== end($result)) echo ",";
@@ -150,6 +210,7 @@ $db = new database();
       checkBoxes(this.value);
     });
     $("[name='ingrediente']").click(function(){
+      if (form.elements['base'].value != 0)
       alert("Advertencia: Elejir un ingrediente extra cambiara el tipo de Pizza a PERSONALIZADA.");
       $("input:radio[value='0']").prop("checked", true);
     });
