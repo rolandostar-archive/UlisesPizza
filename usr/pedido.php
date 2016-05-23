@@ -39,7 +39,7 @@ $db = new database();
       <h2 class=header-pedido>¡Arma tu Pizza!</h2>
     </div>
     <!-- Formulario General para la Página -->
-    <form action="confirmar.php" id="pedido">
+    <form id="pedido" name="formulario" action="carrito.php" method=POST>
       <!-- Sección Tamaño -->
       <h3 class="header-secciones">Tamaño</h3><hr>
       <div class="content-div">
@@ -111,7 +111,7 @@ $db = new database();
     </form>
     <hr>
     <div class="submit-pedido">
-      <button class="btn" id="myBtn">A&ntilde;adir Pedido</button>
+      <button class="btn" id="myBtn">Confirmar</button>
     </div>
 
 <!-- The Modal -->
@@ -137,8 +137,8 @@ $db = new database();
           <b><label name="confirmar">$ -</label></b>
         </div>
       </div>
-      <div class="submit-pedido">
-       <button class="btn" id="myBtn">Confirmar</button>
+      <div class="submit-pedido" action="carrito.php">
+      <button class="btn" id="carrito">Agregar al Carrito</button>
     </div>
   </div>
 
@@ -151,14 +151,16 @@ $db = new database();
 
  <script>
 var modal = document.getElementById('myModal');
-var btn = document.getElementById("myBtn");
-var span = document.getElementsByClassName("close")[0];
 
 var form = document.getElementById("pedido");
 var label = document.getElementsByName("confirmar");
 
+document.getElementById("carrito").onclick = function() {
+  document.forms["formulario"].submit();
+}
+
 // When the user clicks the button, open the modal 
-btn.onclick = function() {
+document.getElementById("myBtn").onclick = function() {
   label[0].innerHTML = form.elements['base'][form.elements['base'].value].nextSibling.innerHTML;
   label[1].innerHTML = form.elements['tamaño'].options[form.elements['tamaño'].selectedIndex].innerHTML;
   label[2].innerHTML = form.elements['tipo-masa'].options[form.elements['tipo-masa'].selectedIndex].innerHTML;
@@ -182,7 +184,7 @@ btn.onclick = function() {
 
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+document.getElementsByClassName("close")[0].onclick = function() {
     modal.style.display = "none";
 }
 
