@@ -1,21 +1,25 @@
+<?php
+session_start();
+if(isset($_SESSION['email'])) {?>
+
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
-		<title>Little Ulises Pizza&trade; - Checkout</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="robots" content="index, follow">
+    <head>
+        <meta charset="utf-8">
+        <title>Little Ulises Pizza&trade; - Checkout</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="index, follow">
 
-		<!-- icons -->
-		<link rel="shortcut icon" href="/favicon.ico">
+        <!-- icons -->
+        <link rel="shortcut icon" href="/favicon.ico">
         <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
-		<!-- Override CSS file - add your own CSS rules -->
-		<link rel="stylesheet" href="/css/styles.css">
+        <!-- Override CSS file - add your own CSS rules -->
+        <link rel="stylesheet" href="/css/styles.css">
 
         <!-- Estilos agregados --> 
-		<style type="text/css">
+        <style type="text/css">
             
            
             .header-checkout {
@@ -106,26 +110,26 @@
                 text-align: center;
             }
             
-		</style>
+        </style>
 
-	</head>
+    </head>
 
-	<body>
+    <body>
         
-		<header>
-			<div class="nav-bar">
-				<div class="container">
-					<ul class="nav">
-						<li><a href="/usr/resumen.php">¡Hola Ulises!</a></li>
-						<li><a href="/">Inicio</a></li>
-						<li><a href="/">Carrito</a></li>
-						<li><a href="/">Logout</a></li>
-					</ul>
-				</div>
-			</div>
-		</header>
+        <header>
+            <div class="nav-bar">
+                <div class="container">
+                    <ul class="nav">
+                        <li><a href="/usr/resumen.php">¡Hola Ulises!</a></li>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/">Carrito</a></li>
+                        <li><a href="/">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
         
-		<main>
+        <main>
             <!-- Formulario General para la Página -->
             <form>
                 
@@ -201,9 +205,15 @@
                 </div>
                 
             </form>
-		</main>
-		<div class="footer">
-			&copy; Sindral Software 2016
-		</div>
-	</body>
+        </main>
+        <div class="footer">
+            &copy; Sindral Software 2016
+        </div>
+    </body>
 </html>
+
+<?php
+}else{
+    echo '<script> window.location="login.php"; </script>';
+}
+?>

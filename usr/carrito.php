@@ -1,6 +1,7 @@
 <?php
 print_r($_POST);
-?>
+session_start();
+if(isset($_SESSION['email'])) {?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -163,6 +164,10 @@ print_r($_POST);
 		</script>
 
 	</body>
-
-
 </html>
+
+<?php
+}else{
+    echo '<script> window.location="login.php"; </script>';
+}
+?>
