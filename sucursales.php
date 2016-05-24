@@ -1,36 +1,20 @@
 <?php
-	session_start(); 
+	session_start();
+	$title = "Little Ulises Pizza&trade; - Sucursales";
+	$css = "/css/sucursales.css";
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
-	<head>
-		<meta charset="utf-8">
-		<title>Little Ulises Pizza&trade; - Sucursales</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="robots" content="index, follow">
-
-		<!-- icons -->
-		<link rel="shortcut icon" href="/favicon.ico">
-		<link rel="stylesheet" href="/css/styles.css">
-
-		<style>
-			html,
-			body {
-				height: 100%;
-			}
-
-			body {
-				background: none;
-			}
-
-			#googleMap {
-				width: 100%;
-				height: calc(100vh - 138px);
-			}
-		</style>
-
-		<script src="http://maps.googleapis.com/maps/api/js"></script>
+	<?php require_once("header.php");?>
+		<div class="header">
+			<div class=container>
+				<h1 class=header-heading>Sucursales</h1>
+			</div>
+		</div>
+		<main>
+			<div id="googleMap"></div>
+		</main>
+				<script src="http://maps.googleapis.com/maps/api/js"></script>
 		<script>
 			var myCenter = new google.maps.LatLng(19.504372, -99.146722);
 
@@ -67,37 +51,6 @@
 
 			google.maps.event.addDomListener(window, 'load', initialize);
 		</script>
-	</head>
-
-	<body>
-		<header>
-			<div class="nav-bar">
-				<div class="container">
-					<ul class="nav">
-						<?php if(isset($_SESSION['email'])): ?>
-							<li><a href="/usr/resumen.php">¡Hola <?php echo $_SESSION["nombre"];?>!</a></li>';
-  							<li><a href="/">Inicio</a></li>
-							<li><a href="/sucursales.php">Sucursales</a></li>
-							<li><a href="/usr/carrito.php">Carrito</a></li>
-							<li><a href="/usr/logout.php">Logout</a></li>
-						<?php else: ?>
-  							<li><a href="/">Inicio</a></li>
-							<li><a href="/sucursales.php">Sucursales</a></li>
-							<li><a href="/usr/login.php">Login</a></li>
-						<?php endif; ?>
-					</ul>
-				</div>
-			</div>
-			<div class="header">
-				<div class=container>
-					<h1 class=header-heading>Sucursales</h1>
-				</div>
-			</div>
-		</header>
-
-		<main>
-			<div id="googleMap"></div>
-		</main>
 	</body>
 
 </html>

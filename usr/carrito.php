@@ -1,90 +1,14 @@
 <?php
-print_r($_POST);
+//print_r($_POST);
+$title = "Little Ulises Pizza&trade; - Tu carrito de compras";
+$css = "./css/carrito.css";
 session_start();
 if(isset($_SESSION['email'])) {?>
 
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
-		<title>Little Ulises Pizza&trade; - Tu carrito de compras</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="robots" content="index, follow">
-
-		<!-- icons -->
-		<link rel="shortcut icon" href="/favicon.ico">
-
-		<!-- Override CSS file - add your own CSS rules -->
-		<link rel="stylesheet" href="/css/styles.css">
-
-		<style>
-			body {
-				background: none;
-			}
-
-			.pedidos-act {
-				flex-grow: 1;
-			}
-
-			.tabla-pedido {
-				margin: 0 auto;
-				width: 100%;
-			}
-
-			.tabla-pedido th {
-				background: #E38F27;
-			}
-
-			tr:nth-child(odd) {
-				background-color: #f2f2f2
-			}
-
-			.flex-wrapper {
-				display: flex;
-			}
-
-			.cooking {
-				width: 50px;
-				height: 50px;
-				background-color: red;
-			}
-
-			.ready {
-				width: 50px;
-				height: 50px;
-				background-color: green;
-			}
-
-			.toggle {
-				cursor: pointer;
-			}
-		</style>
-
-
-
-	</head>
-
-	<body>
-		<header>
-			<div class="nav-bar">
-				<div class="container">
-					<ul class="nav">
-			          <?php if(isset($_SESSION['email'])): ?>
-			            <li><a href="/usr/resumen.php">¡Hola <?php echo $_SESSION["nombre"];?>!</a></li>';
-			            <li><a href="/">Inicio</a></li>
-			            <li><a href="/sucursales.php">Sucursales</a></li>
-			            <li><a href="/usr/carrito.php">Carrito</a></li>
-			            <li><a href="/usr/logout.php">Logout</a></li>
-			          <?php else: ?>
-			            <li><a href="/">Inicio</a></li>
-			            <li><a href="/sucursales.php">Sucursales</a></li>
-			            <li><a href="/usr/login.php">Login</a></li>
-			          <?php endif; ?>
-					</ul>
-				</div>
-			</div>
-		</header>
+	<?php require_once("header.php"); ?>
 
 		<main class="content">
 			<div class="container">
@@ -157,19 +81,6 @@ if(isset($_SESSION['email'])) {?>
 
 			<a class="btn" href="./checkout.php">Check Out</a>
 		</main>
-
-
-		<script>
-			function changeImage(e) {
-				var image = e;
-				if (image.src.match("ready")) {
-					image.src = "cook.png";
-				} else {
-					image.src = "ready.png";
-				}
-			}
-		</script>
-
 	</body>
 </html>
 

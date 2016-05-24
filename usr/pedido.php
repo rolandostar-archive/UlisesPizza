@@ -1,6 +1,8 @@
 <?php
 //set_include_path(get_include_path() . PATH_SEPARATOR . ""php);
 session_start();
+$title = "Little Ulises Pizza&trade; - Pedido";
+$css = "./css/pedido.css";
 require_once('db.class.php');
 
 $db = new database();
@@ -8,39 +10,7 @@ if(isset($_SESSION['email'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <title>Little Ulises Pizza&trade; - Pedido</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="index, follow">
-
-  <!-- CSS -->
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="./css/pedido.css">
-</head>
-
-<body>
-  <header>
-    <div class="nav-bar">
-      <div class="container">
-        <ul class="nav">
-          <?php if(isset($_SESSION['email'])): ?>
-            <li><a href="/usr/resumen.php">¡Hola <?php echo $_SESSION["nombre"];?>!</a></li>';
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/sucursales.php">Sucursales</a></li>
-            <li><a href="/usr/carrito.php">Carrito</a></li>
-            <li><a href="/usr/logout.php">Logout</a></li>
-          <?php else: ?>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/sucursales.php">Sucursales</a></li>
-            <li><a href="/usr/login.php">Login</a></li>
-          <?php endif; ?>
-        </ul>
-      </div>
-    </div>
-  </header>
+  <?php require_once("header.php"); ?>
   <main class="content-pedido">
     <div class="header">
       <h2 class=header-pedido>¡Arma tu Pizza!</h2>
@@ -106,7 +76,7 @@ if(isset($_SESSION['email'])){
             for($j=0;$j<3;$j++){
               $current = $i+($j*$loop);
               if ($current < $count)
-                echo "\t".'<td><input type="checkbox" name="ingrediente" value="'.($current+1).'"><span>'.$result[$current]['nombre']."</span> - $<span>".$result[$current]['precioUnit']."</span></td>\r\n";
+                echo "\t".'<td><input type="checkbox" name="ingrediente[]" value="'.($current+1).'"><span>'.$result[$current]['nombre']."</span> - $<span>".$result[$current]['precioUnit']."</span></td>\r\n";
             }
             echo "\t</tr>\r\n";
           }
@@ -168,15 +138,16 @@ document.getElementById("carrito").onclick = function() {
 
 // When the user clicks the button, open the modal 
 document.getElementById("myBtn").onclick = function() {
+  console.log(form.elements['ingrediente[]']);
   label[0].innerHTML = form.elements['base'][form.elements['base'].value].nextSibling.innerHTML;
   label[1].innerHTML = form.elements['tamaño'].options[form.elements['tamaño'].selectedIndex].innerHTML;
   label[2].innerHTML = form.elements['tipo-masa'].options[form.elements['tipo-masa'].selectedIndex].innerHTML;
   var ingredientes = "";
   var precio = 0;
-  for (var i in form.elements['ingrediente']) {
-    if (form.elements['ingrediente'][i].checked){
-      ingredientes += form.elements['ingrediente'][i].nextSibling.innerHTML+", ";
-      precio += parseInt(form.elements['ingrediente'][i].nextSibling.nextSibling.nextSibling.innerHTML);
+  for (var i in form.elements['ingrediente[]']) {
+    if (form.elements['ingrediente[]'][i].checked){
+      ingredientes += form.elements['ingrediente[]'][i].nextSibling.innerHTML+", ";
+      precio += parseInt(form.elements['ingrediente[]'][i].nextSibling.nextSibling.nextSibling.innerHTML);
     }
   }
   switch(parseInt(form.elements['tamaño'].value)){
@@ -221,7 +192,7 @@ window.onclick = function(event) {
       document.getElementById("base-desc").innerHTML = desc[this.value];
       checkBoxes(this.value);
     });
-    $("[name='ingrediente']").click(function(){
+    $("[name='ingrediente[]']").click(function(){
       if (form.elements['base'].value != 0)
       alert("Advertencia: Elejir un ingrediente extra cambiara el tipo de Pizza a PERSONALIZADA.");
       $("input:radio[value='0']").prop("checked", true);
@@ -229,7 +200,7 @@ window.onclick = function(event) {
   });
 
   function clearBoxes(){
-    $("input:checkbox[name='ingrediente']").prop("checked", false);
+    $("input:checkbox[name='ingrediente[]']").prop("checked", false);
   }
 
   function checkBoxes(value){

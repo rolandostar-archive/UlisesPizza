@@ -1,0 +1,13 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background: none;
+}
+
+#googleMap {
+    width: 100%;
+    height: calc(100vh - 138px);
+}

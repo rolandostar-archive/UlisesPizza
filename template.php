@@ -1,36 +1,17 @@
+<?php
+$title = "Little Ulises Pizza&trade; - Template";
+//$css = "path";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
-		<title>Little Ulises Pizza&trade; - Template</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="robots" content="index, follow">
-
-		<!-- icons -->
-		<link rel="shortcut icon" href="/favicon.ico">
-
-		<!-- Override CSS file - add your own CSS rules -->
-		<link rel="stylesheet" href="/css/styles.css">
-	</head>
-
-	<body>
-		<header>
-			<div class="nav-bar">
-				<div class="container">
-					<ul class="nav">
-						<li><a href="/">Inicio</a></li>
-						<li><a href="#">Sucursales</a></li>
-						<li><a href="/usr/login.php">Login</a></li>
-					</ul>
-				</div>
+	<?php require_once("header.php"); ?>
+		<div class="header">
+			<div class=container-narrow>
+				<h1 class=header-heading>Resumen Cliente</h1>
 			</div>
-			<div class="header">
-				<div class=container-narrow>
-					<h1 class=header-heading>Resumen Cliente</h1>
-				</div>
-			</div>
-		</header>
+		</div>
 
 		<main class="content">
 			<div class="container-narrow">

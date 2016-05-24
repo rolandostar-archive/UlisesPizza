@@ -1,47 +1,16 @@
 <?php
 session_start();
+$title = "Little Ulises Pizza&trade; - Resumen";
+$css = "./css/resumen.css";
 if(isset($_SESSION['email'])) 
 {?>
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-	<meta charset="utf-8">
-	<title>Little Ulises Pizza&trade; - Resumen</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="robots" content="index, follow">
-
-	<!-- icons -->
-	<link rel="shortcut icon" href="/favicon.ico">
-
-	<!-- Override CSS file - add your own CSS rules -->
-	<link rel="stylesheet" href="/css/styles.css">
-	<link rel="stylesheet" href="./css/resumen.css">
-</head>
-
-<body>
-	<header>
-		<div class="nav-bar">
-			<div class="container">
-				<ul class="nav">
-					<?php if(isset($_SESSION['email'])): ?>
-						<li><a href="/usr/resumen.php">¡Hola <?php echo $_SESSION["nombre"];?>!</a></li>';
-  						<li><a href="/">Inicio</a></li>
-						<li><a href="/sucursales.php">Sucursales</a></li>
-						<li><a href="/usr/carrito.php">Carrito</a></li>
-						<li><a href="/usr/logout.php">Logout</a></li>
-					<?php else: ?>
-  						<li><a href="/">Inicio</a></li>
-						<li><a href="/sucursales.php">Sucursales</a></li>
-						<li><a href="/usr/login.php">Login</a></li>
-					<?php endif; ?>
-				</ul>
-			</div>
-		</div>
-		<div class="header">
-			<h1 class=header-heading>Tu resumen</h1>
-		</div>
-	</header>
+<?php require_once("header.php"); ?>
+	<div class="header">
+		<h1 class=header-heading>Tu resumen</h1>
+	</div>
 	<main class="content">
 		<div>
 			<!-- Tabla de pedidos actuales -->

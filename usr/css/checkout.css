@@ -1,0 +1,89 @@
+
+
+.header-checkout {
+    text-align: center;
+    margin: 0;
+}
+
+.content-div {
+    width: 100%;
+    padding: 3em 0em;
+    display: flex;
+}
+
+
+.datos-entrega {
+    width: 50%;
+    min-width: 27em;
+    margin-left: 10%;
+}
+
+.content-form {
+    text-align: right;
+    padding-right: 0.5em;
+    margin: 0;
+    flex: 1;
+
+}
+
+.content-form input {
+    width: 20em;
+}
+
+.direccion-left {
+    flex: 1;
+    width: 50%;
+    min-width: 20em;
+    padding-left: 5em;
+    margin-right: 5em;
+    text-align: right;
+}
+
+.direccion-left p{
+    padding-right: 0.5em;
+}
+
+.text-area {
+    width: 22.75em;
+    height: 5em;
+}
+
+.direccion-right {
+    flex: 1;
+    width: 50%;
+    min-width: 10em;
+    padding-right: 5em;
+    margin-left: 5em;
+    text-align: left;
+}
+
+.pago-left {
+    width: 40%;
+    min-width: 5em;
+    margin-right: 0.5em;
+}
+
+.pago-right {
+    flex: 1;
+    width: 50%;
+    min-width: 10em;
+    text-align: left;
+}
+
+.forma-pago {
+    text-align: left;
+    width: 50%;
+    min-width: 19em;
+    flex: 1;
+}
+
+.submit-checkout {
+    width: 22.25em;
+    text-align: center;
+}
+
+.comments {
+    padding: 10px auto;
+    margin: 50px auto;
+    text-align: center;
+}
