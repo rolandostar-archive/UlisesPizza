@@ -1,87 +1,72 @@
 <?php
-//print_r($_POST);
+
+require_once('carrito.class.php');
+require_once('db.class.php');
+
 $title = "Little Ulises Pizza&trade; - Tu carrito de compras";
 $css = "./css/carrito.css";
+
 session_start();
-if(isset($_SESSION['email'])) {?>
+if(isset($_SESSION['email'])) {
+	$c = unserialize($_SESSION['carrito']); //mapeamos carrito a $c
+	//$c->display(); //Debug
+	?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 	<?php require_once("header.php"); ?>
-
+		<div class="header">
+			<div class=container>
+				<h1 class=header-heading>Tu Carrito de Compras</h1>
+			</div>
+		</div>
 		<main class="content">
 			<div class="container">
 				<!-- Tabla de pedidos actuales -->
-				<h3>Tu carrito de compras</h3>
-				<table class="tabla-pedido">
-					<thead>
-						<tr>
-							<th>Descripcion</th>
-							<th>Cantidad</th>
-							<th>Precio individual</th>
-							<th>Precio total</th>
-							
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Pizza mexicana grande
-							<br> masa orilla de queso</td>
-							<td>
-							<input type="number" name="cantidad"><br>
-							<input type="reset" value="Remover"/>	
-							</td>
-							<td>
-								$199
-							</td>
-							<td>$199</td>
-							
-						</tr>
-						<tr>
-							<td>Refresco 2 litros</td>
-							<td>
-							<input type="number" name="cantidad"><br>
-							<input type="reset" value="Remover"/>
-							</td>
-							<td>
-								$24
-							</td>
-							<td>$68</td>
-							
-						</tr>
-						<tr>
-							<td>Paquete</td>
-							<td>
-							<input type="number" name="cantidad"><br>
-							<input type="reset" value="Remover"/>
-							</td>
-							<td> $239</td>
-							<td> $239</td>
-							
-						</tr>
-						<tr>
-							<td></td>
-							<td></td>
-							<td>Total</td>
-							<td> $496 </td>
-						</tr>
-
-											
-					</tbody>
-				</table>
-
+				<?php $c->showCart(); ?>
 			</div>
 			<br>
 			<br>
-				
-
-			<button name="Check out">Agregar Otra Pizza</button>
-
-
+			<a class="btn" href="./pedido.php">Agregar Pizza</a>
 			<a class="btn" href="./checkout.php">Check Out</a>
 		</main>
 	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script>
+		var lock = false;
+		var element = document.getElementsByClassName("edit-btn");
+		for(var i=0;i<element.length;i++){
+			element[i].addEventListener("click", function(){ // Click en Editar
+				//alert('clicked');
+				if (!lock){
+					this.style.visibility = "hidden";
+					this.previousSibling.disabled = false;
+					this.nextSibling.style.visibility = "visible";
+					this.nextSibling.nextSibling.style.visibility = "visible";
+					lock = true;
+				}
+			}, false);   
+		}
+		var element = document.getElementsByClassName("accept-btn");
+		for(var i=0;i<element.length;i++){
+			element[i].addEventListener("click", function(){ // Click en Aceptar
+				//alert('clicked');
+				this.previousSibling.previousSibling.form.submit();
+			}, false);   
+		}
+				var element = document.getElementsByClassName("cancel-btn");
+		for(var i=0;i<element.length;i++){
+			element[i].addEventListener("click", function(){ // Click en Cancelar
+				//alert('clicked');
+				this.style.visibility = "hidden";
+				this.previousSibling.style.visibility = "hidden";
+				this.previousSibling.previousSibling.style.visibility = "visible";
+				this.previousSibling.previousSibling.previousSibling.disabled = true;
+				lock = false;
+			}, false);   
+		}
+
+	</script>
 </html>
 
 <?php

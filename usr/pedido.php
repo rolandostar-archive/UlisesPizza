@@ -16,7 +16,7 @@ if(isset($_SESSION['email'])){
       <h2 class=header-pedido>¡Arma tu Pizza!</h2>
     </div>
     <!-- Formulario General para la Página -->
-    <form id="pedido" name="formulario" action="carrito.php" method=POST>
+    <form id="pedido" name="formulario" action="carritoAgregar.php" method=POST>
       <!-- Sección Tamaño -->
       <h3 class="header-secciones">Tamaño</h3><hr>
       <div class="content-div">
@@ -125,7 +125,7 @@ if(isset($_SESSION['email'])){
   <div class="footer">
    &copy; Sindral Software 2016
  </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
  <script>
 var modal = document.getElementById('myModal');
 
@@ -174,7 +174,7 @@ window.onclick = function(event) {
 }
 </script>
 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+ 
  <script>
   <?php
   $db -> query('SELECT descripcion FROM especialidad');

@@ -11,7 +11,7 @@
 <html lang="en">
 
 	<?php require_once("header.php"); ?>
-		<form class="form-login" method="post" action="validar.php">
+		<form class="form-login" method="post" action="loginValidar.php">
 			<div class="login">
 				<div class="form-white-background">
 					<div class="form-title-row">

@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	require_once('db.class.php');
+	require_once('carrito.class.php');
 	$db = new database();
 ?>
 
@@ -24,7 +25,8 @@
 				if (!empty($result)) {
 					$_SESSION["email"] = $result[0]['correo']; 
 					$_SESSION["nombre"] = $result[0]['nombre'];
-				  	echo 'Iniciando sesión para '.$_SESSION['correo'].' <p>';
+					$_SESSION["carrito"] = serialize(new carrito());
+					echo 'Iniciando sesión para '.$_SESSION['correo'].' <p>';
 					echo '<script> window.location="resumen.php"; </script>';
 				}
 				
