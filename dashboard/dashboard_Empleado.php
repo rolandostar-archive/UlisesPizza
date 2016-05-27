@@ -92,7 +92,7 @@
 							$row = $db->single(); //Solo va a ser uno
 							//Buscar los pedidos de esa sucursal
 							$db -> query('SELECT * FROM pedidos where id_sucursal=:id_suc');
-							$db->bind(':emp', $row['id_sucursal'];);
+							$db->bind(':id_suc', $row['id_sucursal'];);
 
 							//Mostrar resultados
 							$result = $db->resultset();
