@@ -11,17 +11,16 @@ if(isset($_SESSION['email'])) {
 	<head>
 		<script type="text/javascript">
 		function parcear(){
-			
+
 		}
 		</script>
 	</head>
 	<body>
 	<p> RECIBIR EL ID DEL PAQUETE. Modificar linea 22. Y linea 5 - 6. </p>
 	<select>
-	  <option value="volvo">Volvo</option>
-	  <option value="saab">Saab</option>
-	  <option value="opel">Opel</option>
-	  <option value="audi">Audi</option>
+	  <option value="MO">Masa Original</option>
+	  <option value="MC">Masa Crunchy</option>
+	  <option value="MR">Masa Rellena de Queso</option>
 	</select>
 	<?php
           $db -> query('SELECT nombre FROM paquetes WHERE id_paquete=:id_paq');
