@@ -156,7 +156,7 @@ document.getElementById("myBtn").onclick = function() {
     case 2: precio += 90; console.log("case 2"); break;
   }
   label[3].innerHTML = ingredientes.substring(0,(ingredientes.length-2));
-  label[4].innerHTML = "$"+(precio+20); //TODO: Falta agregar precio de tamaño
+  label[4].innerHTML = "$"+(precio+20);
   modal.style.display = "block";
 }
 

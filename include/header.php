@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="/css/styles.css">
     <?php if(isset($css)) echo '<link rel="stylesheet" href="'.$css.'">'?>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 
 <body>

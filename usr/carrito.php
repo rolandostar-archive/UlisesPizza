@@ -44,6 +44,8 @@ if(isset($_SESSION['email'])) {
 					this.nextSibling.style.visibility = "visible";
 					this.nextSibling.nextSibling.style.visibility = "visible";
 					lock = true;
+				}else{
+					
 				}
 			}, false);   
 		}

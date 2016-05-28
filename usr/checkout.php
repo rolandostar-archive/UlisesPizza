@@ -1,8 +1,11 @@
 <?php
+require("db.class.php");
+
 session_start();
 $title = "Little Ulises Pizza&trade; - Checkout";
-$css = "./css/checkout.css"
-if(isset($_SESSION['email'])) {?>
+$css = "./css/checkout.css";
+if(isset($_SESSION['email'])) {
+    $db = new database();?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,16 +22,24 @@ if(isset($_SESSION['email'])) {?>
                     <div class="datos-entrega">
                         <div class="content-form">
                             <label>Nombre:</label>
-                            <input type="text" name="nombre">
-                            <br><br>
-                            <label>Apellido:</label>
-                            <input type="text" name="apellido">
-                            <br><br>
-                            <label>Teléfono:</label>
-                            <input type="text" name="telefono">
-                            <br><br>
-                            <label>Correo Electrónico:</label>
-                            <input type="text" name="correo">
+        <?php
+          $db -> query('SELECT * FROM usuarios WHERE correo=:correo AND nombre=:nombre');
+          $db->bind(':correo', $_SESSION['email']);
+          $db->bind(':nombre', $_SESSION['nombre']);
+          $row = $db->single();
+          echo '
+            <input type="text" name="nombre" value="'.$row['nombre'].'">
+            <br><br>
+            <label>Apellido:</label>
+            <input type="text" name="apellido" value="'.$row['apellido'].'">
+            <br><br>
+            <label>Teléfono:</label>
+            <input type="text" name="telefono" value="'.$row['telefono'].'">
+            <br><br>
+            <label>Correo Electrónico:</label>
+            <input type="text" name="correo" value="'.$row['correo'].'">
+          ';
+        ?>
                             <br>
                         </div>
                     </div>
