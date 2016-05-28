@@ -48,7 +48,7 @@ echo "</pre>";
 /** SELECT VARIOS RESULTADOS **/
 
 $db -> query('SELECT * FROM usuarios'); // Prepara Query con query()
-$result = $db->resultset(); // Ejecuta Query con single() para regresar un resultado unico (O el primero en caso de ser varios)
+$result = $db->resultset(); // Ejecuta Query con resultset() para regresar un conjunto de resultados
 
 echo "<pre>Varios:";
 print_r($result);
