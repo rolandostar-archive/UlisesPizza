@@ -11,16 +11,19 @@ if(isset($_SESSION['email'])){
 <!DOCTYPE html>
 <html lang="en">
   <?php require_once("header.php"); ?>
-  <main class="content-pedido">
     <div class="header">
-      <h2 class=header-pedido>¡Arma tu Pizza!</h2>
+        <h2 class=header-pedido>¡Arma tu Pizza!</h2>
     </div>
+    
     <!-- Formulario General para la Página -->
     <form id="pedido" name="formulario" action="carritoAgregar.php" method=POST>
+    <main class="content-pedido">
+   
       <!-- Sección Tamaño -->
+    
       <h3 class="header-secciones">Tamaño</h3><hr>
       <div class="content-div">
-      <img src="./img/size_chart.png" style="margin: 0 auto 30px auto;">
+        <img src="./img/size_chart.png" style="margin: 0 auto 30px auto;">
       </div>
       <div class="content-div">
         <div class="tamaño-left">
@@ -62,7 +65,7 @@ if(isset($_SESSION['email'])){
 
       <!-- Sección Extras -->
       <h3 class="header-secciones">¿Deseas añadir ingredientes?</h3><hr>
-
+    </main>
       <div class="container-narrow">
         <table style="width:80%; text-align: left; margin-left: 20%;">
           <?php
@@ -120,8 +123,7 @@ if(isset($_SESSION['email'])){
   </div>
 
 </div>
-
-  </main>
+        
   <div class="footer">
    &copy; Sindral Software 2016
  </div>
