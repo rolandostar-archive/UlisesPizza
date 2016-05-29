@@ -32,7 +32,7 @@ if(isset($_SESSION['email'])) {
 	  <option value="MR">Masa Rellena de Queso</option>
 	</select>
 	<?php
-          $db -> query('SELECT id_paquete FROM paquetes WHERE id_paquete=:id_paq');
+          $db -> query('SELECT * FROM paquetes WHERE id_paquete=:id_paq');
           //Estoy suponiendo que recibo el id del paquete con GET
           $db -> bind(':id_paq', $_GET['id_paquete']);
           $row = $db->single();
