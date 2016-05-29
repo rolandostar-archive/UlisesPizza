@@ -62,6 +62,7 @@ if(isset($_SESSION['email'])) {
                     </div>
                 </div>
 
+                <!-- Comentarios -->
                 <div class="header">
                     <h2 class=header-checkout>Comentarios</h2>
                 </div>
@@ -92,7 +93,7 @@ if(isset($_SESSION['email'])) {
                         </div>
                     </div>
                 </div>
-                
+
             </form>
         </main>
         <div class="footer">
