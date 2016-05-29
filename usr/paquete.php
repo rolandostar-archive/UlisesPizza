@@ -19,7 +19,7 @@ if(isset($_SESSION['email'])) {
 			if( document.getElementById("PG") )
 				enviar += "Pizza Mediana " + $( "#PG option:selected" ).text() + " ";
 			if( document.getElementById("PG") )
-				enviar = "Pizza Personal " + $( "#PG option:selected" ).text() + " ";
+				enviar += "Pizza Personal " + $( "#PG option:selected" ).text() + " ";
 			alert("Quiero mandar: "+enviar);
 		}
 		</script>
