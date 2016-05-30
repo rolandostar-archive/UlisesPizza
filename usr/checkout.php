@@ -145,14 +145,12 @@ if(isset($_SESSION['email'])) {
 
     // When the user clicks the button, open the modal 
     document.getElementById("myBtn").onclick = function() {
-/*
-      label[0].innerHTML = form.elements['nombre'][form.elements['nombre'].value].nextSibling.innerHTML;
-      label[1].innerHTML = form.elements['apellido'][form.elements['apellido'].value].nextSibling.innerHTML;
-      label[2].innerHTML = form.elements['telefono'][form.elements['telefono'].value].nextSibling.innerHTML;
-      label[3].innerHTML = form.elements['correo'][form.elements['correo'].value].nextSibling.innerHTML;
-      label[4].innerHTML = form.elements['direccion'][form.elements['direccion'].value].nextSibling.innerHTML;
-      label[5].innerHTML = form.elements['pago'][form.elements['pago'].value].nextSibling.innerHTML;
-*/
+      label[0].innerHTML = form.elements["nombre"].value;
+      label[1].innerHTML = form.elements["apellido"].value;
+      label[2].innerHTML = form.elements["direccion"].value;
+      label[3].innerHTML = form.elements["correo"].value;
+      label[4].innerHTML = form.elements['direccion'].value;
+      label[5].innerHTML = form.elements['pago'].value;
       modal.style.display = "block";
     }
 
