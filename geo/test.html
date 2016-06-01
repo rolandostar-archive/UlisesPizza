@@ -1,0 +1,140 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCLdTxC6rEdV5tt8qoEJnfV_JfhJgaDXwo"></script>
+    
+</head>
+<body>
+
+	<div><input type="text" maxlength="100" id="address" placeholder="Dirección" /> <input type="button" id="search" value="Buscar" /></div><br/>
+<div id='map_canvas' style="width:600px; height:400px;"></div>
+
+<div>
+   <input id="latlng" type="textbox" value="20.68009, -101.35403">
+</div>
+<div>
+   <input type="button" value="Reverse Geocode" onclick="codeLatLng()">
+</div>
+<table class="width2">
+   <tr><td class="unitx1"><strong>Dirección:</strong></td><td><div id="address"></div></td></tr>
+</table>
+<div id="map_canvas" style="width: 990px; height: 500px"></div>
+
+
+</body>
+
+
+
+<script>
+var geocoder;
+var map;
+var infowindow = new google.maps.InfoWindow();
+var marker = new google.maps.Marker();
+ 
+function closeInfoWindow() {
+        infowindow.close();
+   }
+ 
+function initialize() {
+  geocoder = new google.maps.Geocoder();
+  var latlng = new google.maps.LatLng(20.68009, -101.35403);
+  var mapOptions = {
+    zoom: 8,
+    center: latlng,
+    mapTypeId: 'roadmap'
+  }
+  map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+ 
+  google.maps.event.addListener(map, 'click', function(){
+            closeInfoWindow();
+          });
+}
+ 
+function codeLatLng() {
+  var input = $('#latlng').val();
+  var latlngStr = input.split(',', 2);
+  var lat = parseFloat(latlngStr[0]);
+  var lng = parseFloat(latlngStr[1]);
+  var latlng = new google.maps.LatLng(lat, lng);
+  geocoder.geocode({'latLng': latlng}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      if (results[0]) {
+        map.fitBounds(results[0].geometry.viewport);
+                marker.setMap(map);
+                marker.setPosition(latlng);
+        $('#address').text(results[0].formatted_address);
+        alert(results[0].formatted_address);
+        infowindow.setContent(results[0].formatted_address);
+        infowindow.open(map, marker);
+        google.maps.event.addListener(marker, 'click', function(){
+            infowindow.setContent(results[0].formatted_address);
+            infowindow.open(map, marker);
+        });
+      } else {
+        alert('No results found');
+      }
+    } else {
+      alert('Geocoder failed due to: ' + status);
+    }
+  });
+}
+ 
+$(document).ready(function(){
+   initialize();
+});
+</script>
+
+<script>
+	$(document).ready(function() {
+    load_map();
+});
+
+var map; 
+
+function load_map() {
+    var myLatlng = new google.maps.LatLng(20.68009, -101.35403);
+    var myOptions = {
+        zoom: 4,
+        center: myLatlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    map = new google.maps.Map($("#map_canvas").get(0), myOptions);
+}
+$("#search").click(function(){
+    // Obtenemos la dirección y la asignamos a una variable
+    var address = $('#address').val();
+    // Creamos el Objeto Geocoder
+    var geocoder = new google.maps.Geocoder();
+    // Hacemos la petición indicando la dirección e invocamos la función
+    // geocodeResult enviando todo el resultado obtenido
+    geocoder.geocode({ 'address': address}, geocodeResult);
+});
+
+function geocodeResult(results, status) {
+    // Verificamos el estatus
+    if (status == 'OK') {
+        // Si hay resultados encontrados, centramos y repintamos el mapa
+        // esto para eliminar cualquier pin antes puesto
+        var mapOptions = {
+            center: results[0].geometry.location,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+
+        };
+        alert(results[0].geometry.location.lat());
+        alert(results[0].geometry.location.lng());
+        $( "#latlng" ).val(results[0].geometry.location.lat() +","+ results[0].geometry.location.lng());
+        map = new google.maps.Map($("#map_canvas").get(0), mapOptions);
+        // fitBounds acercará el mapa con el zoom adecuado de acuerdo a lo buscado
+        map.fitBounds(results[0].geometry.viewport);
+        // Dibujamos un marcador con la ubicación del primer resultado obtenido
+        var markerOptions = { position: results[0].geometry.location }
+        var marker = new google.maps.Marker(markerOptions);
+        marker.setMap(map);
+    } else {
+        // En caso de no haber resultados o que haya ocurrido un error
+        // lanzamos un mensaje con el error
+        alert("Geocoding no tuvo éxito debido a: " + status);
+    }
+}
+</script>
+</html>
