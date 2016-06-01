@@ -1,0 +1,224 @@
+html{
+	overflow-y: scroll;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	color: #333;
+	background-color: #eee;
+	font: 1em/1.2 "Lato",Helvetica, Arial, Geneva, sans-serif;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	background: transparent url("../img/photo-montage1.png") no-repeat center bottom;
+	background-position: bottom -50px center;
+	background-color: #fff;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	margin: 0 0 .5em;
+	font-weight: 500;
+	line-height: 1.1;
+}
+
+h1 { font-size: 2.25em; }
+h2 { font-size: 1.75em; }
+h3 { font-size: 1.375em; }
+h4 { font-size: 1.125em; }
+h5 { font-size: 1em; }
+h6 { font-size: .875em; }
+
+p {
+	margin: 0 0 1.5em;
+	line-height: 1.5;
+}
+
+blockquote {
+	padding: 1em 2em;
+	margin: 0 0 2em;
+	border-left: 5px solid #eee;
+}
+
+hr {
+	height: 0;
+	margin-top: 1em;
+	margin-bottom: 2em;
+	border: 0;
+	border-top: 1px solid #ddd;
+}
+
+table {
+	background-color: transparent;
+	border-spacing: 0;
+	border-collapse: collapse;
+	border-top: 1px solid #ddd;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+th, td {
+	padding: .5em 1em;
+	vertical-align: top;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+
+a:link { color: royalblue; }
+a:visited { color: purple; }
+a:focus { color: black; }
+a:hover { color: green; }
+a:active { color: red; }
+
+.container {
+	/*max-width: 50em;*/
+	margin: 0 auto;
+}
+
+.container-narrow {
+	max-width: 50em;
+	margin: 0 auto;
+	/*margin-bottom: 3.5em;*/
+}
+
+.header {
+	color: #fff;
+	background: #555;
+	padding: 1em 1.25em;
+}
+
+.header-heading { margin: 0; }
+
+.banner{
+	text-align: center;
+	background: transparent url('../img/Pizza-HD-Wallpaper.jpg') 0 0 no-repeat fixed;
+    background-size: cover;
+    background-position: bottom center;
+    height: 200px;
+    width: 100%;
+    display: table;
+}
+
+.nav-bar {
+	background: #212121;
+	padding: 0;
+}
+
+.content {
+	flex: 1;
+	padding: 1em 1.25em;
+}
+
+.footer {
+	color: #fff;
+	background: rgba(50, 50, 50, 0.9);
+	padding: 1em 1.25em;
+	text-align: right;
+}
+
+.nav {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-align: right;
+}
+
+.nav li {
+	display: inline;
+	margin: 0;
+	color: #9d9d9d;
+}
+
+.nav li::before {
+    content: "";
+	padding-right: 0px;
+}
+
+.nav a {
+	display: block;
+	padding: .7em 1.25em;
+	color: #9d9d9d;
+	text-decoration: none;
+	border-bottom: 1px solid gray;
+}
+
+.nav a:hover {
+	color: white;
+}
+
+.img-responsive { max-width: 100%; }
+
+.btn {
+	color: #fff;
+	background-color: royalblue;
+	border-color: #222;
+	display: inline-block;
+	padding: .5em 1em;
+	margin-bottom: 0;
+	font-weight: 400;
+	line-height: 1.2;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	border: 1px solid transparent;
+	border-radius: .2em;
+	text-decoration: none;
+}
+
+.btn:hover {
+	color: #fff;
+	background-color: green;
+}
+
+.btn:focus {
+	color: #fff;
+	background-color: black;
+}
+
+.btn:active {
+	color: #fff;
+	background-color: red;
+}
+
+.list-unstyled {
+	padding-left: 0;
+	list-style: none;
+}
+
+.list-inline {
+	padding-left: 0;
+	margin-left: -5px;
+	list-style: none;
+}
+
+.list-inline > li {
+	display: inline-block;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+@media (min-width: 42em) {
+	.header { padding: 1.5em 3em; }
+	.nav-bar { padding: 1em 3em; }
+	.content { padding: 2em 3em; }
+	.footer { padding: 2em 3em; }
+
+	.nav li {
+		display: inline;
+		margin: 0 1em 0 0;
+	}
+
+	.nav a {
+		display: inline;
+		padding: 0;
+		border-bottom: 0;
+	}
+
+	.nav li::before {
+	    content: "|";
+	    color: white;
+	    font-weight: bold;
+		padding-right: 1em;
+	}
+}
