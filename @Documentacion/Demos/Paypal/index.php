@@ -4,6 +4,8 @@ require_once('paypal-wps.class.php');
  
 $ppWPS = new PayPalWPS();
 $ppWPS->setInvoiceNumber(1569);
+$ppWPS->setAddress("345 Lark Ave",NULL,"San Jose","CA","95121","US");
+$ppWPS->setContact("John","Doe");
 //$ppWPS->setCustomInfo(<your_custom_info>); // optional
 
 

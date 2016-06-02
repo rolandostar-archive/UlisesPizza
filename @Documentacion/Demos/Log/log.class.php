@@ -1,36 +1,42 @@
 <?php 
     class PHPLogger{    
         private $log_file;
+        private $level;
     
-        function __construct() {
+        function __construct($level = 4) {
             $log_file = $_SERVER['DOCUMENT_ROOT']."/log/". DIRECTORY_SEPARATOR. 'log_'. date('Y-m-d'). '.log';
             $this->log_file = $log_file;
+            $this->level = $level;
 
             if(!file_exists($log_file)) touch($log_file);
             if(!(is_writable($log_file) || $this->win_is_writable($log_file)))  
                throw new Exception("LOGGER ERROR: Can't write to log", 1);
         }
            
+        /* Nivel 4 */
         public function d($message){
-            $this->writeToLog("DBUG", $message);
+            if($this->level >= 4) $this->writeToLog("DEBUG", $message);
         }
-      
+
+        /* Nivel 3 */
         public function e($message){
-            $this->writeToLog("ERRO", $message);            
+            if($this->level >= 3) $this->writeToLog("ERROR", $message);
         }
-       
+
+        /* Nivel 2 */
         public function w($message){
-            $this->writeToLog("WARN", $message);            
+            if($this->level >= 2) $this->writeToLog("WARN", $message);
         }
-      
+
+        /* Nivel 1 */
         public function i($message){
-            $this->writeToLog("INFO", $message);            
+            if($this->level >= 1) $this->writeToLog("INFO", $message);
         }
        
         private function writeToLog($status,$message) {
             $script_name = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);        
             $date = date('[Y-m-d H:i:s]');
-            $msg = "$date: ($script_name) [$status] - $message" . PHP_EOL;
+            $msg = "$date: [$status] - ($script_name) $message" . PHP_EOL;
             file_put_contents($this->log_file, $msg, FILE_APPEND);
         }
 

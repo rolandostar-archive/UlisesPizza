@@ -5,7 +5,7 @@ require_once('PPCrypto.php'); //Seguridad de paypal
 
 define("PAYPAL_GATEWAY","https://www.sandbox.paypal.com/cgi-bin/webscr"); // Dominio de testing
 // Dominio REAL - NO USAR SI NO QUIERES USAR DINERO DE VERDAD - https://www.paypal.com/cgi-bin/webscr
-$log = new PHPLogger;
+$log = new PHPLogger(1);
 
 class PayPalCartItem { //Un objeto del carrito
   var $item_name;
@@ -30,12 +30,11 @@ class PayPalWPS { //Website Payment Standard
   function __construct() {
     global $config, $log;
     
-    $log->d("PayPalWPS: test mode enabled");
     $this->businessEmail = $config['test_business_email'];
     $this->paypalCertificatePath = $config['test_paypal_certificate_path'];    
-    $log->d("PayPalWPS: Gateway url is " . $this->gatewayUrl);
-    $log->d("PayPalWPS: Business email is " . $this->businessEmail);
-    $log->d("PayPalWPS: PayPal public certificate path is " . $this->paypalCertificatePath);
+    $log->d("Gateway url is " . $this->gatewayUrl);
+    $log->d("Business email is " . $this->businessEmail);
+    $log->d("PayPal public certificate path is " . $this->paypalCertificatePath);
   }
   
   //NO permite cmd, upload o business
@@ -54,17 +53,20 @@ class PayPalWPS { //Website Payment Standard
     $this->fields['custom'] = $info;
   }
 
-  /*
+  function setAddress($address1,$address2=NULL,$city,$state,$zip,$country){
     $this->fields['address_override'] = '1';
+    $this->fields['address1'] = $address1;
+    if (!is_null($address2)) $this->fields['address2'] = $address2;
+    $this->fields['city'] = $city;
+    $this->fields['state'] = $state;
+    $this->fields['zip'] = $zip;
+    $this->fields['country'] = $country;
+  }
+
+  function setContact($first,$last){
     $this->fields['first_name'] = 'John';
     $this->fields['last_name'] = 'Doe';
-    $this->fields['address1'] = '345 Lark Ave';
-    $this->fields['city'] = 'San Jose';
-    $this->fields['state'] = 'CA';
-    $this->fields['zip'] = '95121';
-    $this->fields['country'] = 'US';
-    $this->fields['no_note'] = '1';
-  */
+  }
   
   function addCartItem(PayPalCartItem $cartItem) {
    
@@ -114,14 +116,13 @@ class PayPalWPS { //Website Payment Standard
     $this->fields['cert_id'] = $config['public_certificate_id'];
 
     $this->fields['currency_code'] = 'MXN'; //dinero dinero dinero
+    $this->fields['no_note'] = '1'; // Sin comentarios
     
-    $log->i("PayPal request fields: " . $this->getFieldsAsString());
+    $log->d("PayPal request fields: " . $this->getFieldsAsString());
     
-    $encryptedDataReturn = self::encryptRequest($this->fields,
-                                                $config['public_certificate_path'],
-                                                $config['private_key_path'],
-                                                $config['private_key_password'],
-                                                $this->paypalCertificatePath);
+    $encryptedDataReturn = self::encryptRequest(
+      $this->fields,$config['public_certificate_path'],$config['private_key_path'],$config['private_key_password'],$this->paypalCertificatePath
+    );
     
     $encryptedData = "-----BEGIN PKCS7-----${encryptedDataReturn['encrypted_data']}-----END PKCS7-----";
     
@@ -151,12 +152,9 @@ PPHTML;
   
   private function getFieldsAsString() {
     $fields_string = '';
-    
-    foreach ($this->fields as $key => $value) {
+    foreach ($this->fields as $key => $value)
       $fields_string .= "$key=$value,";
-    }
     $fields_string = rtrim($fields_string, ",");
-    
     return $fields_string;
   }
   
@@ -166,28 +164,17 @@ PPHTML;
    * @access private
    * @return array with status/encrypted_data on success or status/error_msg on failue
    */
-  private static function encryptRequest($params,
-                                         $publicCertPath,
-                                         $privateKeyPath,
-                                         $privateKeyPassword,
-                                         $paypalCertPath) {
+  private static function encryptRequest($params,$publicCertPath,$privateKeyPath,$privateKeyPassword,$paypalCertPath) {
     global $log;
-    
-    //print_r(func_get_args());die();
-    
+       
     // check input files
-    if (!realpath($publicCertPath)) {
+    if (!realpath($publicCertPath))
       return array('status' => false, 'error_msg' => "invalid public certificate file: $publicCertPath");
-    }
-    
-    if (!realpath($privateKeyPath)) {
+    if (!realpath($privateKeyPath))
       return array('status' => false, 'error_msg' => "invalid private key file: $privateKeyPath");
-    }
-    
-    if (!realpath($paypalCertPath)) {
+    if (!realpath($paypalCertPath))
       return array('status' => false, 'error_msg' => "invalid paypal certificate file: $paypalCertPath");
-    }
-    
+
     // prepare request params for encryption (one key=value per line)
     $data = array();
 		foreach ($params as $name => $value) {
@@ -196,11 +183,9 @@ PPHTML;
     $data = implode("\n", $data);
     
     // sign and encrypt
-    $encryptedDataReturn = PPCrypto::signAndEncrypt($data, 
-                                                    realpath($publicCertPath),
-                                                    realpath($privateKeyPath),
-                                                    $privateKeyPassword,
-                                                    realpath($paypalCertPath));
+    $encryptedDataReturn = PPCrypto::signAndEncrypt(
+      $data,realpath($publicCertPath),realpath($privateKeyPath),$privateKeyPassword,realpath($paypalCertPath)
+    );
 		if (!$encryptedDataReturn['status']) {
       $log->e("Error encrypting request. error_msg=${encryptedDataReturn['error_msg']}");
       return array('status' => false, 'error_msg' => $encryptedDataReturn['error_msg']);
@@ -224,35 +209,16 @@ class PayPalIPN {
   private $businessEmail;
   var $ipn_data = array();
   
-  // test mode disabled by default; real PayPal payment gateway is used
-  private $gatewayUrl = PAYPAL_PAYMENT_GATEWAY_URL;
+  private $gatewayUrl = PAYPAL_GATEWAY;
   
   function __construct() {
     global $config, $log;
-    
-    $test_mode = ($config['test_mode'] == true)?true:false;
-    
-    if ($test_mode == true) {
-      $log->d("PayPalIPN: test mode enabled");
-      
-      $this->businessEmail = $config['test_business_email'];
-      $this->gatewayUrl = PAYPAL_SANDBOX_PAYMENT_GATEWAY_URL;
-    }
-    else {
-      $this->businessEmail = $config['business_email'];
-      $this->gatewayUrl = PAYPAL_PAYMENT_GATEWAY_URL;
-    }
-    
+
+    $this->businessEmail = $config['business_email'];   
     $log->d("PayPalIPN: Gateway url is " . $this->gatewayUrl);
     $log->d("PayPalIPN: Business email is " . $this->businessEmail);
   }
-  
-  /**
-   * Process IPN confirmation
-   * 
-   * @access public
-   * @return error code
-   */
+
   function processConfirmation() {
     global $log;
     
@@ -261,26 +227,16 @@ class PayPalIPN {
     $fields_string = ''; // log fields without urlencoding
     $post_string = 'cmd=_notify-validate';
     
-    if (function_exists('get_magic_quotes_gpc')) {
-      $get_magic_quotes_exists = true;
-    }
-    
     // create the POST string to be send back to PayPal and load the IPN data
     foreach ($_POST as $key => $value) {
       $fields_string .= "$key=$value,";
       $this->ipn_data["$key"] = $value;
-      
-      if ($get_magic_quotes_exists == true && get_magic_quotes_gpc() == 1) {
-        $value = urlencode(stripslashes($value));
-      }
-      else {
-        $value = urlencode($value);
-      }
+      $value = urlencode($value);
       $post_string .= "&$key=$value";
     }
     $fields_string = rtrim($fields_string, ",");
     
-    $log->i("PayPal IPN confirmation fields: $fields_string");
+    $log->d("PayPal IPN confirmation fields: $fields_string");
     
     // execute the HTTPS post via CURL
     $ch = curl_init($this->gatewayUrl);
@@ -298,7 +254,7 @@ class PayPalIPN {
       $result = self::COMMUNICATION_ERROR;
     }
     else {
-      $log->i("PayPal IPN confirmation response: $response_string");
+      $log->d("PayPal IPN confirmation response: $response_string");
       
       if (strcmp($response_string, "VERIFIED") == 0) {
         $log->i("IPN confirmation was successfully verified");
