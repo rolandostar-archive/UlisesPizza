@@ -196,7 +196,7 @@ window.onclick = function(event) {
     });
     $("[name='ingrediente[]']").click(function(){
       if (form.elements['base'].value != 0)
-      alert("Advertencia: Elejir un ingrediente extra cambiara el tipo de Pizza a PERSONALIZADA.");
+      alert("ADVERTENCIA: Elegir un ingrediente extra cambiará el tipo de Pizza a PERSONALIZADA.");
       $("input:radio[value='0']").prop("checked", true);
     });
   });
