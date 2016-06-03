@@ -11,7 +11,6 @@
 		<title>Little Ulises Pizza&trade; - Dashboard</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="robots" content="index, follow">
-		<script type="text/javascript" src="sucursal.js"></script>
 		<!-- icons -->
 		<link rel="shortcut icon" href="/favicon.ico">
 
@@ -72,7 +71,8 @@
 
 				<!-- Select de Sucursal -->
 				<div class="sucursal">
-					<select id="sucursal"  onchange="actualizarTabla()">
+                    <form id="serial" method=POST>
+					<select id="sucursal" name="codigo">
 			          <?php
 				          $db -> query('SELECT id_sucursal, nombre FROM sucursales');
 				          $result = $db->resultset();
@@ -81,6 +81,7 @@
 				          }
 			          ?>
 					</select>
+                    </form>
 				</div>
 
 				<!-- Botón Agregar Empleado -->
@@ -89,12 +90,7 @@
 				</div>
                 
                 <!-- Div donde se introduce la tabla generada con la información de la sucursal seleccionada -->
-				<div id="info-sucursal">
-                   
-                    
-                        
-                    
-                </div>
+				<div id="info-sucursal"></div>
                 
 			 </div>
 		</main>
@@ -104,25 +100,17 @@
 		<script>
 		$(document).ready(function () {
 			$('#sucursal').change(function() {
-				console.log(this.options[this.selectedIndex].value);
-				//alert('The option with value ' + $(this).val() + ' and text ' + $(this).text() + ' was selected.');
+                var url = "tablaGerente.php"; // the script where you handle the form input.
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: $("#serial").serialize(), // serializes the form's elements.
+                    success: function(data){
+                        document.getElementById("info-sucursal").innerHTML = data;
+                    }
+                });
 			});
 		});
-
-		function submitForm() {
-		    var url = "tablaGerente.php"; // the script where you handle the form input.
-		    $.ajax({
-		    	type: "POST",
-		    	url: url,
-		        data: $("#tabla-gerente").serialize(), // serializes the form's elements.
-		        success: function(data)
-		        {
-                    document.getElementById("info-sucursal").innerHTML = data;
-		        }
-		    });
-
-		    return false; // avoid to execute the actual submit of the form.
-		};
 		</script>
 	</body>
 </html>
