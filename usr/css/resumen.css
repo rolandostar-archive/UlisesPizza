@@ -117,6 +117,12 @@ form label {
     display: block;
     text-align: center;
 }
+
+column{
+    padding: 0;
+    margin: 0;
+}
+
 column .paquete {
     display: inline-block;
     border: 1px solid #ddd;

@@ -2,12 +2,14 @@
 session_start();
 $title = "Little Ulises Pizza&trade; - Resumen";
 $css = "./css/resumen.css";
-if(isset($_SESSION['email'])) 
-{?>
-<!DOCTYPE html>
-<html lang="en">
+if(isset($_SESSION['email'])) {
+	require_once('db.class.php');
+	$db = new database();
+	?>
+	<!DOCTYPE html>
+	<html lang="en">
 
-<?php require_once("header.php"); ?>
+	<?php require_once("header.php"); ?>
 	<div class="header">
 		<h1 class=header-heading>Tu resumen</h1>
 	</div>
@@ -15,6 +17,18 @@ if(isset($_SESSION['email']))
 		<div>
 			<!-- Tabla de pedidos actuales -->
 			<h3>Pedidos Actuales</h3>
+
+
+<?php
+
+$db -> query('SELECT * from pedidos,usuarios WHERE pedidos.id_usuario=usuarios.id_user AND usuarios.correo = :correo and estado<3');
+$db -> bind(':correo', $_SESSION['email']);
+$result = $db->resultset();
+if (!empty($result)) {
+     // list is empty.
+
+?>
+
 			<table class="tabla-pedido">
 				<tr>
 					<th>Codigo</th>
@@ -27,169 +41,172 @@ if(isset($_SESSION['email']))
 					<th>Estado</th>
 					<th>Accion</th>
 				</tr>
-				<tr>
-					<td>CS16</td>
-					<td>7:54 PM</td>
-					<td>08/05/2016</td>
-					<td>$199</td>
-					<td>Av. Juan de Dios Batiz s/nGustavo A. MaderoNueva industria vallejo 08800</td>
-					<td>Pizza hawaiiana grandePizza de pepperoni mediana</td>
-					<td>7:12</td>
-					<td>En Camino</td>
-					<td><button onclick="cancel(1)">Cancelar</button></td>
-				</tr>
-				<tr>
-					<td>RK65</td>
-					<td>7:10 PM</td>
-					<td>08/05/2016</td>
-					<td>$129</td>
-					<td>Av. Instituto Politecnico Nacional s/nGustavo A. MaderoLindavista</td>
-					<td>Pizza hawaiiana grandePizza de pepperoni mediana</td>
-					<td>7:27</td>
-					<td>Pendiente</td>
-					<td><button onclick="cancel(2)">Cancelar</button></td>
-				</tr>
+
+				<?php
+				foreach ($result as $index => $row) {
+					$phpdate = strtotime( $row['tiempoPedido'] );
+					$endtime = strtotime('+ 30 minutes', $phpdate );
+					echo "<tr>";
+					echo "<td>".$row['codigo']."</td>";
+					echo "<td>".date('g:i A',$phpdate)."</td>";
+					echo "<td>".date('d/m/Y',$phpdate )."</td>";
+					echo "<td>".$row['precio']."</td>";
+					echo "<td>".$row['direccion']."</td>";
+					echo "<td>".$row['descripcion']."</td>";
+					echo "<td>".date('g:i A',$endtime )."</td>";
+					switch ($row['estado']) {
+						case '0': echo "<td> Pendiente </td>"; break;
+						case '1': echo "<td> Cocinando </td>"; break;
+						case '2': echo "<td> En Camino </td>"; break;
+					}
+					echo "<td><button onclick=\"cancel(".$row['codigo'].")\"";
+					if($row['estado']>0) echo "disabled";
+					echo ">Cancelar</button></td>";
+					echo "</tr>";
+				}
+				?>
 			</table>
 		</div>
-
+<?php
+}else{
+	echo "No tienes pedidos activos. Agrega uno!";
+}
+?>
 		<div class="tabla-precios">
-			<column>
-			<div class="paquete">
-				<div class="paq-head" style="background: #212121;">
-					<h2>Paquete 1</h2>
-					<span class="precio">
-						$125 <span>Para compartir</span>
-					</span>
-				</div>
-				<ul class="lista-productos">
-					<li>2 Pizzas Grandes
-						<br/>(1 Ingrediente)</li>
-						<li>Refresco Cualquier Sabor</li>
-					</ul>
-					<a class="btn-pedir" href="#" role="button">Pedir</a>
-				</div>
-			</column>
-			<column>
-			<div class="paquete">
-				<div class="paq-head" style="background: blue;">
-					<h2>Paquete 2</h2>
-					<span class="precio">
-						$125 <span>Para compartir</span>
-					</span>
-				</div>
-				<ul class="lista-productos">
-					<li>2 Pizzas Grandes
-						<br/>(1 Ingrediente)</li>
-						<li>Refresco Cualquier Sabor</li>
-					</ul>
-					<a class="btn-pedir" href="#" role="button">Pedir</a>
-				</div>
-			</column>
-			<column>
-			<div class="paquete">
-				<div class="paq-head" style="background: red;">
-					<h2>Paquete 3</h2>
-					<span class="precio">
-						$125 <span>Para compartir</span>
-					</span>
-				</div>
-				<ul class="lista-productos">
-					<li>2 Pizzas Grandes
-						<br/>(1 Ingrediente)</li>
-						<li>Refresco Cualquier Sabor</li>
-					</ul>
-					<a class="btn-pedir" href="#" role="button">Pedir</a>
-				</div>
-			</column>
-			<column>
-			<div class="paquete">
-				<div class="paq-head" style="background: green;">
-					<h2>Paquete 4</h2>
-					<span class="precio">
-						$125 <span>Para compartir</span>
-					</span>
-				</div>
-				<ul class="lista-productos">
-					<li>2 Pizzas Grandes
-						<br/>(1 Ingrediente)</li>
-						<li>Refresco Cualquier Sabor</li>
-					</ul>
-					<a class="btn-pedir" href="#" role="button">Pedir</a>
-				</div>
-			</column>
-			<column>
+
+			<?php
+
+			$db -> query('SELECT * from paquetes');
+			$result = $db->resultset();
+			foreach ($result as $index => $row) {
+				echo '<column>
+				<div class="paquete">
+					<div class="paq-head" style="background: '.$row['color'].';">
+						<h2>Paquete '.$row['id_paquete'].'</h2>
+						<span class="precio">
+							$'.$row['precio'].' <span>'.$row['slogan'].'</span>
+						</span>
+					</div>
+					<ul class="lista-productos">';
+						if($row['pizza_grande']>0){
+							echo '<li>'.$row['pizza_grande'].' Pizza';
+							if($row['pizza_grande']>1) echo 's';
+							echo ' Grande';
+							if($row['pizza_grande']>1) echo 's';
+							echo '</li>';
+						}
+						if($row['pizza_mediana']>0){
+							echo '<li>'.$row['pizza_mediana'].' Pizza';
+							if($row['pizza_mediana']>1) echo 's';
+							echo ' Mediana';
+							if($row['pizza_mediana']>1) echo 's';
+							echo '</li>';
+						}
+						if($row['pizza_chica']>0){
+							echo '<li>'.$row['pizza_chica'].' Pizza';
+							if($row['pizza_chica']>1) echo 's';
+							echo ' Chica';
+							if($row['pizza_chica']>1) echo 's';
+							echo '</li>';
+						}
+						if($row['refrescos']>0){
+							echo '<li>'.$row['refrescos'].' Refresco';
+							if($row['refrescos']>1) echo 's';
+							echo '</li>';
+						}
+						echo '</ul>
+						<a class="btn-pedir" href="#" role="button">Pedir</a>
+					</div>
+				</column>';
+			}
+			?><column>
 			<div class="paquete">
 				<div class="paq-head" style="background: #E38F27;">
 					<h2>Personalizada</h2>
 					<span class="precio">
-						Armala!<span>Como tu quieras</span>
+					Armala! <span>Como tu quieras</span>
 					</span>
 				</div>
 				<ul class="lista-productos">
 					<li>Masa y Tamaño a escojer</li>
-					<li>Los ingredientes que<br>tu quieras</li>
-					</ul>
-					<a class="btn-pedir" href="./pedido.php" role="button">Personalizar</a>
-				</div>
-			</column>
-		</div>
-
-		<!-- Tabla de historial -->
-		<div>
-			<h3>Historial</h3>
-			<table class = "tabla-pedido">
-				<tr>
-					<th>Codigo</th>
-					<th>Hora</th>
-					<th>Fecha</th>
-					<th>Precio</th>
-					<th>Direccion</th>
-					<th>Descripcion</th>
-					<th>Hora de Entrega</th>
-					<th>Calificar</th>
-				</tr>
-				<tr>
-					<td>KJ14</td>
-					<td>6:12 PM</td>
-					<td>08/05/2016</td>
-					<td>$100</td>
-					<td>Lázaro Cárdenas 152, San Bartolo Atepehuacan, 07730</td>
-					<td>Pizza hawaiiana grandePizza de pepperoni mediana</td>
-					<td>6:23 PM</td>
-					<td>
-						<form class="calif" id="1">
-							<div class="clasificacion">
-								<input id="radio1" type="radio" name="estrellas" value="5">
-								<label for="radio1">&#9733;</label>
-								<input id="radio2" type="radio" name="estrellas" value="4">
-								<label for="radio2">&#9733;</label>
-								<input id="radio3" type="radio" name="estrellas" value="3">
-								<label for="radio3">&#9733;</label>
-								<input id="radio4" type="radio" name="estrellas" value="2">
-								<label for="radio4">&#9733;</label>
-								<input id="radio5" type="radio" name="estrellas" value="1">
-								<label for="radio5">&#9733;</label>
-							</div>
-						</form>
-
-					</td>
-				</tr>
-			</table>
-		</div>
-
-	</main>
-	<div class="footer ">
-		&copy; Sindral Software 2016
+					<li>Los ingredientes que tu quieras</li>
+				</ul>
+				<a class="btn-pedir" href="./pedido.php" role="button">Personalizar</a>
+			</div>
+		</column>
 	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-	<script>
-		$(document).ready(function () {
-			$("[name='estrellas']").click(function(){
-				submitForm();
-			});
-		});
 
-		function submitForm() {
+	<!-- Tabla de historial -->
+	<div>
+		<h3>Historial</h3>
+<?php 
+$db -> query('SELECT * from pedidos,usuarios WHERE pedidos.id_usuario=usuarios.id_user AND usuarios.correo = :correo and estado=5');
+$db -> bind(':correo', $_SESSION['email']);
+$result = $db->resultset();
+if (!empty($result)) {
+
+?>
+		<table class = "tabla-pedido">
+			<tr>
+				<th>Codigo</th>
+				<th>Hora</th>
+				<th>Fecha</th>
+				<th>Precio</th>
+				<th>Direccion</th>
+				<th>Descripcion</th>
+				<th>Hora de Entrega</th>
+				<th>Calificar</th>
+			</tr>
+
+			<?php 
+
+			foreach ($result as $index => $row) {
+				$phpdate = strtotime( $row['tiempoPedido'] );
+				$entrega = strtotime( $row['tiempoEntrega'] );
+				echo "<tr>";
+				echo "<td>".$row['codigo']."</td>";
+				echo "<td>".date('g:i A',$phpdate)."</td>";
+				echo "<td>".date('d/m/Y',$phpdate )."</td>";
+				echo "<td>".$row['precio']."</td>";
+				echo "<td>".$row['direccion']."</td>";
+				echo "<td>".$row['descripcion']."</td>";
+				echo "<td>".date('g:i A',$entrega)."</td>";
+				echo '<td>
+				<form class="calif" id="1">
+					<div class="clasificacion">';
+						for($index=5;$index>0;$index--){
+							echo '
+							<input id="radio'.$index.'" type="radio" name="estrellas" value="'.$index.'"';
+							if($row['calificacion']==$index) echo 'checked="checked"';
+							echo '><label for="radio'.$index.'">&#9733;</label>';
+						}
+						echo '</div>
+					</form>
+
+				</td>';
+				echo "</tr>";
+			}
+			?>
+
+		</table>
+<?php
+}else echo "Cuando tus pizzas sean entregadas, se mostraran aqui.";
+?>
+	</div>
+
+</main>
+<div class="footer ">
+	&copy; Sindral Software 2016
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+	$(document).ready(function () {
+		$("[name='estrellas']").click(function(){
+			submitForm();
+		});
+	});
+
+	function submitForm() {
 		    var url = "rate.php"; // the script where you handle the form input.
 		    $.ajax({
 		    	type: "POST",
