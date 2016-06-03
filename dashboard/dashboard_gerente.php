@@ -11,7 +11,7 @@
 		<title>Little Ulises Pizza&trade; - Dashboard</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="robots" content="index, follow">
-
+		<script type="text/javascript" src="sucursal.js"></script>
 		<!-- icons -->
 		<link rel="shortcut icon" href="/favicon.ico">
 
@@ -72,7 +72,7 @@
 
 				<!-- Select de Sucursal -->
 				<div class="sucursal">
-					<select id="sucursal">
+					<select id="sucursal"  onchange="actualizarTabla()">
 			          <?php
 				          $db -> query('SELECT id_sucursal, nombre FROM sucursales');
 				          $result = $db->resultset();
@@ -90,60 +90,9 @@
                 
                 <!-- Div donde se introduce la tabla generada con la información de la sucursal seleccionada -->
 				<div id="info-sucursal">
+                   
                     
-                    <script>
-                    var sucursal = document.getElementById("sucursal");
-                    var idSucursal = sucursal.options[sucursal.selectedIndex].value;
-                    </script>
-                    
-                    <?php    
-                    $db -> query('SELECT sucursales.id_sucursal, codigo, tiempoPedido, tiempoEntrega, empleados.nombre, apellido, calificacion, precio, estado FROM pedidos, empleados, sucursales WHERE pedidos.id_empleado = empleados.id_empleado AND empleados.id_sucursal = sucursales.id_sucursal AND sucursales.id_sucursal LIKE "3" ORDER BY tiempoPedido DESC;');
-                    $result = $db->resultset();
-                    if (!empty($result)) {
-                    ?>
-                    
-                        <table class="tabla-gerente">
-
-                            <thead>
-                                <tr>
-                                    <th>Fecha</th>
-                                    <th>Codigo</th>
-                                    <th>Tiempo Pedido</th>
-                                    <th>Tiempo Entrega</th>
-                                    <th>Empleado</th>
-                                    <th>Calificación</th>
-                                    <th>Precio</th>
-                                    <th>Estado</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <?php 
-                                    foreach ($result as $index => $row) {
-                                        $phpdate = strtotime( $row['tiempoPedido'] );
-                                        $entrega = strtotime( $row['tiempoEntrega'] );
-                                        echo "<tr>";
-                                            echo "<td>".date('d/m/Y',$phpdate )."</td>";
-                                            echo "<td>".$row['codigo']."</td>";
-                                            echo "<td>".date('g:i A',$phpdate)."</td>";
-                                            echo "<td>".date('g:i A',$entrega)."</td>";
-                                            echo "<td>".$row['nombre']." ".$row['apellido']."</td>";
-                                            echo "<td>".$row['calificacion']."</td>";
-                                            echo "<td>$ ".$row['precio']."</td>";
-                                            switch ($row['estado']) {
-                                                case '0': echo "<td> Pendiente </td>"; break;
-                                                case '1': echo "<td> Cocinando </td>"; break;
-                                                case '2': echo "<td> En Camino </td>"; break;
-                                                case '3': echo "<td> Entregada </td>"; break;
-                                            }
-                                        echo "</tr>";
-                                    }
-                                ?>  
-                            </tbody>
-                        </table>
-                    <?php
-                    }else echo "Aún no hay información de pedidos para mostrar";
-                    ?>
+                        
                     
                 </div>
                 
