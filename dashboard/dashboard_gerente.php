@@ -90,14 +90,18 @@
                 
                 <!-- Div donde se introduce la tabla generada con la información de la sucursal seleccionada -->
 				<div id="info-sucursal">
-                
-                <script>
-                    <?php 
+                    
+                    <script>
+                    var sucursal = document.getElementById("sucursal");
+                    var idSucursal = sucursal.options[sucursal.selectedIndex].value;
+                    </script>
+                    
+                    <?php    
                     $db -> query('SELECT sucursales.id_sucursal, codigo, tiempoPedido, tiempoEntrega, empleados.nombre, apellido, calificacion, precio, estado FROM pedidos, empleados, sucursales WHERE pedidos.id_empleado = empleados.id_empleado AND empleados.id_sucursal = sucursales.id_sucursal AND sucursales.id_sucursal LIKE "3" ORDER BY tiempoPedido DESC;');
                     $result = $db->resultset();
                     if (!empty($result)) {
                     ?>
-                </script>
+                    
                         <table class="tabla-gerente">
 
                             <thead>
