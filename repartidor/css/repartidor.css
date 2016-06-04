@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 100%;
+    font-family: Arial;
+    background: url("../images/tile_image.jpg") repeat; 
+}
+
+.top-menu ul a li{
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    float: left;
+    list-style: none;
+    width: 98%;
+    padding: 2%;
+    height: 100%;
+    border-top: 2px solid black;
+}
+
+.top-menu ul a i li .selected {
+    opacity: 1;
+    border-top: 2px solid #cc0000;
+}
+
+.top-menu ul a li img i{
+    max-height: 1.6em;
+    padding-bottom: 0.15em;
+}
+
+.container {
+	max-width: 50em;
+	margin: 0 auto;
+}
+
+.header p {
+    padding: 0.735em 0em;
+    padding-right: 1em;
+    font-size: 0.925em;
+    text-align: right;
+    color: white;
+    font-weight: 100;
+    background-color: #212121;
+}
+        
+.footer {
+    margin: 0 auto;
+    padding: 0;
+}
+        
+.footer p {
+    padding: 0.735em 0em;
+    font-size: 0.625em;
+    text-align: center;
+}
+        
+.panel-separador {
+    height: 10em;
+}
+        
+.inicial-separador {
+    height: 5.25em;
+}
+        
+.aviso {
+    text-align: center;
+    font-size: 0.75em;
+    margin: 1em 2.5em;
+}
+
+.ui-btn {
+    font-size: 0.825em;
+    margin: 0 2.5em;
+} 
