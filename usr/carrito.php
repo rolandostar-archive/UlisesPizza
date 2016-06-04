@@ -21,14 +21,19 @@ if(isset($_SESSION['email'])) {
 			</div>
 		</div>
 		<main class="content">
-			<div class="container">
-				<!-- Tabla de pedidos actuales -->
-				<?php $c->showCart(); ?>
+			<div class="container-narrow">
+				<?php
+					$num = $c -> countProducts();
+					if($num>0){
+						if($num>6)echo '<a class="btn" href="./checkout.php" style="float:right;margin:10px 0">Check Out</a><br>';
+						$c->showCart();
+						echo '<a class="btn" href="./checkout.php" style="float:right;margin:10px 0">Check Out</a><br>';
+					}else{
+						echo '<br>';
+					}
+				?>
+				<a class="btn" href="./pedido.php" >Agregar Pizza</a>
 			</div>
-			<br>
-			<br>
-			<a class="btn" href="./pedido.php">Agregar Pizza</a>
-			<a class="btn" href="./checkout.php">Check Out</a>
 		</main>
 	</body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>

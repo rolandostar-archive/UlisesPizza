@@ -10,15 +10,13 @@ if(isset($_SESSION['email'])) {
     <!DOCTYPE html>
     <html lang="en">
     <?php require_once("header.php"); ?>        
-    <main>
+    <main class="container-narrow">
 
         <!-- Formulario General para la Página -->
-        <form id="checkout" name="formulario" action="" method=POST>
+        <form id="checkout" name="formulario" action="checkoutAgregar.php" method=POST>
 
             <!-- Datos de Entrega -->
-            <div class="header">
-                <h2 class=header-checkout>Datos de Entrega</h2>
-            </div>
+            <h3 class="header-secciones">Datos de Entrega</h3><hr>
             <div class="content-div">
                 <div class="datos-entrega">
                     <div class="content-form">
@@ -32,13 +30,13 @@ if(isset($_SESSION['email'])) {
                         <input type="text" name="nombre" value="'.$row['nombre'].'">
                         <br><br>
                         <label>Apellido:</label>
-                        <input type="text" name="apellido" value="'.$row['apellido'].'">
+                        <input type="text" name="apellido" value="'.$row['apellido'].'" required>
                         <br><br>
                         <label>Teléfono:</label>
-                        <input type="text" name="telefono" value="'.$row['telefono'].'">
+                        <input type="text" name="telefono" value="'.$row['telefono'].'" required>
                         <br><br>
                         <label>Correo Electrónico:</label>
-                        <input type="text" name="correo" value="'.$row['correo'].'">
+                        <input type="text" name="correo" value="'.$row['correo'].'" required>
                         ';
                         ?>
                         <br>
@@ -47,14 +45,12 @@ if(isset($_SESSION['email'])) {
             </div>
 
             <!-- Direccion de Entrega -->
-            <div class="header">
-                <h2 class="header-checkout">Dirección de Entrega</h2>
-            </div>
+            <h3 class="header-secciones">Direccion de Entrega</h3><hr>
 
             <div class="content-div">
                 <div class="direccion-left">
                     <p>Introduce la dirección completa de entrega:</p>
-                    <textarea class="text-area" name="direccion" id="addrArea"></textarea>
+                    <textarea class="text-area" name="direccion" id="addrArea" required></textarea>
                     <br><br>
                     <input type="submit" value="Actualizar Mapa" id="search" onclick="return false;"/>
                 </div>
@@ -63,38 +59,28 @@ if(isset($_SESSION['email'])) {
                 </div>
             </div>
 
-            <div class="header">
-                <h2 class="header-checkout">Comentarios</h2>
-            </div>
+            <h3 class="header-secciones">Comentarios</h3><hr>
             <div class="container-narrow comments">
-                <textarea rows="6" cols="80"></textarea>
+                <textarea rows="6" cols="80" name="comment"></textarea>
             </div>
 
             <!-- Forma de Pago -->
-            <div class="header">
-                <h2 class="header-checkout">Forma de Pago</h2>
-            </div>
-            <div class="content-div">
-                <div class="pago-left"></div>
-                <div class="pago-right">
-                    <div class="forma-pago">
-                        <i class="fa fa-money" style="font-size:28px;"></i>
-                        <input type="radio" name="pago" value="efectivo" checked>
-                        Efectivo (Pago a la entrega)<br><br>
-                        <i class="fa fa-credit-card" style="font-size:28px;"></i>
-                        <input type="radio" name="pago" value="credito"> 
-                        Tarjeta de Crécito (Pago a la entrega)<br><br>
-                        <i class="fa fa-cc-paypal" style="font-size:24px;"></i>
-                        <input type="radio" name="pago" value="paypal"> 
-                        Paypal (Proceder a pantalla de pago)<br><br>
-                    </div>
-                </div>
+            <h3 class="header-secciones">Forma de Pago</h3><hr>
+            <div style="margin: 30px 25%;">
+                <i class="fa fa-money" style="font-size:28px;"></i>
+                <input type="radio" name="pago" value=0 checked>
+                Efectivo (Pago a la entrega)<br><br>
+                <i class="fa fa-credit-card" style="font-size:28px;"></i>
+                <input type="radio" name="pago" value=1> 
+                Tarjeta de Crécito (Pago a la entrega)<br><br>
+                <i class="fa fa-cc-paypal" style="font-size:24px;"></i>
+                <input type="radio" name="pago" value=2> 
+                Paypal (Proceder a pantalla de pago)<br><br>
             </div>
         </form>
-
         <div class="submit-checkout">
-          <button class="btn" id="myBtn">Confirmar</button>
-      </div>
+            <button class="btn" id="myBtn" onclick="return false;">Confirmar</button>
+        </div>
 
       <!-- The Modal -->
       <div id="myModal" class="modal">
@@ -112,6 +98,7 @@ if(isset($_SESSION['email'])) {
                   <label>Teléfono:</label><br><br>
                   <label>Correo Electrónico:</label><br><br>
                   <label>Dirección de Entrega:</label><br><br>
+                  <label>Comentario:</label><br><br>
                   <b><label>Forma de Pago:</label></b>
               </div>
               <div class="finalizar-right">
@@ -120,6 +107,7 @@ if(isset($_SESSION['email'])) {
                   <label name="confirmar">Introduce un teléfono</label><br><br>
                   <label name="confirmar">Introduce un correo electrónico</label><br><br>
                   <label name="confirmar">Introduce una dirección de entrega</label><br><br>
+                  <label name="confirmar">Ningun Comentario</label><br><br>
                   <b><label name="confirmar">Elige una forma de pago</label></b>
               </div>
           </div>
@@ -152,12 +140,20 @@ if(isset($_SESSION['email'])) {
 
     // When the user clicks the button, open the modal 
     document.getElementById("myBtn").onclick = function() {
-        label[0].innerHTML = form.elements["nombre"].value;
-        label[1].innerHTML = form.elements["apellido"].value;
-        label[2].innerHTML = form.elements["direccion"].value;
-        label[3].innerHTML = form.elements["correo"].value;
-        label[4].innerHTML = form.elements['direccion'].value;
-        label[5].innerHTML = form.elements['pago'].value;
+        array = ["nombre","apellido","telefono","correo","direccion","comment"];
+        for(i=0;i<5;i++){
+            if(form.elements[array[i]].value) label[i].innerHTML = form.elements[array[i]].value;
+            else {
+                alert("Campo "+array[i]+" no puede estar vacio.");
+                return false;
+            }
+        }
+        if(form.elements[array[5]].value) label[5].innerHTML = form.elements[array[5]].value; // Comentarios
+            switch(form.elements["pago"].value){
+                case "0": label[6].innerHTML = "Efectivo"; break;
+                case "1": label[6].innerHTML = "Credito"; break;
+                case "2": label[6].innerHTML = "Paypal - Sera Redirigido"; break;
+            }
         modal.style.display = "block";
     }
 

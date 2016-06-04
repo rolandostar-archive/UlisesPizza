@@ -131,7 +131,7 @@
     flex: 1;
     width: 50%;
     min-width: 10em;
-    text-align: left;
+    text-align: center;
 }
 
 .forma-pago {
@@ -144,6 +144,8 @@
 .submit-checkout {
     width: 22.25em;
     text-align: center;
+    margin: 0 auto;
+    margin-bottom: 35px;
 }
 
 .submit-pedido {
