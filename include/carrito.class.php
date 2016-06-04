@@ -24,6 +24,16 @@
             return count($this->productos);
         }
 
+        public function returnProductArray(){
+            $array = array();
+
+            foreach($this->productos as $index => $producto){
+                array_push($array,array($producto["desc"],$producto["cant"],$producto["precio"]));
+            }
+
+            return $array;
+        }
+
         public function showCart(){
             echo '<table class="tabla-pedido"  style="width:100%">
                         <thead>

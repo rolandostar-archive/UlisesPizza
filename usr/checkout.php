@@ -13,7 +13,7 @@ if(isset($_SESSION['email'])) {
     <main class="container-narrow">
 
         <!-- Formulario General para la Página -->
-        <form id="checkout" name="formulario" action="checkoutAgregar.php" method=POST>
+        <form id="checkout" name="formulario" action="pago/checkoutAgregar.php" method=POST>
 
             <!-- Datos de Entrega -->
             <h3 class="header-secciones">Datos de Entrega</h3><hr>
@@ -62,6 +62,8 @@ if(isset($_SESSION['email'])) {
             <h3 class="header-secciones">Comentarios</h3><hr>
             <div class="container-narrow comments">
                 <textarea rows="6" cols="80" name="comment"></textarea>
+                <br>
+                <p>Sabor de tus refrescos, Catsup/Salsa Extra, etc...</p>
             </div>
 
             <!-- Forma de Pago -->
@@ -77,6 +79,11 @@ if(isset($_SESSION['email'])) {
                 <input type="radio" name="pago" value=2> 
                 Paypal (Proceder a pantalla de pago)<br><br>
             </div>
+            <input type="hidden" name="addr1">
+            <input type="hidden" name="city">
+            <input type="hidden" name="state">
+            <input type="hidden" name="post">
+            <input type="hidden" name="country">
         </form>
         <div class="submit-checkout">
             <button class="btn" id="myBtn" onclick="return false;">Confirmar</button>
@@ -124,6 +131,18 @@ if(isset($_SESSION['email'])) {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCLdTxC6rEdV5tt8qoEJnfV_JfhJgaDXwo"></script>
 <script>
+
+
+
+/*
+google.maps.event.addListener(map, "click", function () {
+    var lat = map.data.map.center.lat();
+    var lng = map.data.map.center.lng();
+});
+
+*/
+
+
     var modal = document.getElementById('myModal');
     var form = document.getElementById("checkout");
     var label = document.getElementsByName("confirmar");
@@ -202,6 +221,7 @@ if(isset($_SESSION['email'])) {
         });
     }
 
+
     function codeLatLng(x,y) {
         var lat = parseFloat(x);
         var lng = parseFloat(y);
@@ -213,6 +233,12 @@ if(isset($_SESSION['email'])) {
             map.fitBounds(results[0].geometry.viewport);
                     marker.setMap(map);
                     marker.setPosition(latlng);
+            console.log(results);
+            form.elements["addr1"].value = results[0].address_components[1].short_name+" "+results[0].address_components[0].short_name+", "+results[0].address_components[2].short_name;
+            form.elements["state"].value = results[0].address_components[5].short_name;
+            form.elements["city"].value = results[0].address_components[3].short_name;
+            form.elements["post"].value = results[0].address_components[7].short_name;
+            form.elements["country"].value = results[0].address_components[6].short_name;
             $('#addrArea').val(results[0].formatted_address);
           } else {
             alert('No results found');

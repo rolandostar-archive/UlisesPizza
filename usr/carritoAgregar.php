@@ -8,7 +8,7 @@ if(isset($_SESSION['email'])) {
         print_r($_POST);
         $c = unserialize($_SESSION['carrito']); //mapeamos carrito a $c
 
-
+        echo 'ESTA PAGINA ESTA AQUI PORQUE FALTA VALIDAR EL PRECIO DEL LADO SERVIDOR';
 
 
         $c->add("Base:".$_POST["base"]." Tamaño: ".$_POST["tamaño"]." Tipo-Masa: ".$_POST["tipo-masa"],1,120);

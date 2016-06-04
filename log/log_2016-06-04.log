@@ -1,0 +1,40 @@
+[2016-06-04 05:28:31]: [DEBUG] - (checkoutAgregar) Gateway url is https://www.sandbox.paypal.com/cgi-bin/webscr
+[2016-06-04 05:28:31]: [DEBUG] - (checkoutAgregar) Business email is negocio@ulisespizza.xyz
+[2016-06-04 05:28:31]: [DEBUG] - (checkoutAgregar) PayPal public certificate path is cert/paypal_cert.pem
+[2016-06-04 05:28:31]: [DEBUG] - (checkoutAgregar) PayPal request fields: invoice=6,address_override=1,address1=Cda. de Otavalo 262, San Bartolo Atepehuacan,city=D.F.,state=México D.F.,zip=07730,country=MX,first_name=John,last_name=Doe,item_name_1=Item 1,amount_1=10,quantity_1=1,weight_unit_1=kgs,item_name_2=Item 2,amount_2=20,quantity_2=1,weight_unit_2=kgs,cmd=_cart,upload=1,business=negocio@ulisespizza.xyz,cert_id=LG7HXQ28XBM54,currency_code=MXN,no_note=1
+[2016-06-04 05:29:16]: [DEBUG] - (checkoutAgregar) Gateway url is https://www.sandbox.paypal.com/cgi-bin/webscr
+[2016-06-04 05:29:16]: [DEBUG] - (checkoutAgregar) Business email is negocio@ulisespizza.xyz
+[2016-06-04 05:29:16]: [DEBUG] - (checkoutAgregar) PayPal public certificate path is ./cert/paypal_cert.pem
+[2016-06-04 05:29:16]: [DEBUG] - (checkoutAgregar) PayPal request fields: invoice=6,address_override=1,address1=Cda. de Otavalo 262, San Bartolo Atepehuacan,city=D.F.,state=México D.F.,zip=07730,country=MX,first_name=John,last_name=Doe,item_name_1=Item 1,amount_1=10,quantity_1=1,weight_unit_1=kgs,item_name_2=Item 2,amount_2=20,quantity_2=1,weight_unit_2=kgs,cmd=_cart,upload=1,business=negocio@ulisespizza.xyz,cert_id=LG7HXQ28XBM54,currency_code=MXN,no_note=1
+[2016-06-04 05:29:21]: [DEBUG] - (checkoutAgregar) Gateway url is https://www.sandbox.paypal.com/cgi-bin/webscr
+[2016-06-04 05:29:21]: [DEBUG] - (checkoutAgregar) Business email is negocio@ulisespizza.xyz
+[2016-06-04 05:29:21]: [DEBUG] - (checkoutAgregar) PayPal public certificate path is ./cert/paypal_cert.pem
+[2016-06-04 05:29:21]: [DEBUG] - (checkoutAgregar) PayPal request fields: invoice=6,address_override=1,address1=Cda. de Otavalo 262, San Bartolo Atepehuacan,city=D.F.,state=México D.F.,zip=07730,country=MX,first_name=John,last_name=Doe,item_name_1=Item 1,amount_1=10,quantity_1=1,weight_unit_1=kgs,item_name_2=Item 2,amount_2=20,quantity_2=1,weight_unit_2=kgs,cmd=_cart,upload=1,business=negocio@ulisespizza.xyz,cert_id=LG7HXQ28XBM54,currency_code=MXN,no_note=1
+[2016-06-04 05:29:26]: [DEBUG] - (checkoutAgregar) Gateway url is https://www.sandbox.paypal.com/cgi-bin/webscr
+[2016-06-04 05:29:26]: [DEBUG] - (checkoutAgregar) Business email is negocio@ulisespizza.xyz
+[2016-06-04 05:29:26]: [DEBUG] - (checkoutAgregar) PayPal public certificate path is ./cert/paypal_cert.pem
+[2016-06-04 05:29:26]: [DEBUG] - (checkoutAgregar) PayPal request fields: invoice=6,address_override=1,address1=Cda. de Otavalo 262, San Bartolo Atepehuacan,city=D.F.,state=México D.F.,zip=07730,country=MX,first_name=John,last_name=Doe,item_name_1=Item 1,amount_1=10,quantity_1=1,weight_unit_1=kgs,item_name_2=Item 2,amount_2=20,quantity_2=1,weight_unit_2=kgs,cmd=_cart,upload=1,business=negocio@ulisespizza.xyz,cert_id=LG7HXQ28XBM54,currency_code=MXN,no_note=1
+[2016-06-04 05:30:06]: [DEBUG] - (checkoutAgregar) Gateway url is https://www.sandbox.paypal.com/cgi-bin/webscr
+[2016-06-04 05:30:06]: [DEBUG] - (checkoutAgregar) Business email is negocio@ulisespizza.xyz
+[2016-06-04 05:30:06]: [DEBUG] - (checkoutAgregar) PayPal public certificate path is ./cert/paypal_cert.pem
+[2016-06-04 05:30:06]: [DEBUG] - (checkoutAgregar) PayPal request fields: invoice=6,address_override=1,address1=Cda. de Otavalo 262, San Bartolo Atepehuacan,city=D.F.,state=México D.F.,zip=07730,country=MX,first_name=John,last_name=Doe,item_name_1=Item 1,amount_1=10,quantity_1=1,weight_unit_1=kgs,item_name_2=Item 2,amount_2=20,quantity_2=1,weight_unit_2=kgs,cmd=_cart,upload=1,business=negocio@ulisespizza.xyz,cert_id=LG7HXQ28XBM54,currency_code=MXN,no_note=1
+[2016-06-04 05:30:45]: [DEBUG] - (checkoutAgregar) Gateway url is https://www.sandbox.paypal.com/cgi-bin/webscr
+[2016-06-04 05:30:45]: [DEBUG] - (checkoutAgregar) Business email is negocio@ulisespizza.xyz
+[2016-06-04 05:30:45]: [DEBUG] - (checkoutAgregar) PayPal public certificate path is cert/paypal_cert.pem
+[2016-06-04 05:30:45]: [DEBUG] - (checkoutAgregar) PayPal request fields: invoice=6,address_override=1,address1=Cda. de Otavalo 262, San Bartolo Atepehuacan,city=D.F.,state=México D.F.,zip=07730,country=MX,first_name=John,last_name=Doe,item_name_1=Item 1,amount_1=10,quantity_1=1,weight_unit_1=kgs,item_name_2=Item 2,amount_2=20,quantity_2=1,weight_unit_2=kgs,cmd=_cart,upload=1,business=negocio@ulisespizza.xyz,cert_id=LG7HXQ28XBM54,currency_code=MXN,no_note=1
+[2016-06-04 05:34:20]: [DEBUG] - (checkoutAgregar) Gateway url is https://www.sandbox.paypal.com/cgi-bin/webscr
+[2016-06-04 05:34:20]: [DEBUG] - (checkoutAgregar) Business email is negocio@ulisespizza.xyz
+[2016-06-04 05:34:20]: [DEBUG] - (checkoutAgregar) PayPal public certificate path is cert/paypal_cert.pem
+[2016-06-04 05:34:20]: [DEBUG] - (checkoutAgregar) PayPal request fields: invoice=6,address_override=1,address1=Cda. de Otavalo 262, San Bartolo Atepehuacan,city=D.F.,state=México D.F.,zip=07730,country=MX,first_name=John,last_name=Doe,item_name_1=Item 1,amount_1=10,quantity_1=1,weight_unit_1=kgs,item_name_2=Item 2,amount_2=20,quantity_2=1,weight_unit_2=kgs,cmd=_cart,upload=1,business=negocio@ulisespizza.xyz,cert_id=ZAYV8VUHYGSZS,currency_code=MXN,no_note=1
+[2016-06-04 05:34:56]: [DEBUG] - (checkoutAgregar) Gateway url is https://www.sandbox.paypal.com/cgi-bin/webscr
+[2016-06-04 05:34:56]: [DEBUG] - (checkoutAgregar) Business email is negocio@ulisespizza.xyz
+[2016-06-04 05:34:56]: [DEBUG] - (checkoutAgregar) PayPal public certificate path is /cert/paypal_cert.pem
+[2016-06-04 05:34:56]: [DEBUG] - (checkoutAgregar) PayPal request fields: invoice=6,address_override=1,address1=,city=,state=,zip=,country=,first_name=John,last_name=Doe,item_name_1=Item 1,amount_1=10,quantity_1=1,weight_unit_1=kgs,item_name_2=Item 2,amount_2=20,quantity_2=1,weight_unit_2=kgs,cmd=_cart,upload=1,business=negocio@ulisespizza.xyz,cert_id=ZAYV8VUHYGSZS,currency_code=MXN,no_note=1
+[2016-06-04 05:35:03]: [DEBUG] - (checkoutAgregar) Gateway url is https://www.sandbox.paypal.com/cgi-bin/webscr
+[2016-06-04 05:35:03]: [DEBUG] - (checkoutAgregar) Business email is negocio@ulisespizza.xyz
+[2016-06-04 05:35:03]: [DEBUG] - (checkoutAgregar) PayPal public certificate path is /cert/paypal_cert.pem
+[2016-06-04 05:35:03]: [DEBUG] - (checkoutAgregar) PayPal request fields: invoice=6,address_override=1,address1=,city=,state=,zip=,country=,first_name=John,last_name=Doe,item_name_1=Item 1,amount_1=10,quantity_1=1,weight_unit_1=kgs,item_name_2=Item 2,amount_2=20,quantity_2=1,weight_unit_2=kgs,cmd=_cart,upload=1,business=negocio@ulisespizza.xyz,cert_id=ZAYV8VUHYGSZS,currency_code=MXN,no_note=1
+[2016-06-04 05:36:09]: [DEBUG] - (checkoutAgregar) Gateway url is https://www.sandbox.paypal.com/cgi-bin/webscr
+[2016-06-04 05:36:09]: [DEBUG] - (checkoutAgregar) Business email is negocio@ulisespizza.xyz
+[2016-06-04 05:36:09]: [DEBUG] - (checkoutAgregar) PayPal public certificate path is /cert/paypal_cert.pem
+[2016-06-04 05:36:09]: [DEBUG] - (checkoutAgregar) PayPal request fields: invoice=6,address_override=1,address1=Cda. de Otavalo 262, San Bartolo Atepehuacan,city=D.F.,state=México D.F.,zip=07730,country=MX,first_name=John,last_name=Doe,item_name_1=Item 1,amount_1=10,quantity_1=1,weight_unit_1=kgs,item_name_2=Item 2,amount_2=20,quantity_2=1,weight_unit_2=kgs,cmd=_cart,upload=1,business=negocio@ulisespizza.xyz,cert_id=ZAYV8VUHYGSZS,currency_code=MXN,no_note=1
