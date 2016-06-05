@@ -5,35 +5,54 @@ require_once('db.class.php');
 
 session_start();
 if(isset($_SESSION['email'])) {
-        print_r($_POST);
+        $ing = ""; $tm = "";
         $db = new database();
         $c = unserialize($_SESSION['carrito']); //mapeamos carrito a $c
         $precioCalc = 0;
-            
+        $aiuda = $_POST['ingrediente'];
     
-        for($i=0; $i < count($_POST["ingrediente"]); $i++){
-        	echo "ENTRÉ<br/>";
-            $db -> query('SELECT precioUnit from ingrediente where nombre like :ing');
-        	$db -> bind(':ing', $_POST['ingrediente'][$i]);
-			$row = $db->single(); //Solo va a ser uno
-			$precioCalc += $row['precioUnit'];
-        }
-        $precioCalc += 20;
+        foreach($aiuda as $index => $row){
+            $db -> query('SELECT * from ingrediente where id_ingrediente = :ing');
+        	$db -> bind(':ing', $row);
+			$row2 = $db->single(); //Solo va a ser uno
+            $ing += $row2['nombre'];
+            $ing += ", ";
+			$precioCalc += $row2['precioUnit'];
+        } $precioCalc += 20;
         switch($_POST['tamaño']){
-		  case 'Personal': $precioCalc += 30; break;
-		  case 'Mediana': $precioCalc += 60; break;
-		  case 'Grande': $precioCalc += 90; break;
+		  case 0: $precioCalc += 30; $tm = "Personal"; break;
+		  case 1: $precioCalc += 60; $tm = "Medina"; break;
+		  case 2: $precioCalc += 90; $tm = "Familiar"; break;
 		}
-        echo 'El precio calculado de tu pizza es $'.$precioCalc.'<br/>';
-
-
-
-        echo 'ESTA PAGINA ESTA AQUI PORQUE FALTA VALIDAR EL PRECIO DEL LADO SERVIDOR';
-
-
-        $c->add("Base:".$_POST["base"]." Tamaño: ".$_POST["tamaño"]." Tipo-Masa: ".$_POST["tipo-masa"],1,120);
+        //echo 'Precio Total: $'.$precioCalc.'<br/>';
+        
+        $d = "";
+        switch($_POST["base"]){
+            case 0: $d = "Personalizada con "; break;
+            case 1: $d = "Mexicana"; break;
+            case 2: $d = "Peperonni"; break;
+            case 3: $d = "Hawaiiana"; break;
+            case 4: $d = "Carnes Frias"; break;
+            case 5: $d = "Cuatro Quesos"; break;
+            case 6: $d = "Vegetariana"; break;
+            case 7: $d = "Brava"; break;
+            case 8: $d = "Frutos Frescos"; break;
+        }
+    
+        $ti = "";
+        switch($_POST["tipo-masa"]){
+            case 0: $ti = "Harina de Trigo"; break;        
+            case 1: $ti = "Harina sin Sal"; break;
+            case 2: $ti = "A la piedra"; break;
+            case 3: $ti = "Masa Dulce"; break;
+            case 4: $ti = "Crunch"; break;
+        }
+    
+        //if($_POST["base"] == 0) $d += $ing;
+        
+        $c->add("Base: ".$d.". Tamaño: ".$tm.". Tipo-Masa: ".$ti,1,$precioCalc);
         $_SESSION['carrito'] = serialize($c);
-        //echo '<script> window.location="carrito.php"; </script>';    
+        echo '<script> window.location="carrito.php"; </script>';    
 }else{
     echo '<script> window.location="login.php"; </script>';
 }
