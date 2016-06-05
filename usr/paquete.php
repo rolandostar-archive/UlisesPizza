@@ -7,8 +7,17 @@ if(isset($_SESSION['email'])) {
     $db = new database();
 ?>
 <!DOCTYPE html>
-<html>
-	<head>
+<html lang="en">
+	
+    <?php require_once("header.php"); ?>
+    
+    <main class="container-narrow">
+    
+    <center>
+    <h3 class="header-secciones">Paquetes</h3><hr>
+        </center>
+        
+    <head>
 		<script type="text/javascript">
 		function parcear(){
 			var enviar;
@@ -17,7 +26,7 @@ if(isset($_SESSION['email'])) {
 			if( document.getElementById("PG") )
 				enviar = "Pizza Grande " + $( "#PG option:selected" ).text() + " ";
 			if( document.getElementById("PM") )
-				enviar += "Pizza Mediana " + $( "#PG option:selected" ).text() + " ";
+				enviar += "Pizza Mediana" + $( "#PG option:selected" ).text() + " ";
 			if( document.getElementById("PC") )
 				enviar += "Pizza Personal " + $( "#PG option:selected" ).text() + " ";
 			alert("Quiero mandar: "+enviar);
