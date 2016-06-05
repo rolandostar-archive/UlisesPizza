@@ -1,6 +1,8 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 	<head>
 		<meta charset="utf-8">
 		<title>Little Ulises Pizza&trade; - Menu</title>
@@ -26,7 +28,8 @@
 		
 		<style>
 			body {
-				background: none;
+				background: transparent url("/img/photo-montage1.png") no-repeat center bottom;
+                background-position: bottom center;
 			}
 
 			.pedidos-act {
@@ -70,18 +73,27 @@
 </head>
 
 	<body>
-		<header>
-			<div class="nav-bar">
-				<div class="container">
-					<ul class="nav">
-						<li>Inicio</li>
-						<li><a href="/sucursales.html">Sucursales</li>
-						<li><a href="/usr/historial.html">Historial</li>
-						<li><a href="./login.html">Salir</a></li>
-					</ul>
-				</div>
-			</div>
-		</header>
+        <header>
+            <div class="nav-bar">
+                <div class="container">
+                    <ul class="nav">
+                        <?php if(isset($_SESSION['email'])): ?>
+                            <li><a href="/usr/resumen.php">¡Hola <?php echo $_SESSION["nombre"];?>!</a></li>';
+                            <li><a href="/">Inicio</a></li>
+                            <li><a href="/menu/">Menú</a></li>
+                            <li><a href="/sucursales.php">Sucursales</a></li>
+                            <li><a href="/usr/carrito.php">Carrito</a></li>
+                            <li><a href="/usr/logout.php">Logout</a></li>
+                        <?php else: ?>
+                            <li><a href="/">Inicio</a></li>
+                            <li><a href="/menu/">Menú</a></li>
+                            <li><a href="/sucursales.php">Sucursales</a></li>
+                            <li><a href="/usr/login.php">Login</a></li>
+                        <?php endif; ?>
+                    </ul>
+                </div>
+            </div>
+        </header>
 
 		
 		<main class="content">
@@ -296,10 +308,11 @@
 			
 
 			
-
 			
 		</main>
-
+			<div class="footer ">
+				&copy; Sindral Software 2016
+			</div>
 
 		
 	</body>
