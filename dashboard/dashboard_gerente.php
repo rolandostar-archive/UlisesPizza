@@ -61,7 +61,7 @@
 			<div class="nav-bar">
 				<div class="container">
 					<ul class="nav">
-						<li>¡Hola <?php echo $_SESSION["nombre"];?>!</li>';
+						<li><a href="/dashboard/dashboard_gerente.php">¡Hola <?php echo $_SESSION["nombre"];?>!</a></li>';
 						<li><a href="/empleado/logout.php">Cerrar Sesión</a></li>
 					</ul>
 				</div>
@@ -88,7 +88,7 @@
 
 				<!-- Botón Agregar Empleado -->
 				<div class="boton">
-					<a class="btn" href="">Agregar Empleado</a>
+					<a class="btn" href="/empleado/registrar.php">Agregar Empleado</a>
 				</div>
                 
                 <!-- Div donde se introduce la tabla generada con la información de la sucursal seleccionada -->

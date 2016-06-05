@@ -26,7 +26,6 @@
 					$_SESSION["email"] = $result['correo']; 
 					$_SESSION["nombre"] = $result['nombre'];
                     $_SESSION["cargo"] = $result['cargo'];
-					echo 'Iniciando sesión para '.$_SESSION['email'].' <p>';
                     // Validación del tipo de cargo de cada empleado para redireccionarlos a sus pantallas correspondientes
                     if ($_SESSION["cargo"]==0){
 					echo '<script> window.location="/dashboard/dashboard_gerente.php"; </script>';
