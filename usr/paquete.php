@@ -16,9 +16,9 @@ if(isset($_SESSION['email'])) {
 			// while ( document.getElementById("PG") ) ???
 			if( document.getElementById("PG") )
 				enviar = "Pizza Grande " + $( "#PG option:selected" ).text() + " ";
-			if( document.getElementById("PG") )
+			if( document.getElementById("PM") )
 				enviar += "Pizza Mediana " + $( "#PG option:selected" ).text() + " ";
-			if( document.getElementById("PG") )
+			if( document.getElementById("PC") )
 				enviar += "Pizza Personal " + $( "#PG option:selected" ).text() + " ";
 			alert("Quiero mandar: "+enviar);
 		}
