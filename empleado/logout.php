@@ -1,8 +1,8 @@
 <?php
 session_start();
 session_destroy();
-echo 'Cerraste sesión';
-echo '<script> window.location="../index.php"; </script>';
+echo '<script> alert("Has cerrado sesión exitosamente.");</script>';
+echo '<script> window.location="/empleado/login.php"; </script>';
 ?>
 <!DOCTYPE html>
 <html>

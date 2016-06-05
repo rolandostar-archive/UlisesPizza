@@ -1,8 +1,9 @@
 <?php
 	session_start();
-	$title = "Little Ulises Pizza&trade; - Iniciar Sesi&oacute;n";
+	$title = "Iniciar Sesi&oacute;n - Little Ulises Pizza&trade;";
 	$css = "/css/login.css";
 
+// Validación del tipo de cargo de cada empleado para redireccionarlos a sus pantallas correspondientes
 	if(isset($_SESSION['email'])){
         if ($_SESSION["cargo"]==0){
             echo '<script> window.location="/dashboard/dashboard_gerente.php"; </script>';
@@ -18,8 +19,30 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
-	<?php require_once("header.php"); ?>
+<!-- Saqué esto de header.php para cambiarlo en caso de no querer mostrar la misma barra de navegación a los empleados que se le muestra a los clientes -->
+    <body>
+    <header>
+        <div class="nav-bar">
+            <div class="container">
+                <ul class="nav">
+                    <?php if(isset($_SESSION['email'])): ?>
+                        <li><a href="/usr/resumen.php">¡Hola <?php echo $_SESSION["nombre"];?>!</a></li>';
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/menu/">Menú</a></li>
+                        <li><a href="/sucursales.php">Sucursales</a></li>
+                        <li><a href="/usr/carrito.php">Carrito</a></li>
+                        <li><a href="/usr/logout.php">Logout</a></li>
+                    <?php else: ?>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/menu/">Menú</a></li>
+                        <li><a href="/sucursales.php">Sucursales</a></li>
+                        <li><a href="/usr/login.php">Login</a></li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        </div>
+    </header>
+        
 		<form class="form-login" method="post" action="loginValidar.php">
 			<div class="login">
 				<div class="form-white-background">
@@ -49,3 +72,19 @@
 	</body>
 
 </html>
+
+<head>
+  <meta charset="utf-8">
+  <title><?php
+    if(isset($title)) echo $title;
+    else echo "Little Ulises Pizza&trade;";
+    ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/styles.css">
+    <?php if(isset($css)) echo '<link rel="stylesheet" href="'.$css.'">'?>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>

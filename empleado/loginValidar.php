@@ -27,7 +27,7 @@
 					$_SESSION["nombre"] = $result['nombre'];
                     $_SESSION["cargo"] = $result['cargo'];
 					echo 'Iniciando sesión para '.$_SESSION['email'].' <p>';
-                    
+                    // Validación del tipo de cargo de cada empleado para redireccionarlos a sus pantallas correspondientes
                     if ($_SESSION["cargo"]==0){
 					echo '<script> window.location="/dashboard/dashboard_gerente.php"; </script>';
                     }
@@ -37,9 +37,7 @@
                     else if ($_SESSION["cargo"]==2){
 					echo '<script> window.location="/dashboard/dashboard_Empleado.php"; </script>';
                     }
-                    
 				}
-				
 				else{
 					echo '<script> alert("El correo electrónico y/o la contraseña que ingresaste no coinciden con niguna cuenta. Regístrate para crear una cuenta.");</script>';
 					echo '<script> window.location="login.php"; </script>';
