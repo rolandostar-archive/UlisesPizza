@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Little Ulises Pizza&trade; - Menu</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="robots" content="index, follow">
+
+		<!-- icons -->
+		<link rel="shortcut icon" href="/favicon.ico">
+
+		<!-- Override CSS file - add your own CSS rules -->
+		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="landing.css">
+
+
+		<style>
+			body {
+				background: none;
+			}
+
+			.pedidos-act {
+				flex-grow: 1;
+			}
+
+			.tabla-pedido {
+				margin: 0 auto;
+				width: 100%;
+			}
+
+			.tabla-pedido th {
+				background: #E38F27;
+			}
+
+			tr:nth-child(odd) {
+				background-color: #f2f2f2
+			}
+
+			.flex-wrapper {
+				display: flex;
+			}
+
+			.cooking {
+				width: 50px;
+				height: 50px;
+				background-color: red;
+			}
+
+			.ready {
+				width: 50px;
+				height: 50px;
+				background-color: green;
+			}
+
+			.toggle {
+				cursor: pointer;
+			}
+		</style>
+
+
+
+	</head>
+
+	<body>
+		<header>
+			<div class="nav-bar">
+				<div class="container">
+					<ul class="nav">
+						<li>Inicio</li>
+						<li><a href="/sucursales.html">Sucursales</li>
+						<li><a href="/usr/historial.html">Historial</li>
+						<li><a href="./login.html">Salir</a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		
+		<main class="content">
+			<div class="container">
+				<!-- Tabla de paquetes -->
+				
+	<center>
+			<h3>Paquetes</h3>
+	</center>
+
+<main class="content">
+			<div class="tabla-precios">
+				<column>
+					<div class="paquete">
+						<div class="paq-head" style="background: #212121;">
+							<h2>Paquete 1</h2>
+							<span class="precio">
+								$125 <span>Para compartir</span>
+							</span>
+						</div>
+						<ul class="lista-productos">
+							<li>2 Pizzas Grandes
+								<br/>(1 Ingrediente)</li>
+							<li>Refresco Cualquier Sabor</li>
+						</ul>
+						<a class="btn-pedir" href="#" role="button">Pedir</a>
+					</div>
+				</column>
+				<column>
+					<div class="paquete">
+						<div class="paq-head" style="background: blue;">
+							<h2>Paquete 2</h2>
+							<span class="precio">
+								$125 <span>Para compartir</span>
+							</span>
+						</div>
+						<ul class="lista-productos">
+							<li>2 Pizzas Grandes
+								<br/>(1 Ingrediente)</li>
+							<li>Refresco Cualquier Sabor</li>
+						</ul>
+						<a class="btn-pedir" href="#" role="button">Pedir</a>
+					</div>
+				</column>
+				<column>
+					<div class="paquete">
+						<div class="paq-head" style="background: red;">
+							<h2>Paquete 3</h2>
+							<span class="precio">
+								$125 <span>Para compartir</span>
+							</span>
+						</div>
+						<ul class="lista-productos">
+							<li>2 Pizzas Grandes
+								<br/>(1 Ingrediente)</li>
+							<li>Refresco Cualquier Sabor</li>
+						</ul>
+						<a class="btn-pedir" href="#" role="button">Pedir</a>
+					</div>
+				</column>
+				<column>
+					<div class="paquete">
+						<div class="paq-head" style="background: green;">
+							<h2>Paquete 4</h2>
+							<span class="precio">
+								$125 <span>Para compartir</span>
+							</span>
+						</div>
+						<ul class="lista-productos">
+							<li>2 Pizzas Grandes
+								<br/>(1 Ingrediente)</li>
+							<li>Refresco Cualquier Sabor</li>
+						</ul>
+						<a class="btn-pedir" href="#" role="button">Pedir</a>
+					</div>
+				</column>
+			</div>
+
+
+
+			<br>
+			<br>
+
+
+			
+<main class="content">
+			<div class="container">
+				<!-- Tabla de paquetes -->
+				
+	
+<center>
+		<h3>Especialidades</h3>
+</center>
+
+<main class="content">
+			<div class="tabla-precios">
+				<column>
+					<div class="paquete">
+						<div class="paq-head" style="background: #212121;">
+							<h2>Especialidades</h2>
+							<span class="precio">
+								Basicas <span></span>
+							</span>
+						</div>
+						<ul class="lista-productos">
+							<li>-Hawaiana</li>
+							<li>-Mexicana</li>
+							<li>-Peperonni</li>
+							<li>-Carnes Frias</li>
+							<li>-Cuatro quesos</li>
+							<li>-Vegetariana</li>
+							<li>-Brava</li>
+							<li>-Frutos Frescos</li>
+							<li>-Maricos()</li>
+							<li>-Napolitana</li>
+
+						</ul>
+						<a class="btn-pedir" href="#" role="button">Pedir</a>
+					</div>
+				</column>
+				<column>
+					<div class="paquete">
+						<div class="paq-head" style="background: #212121;">
+							<h2>Ingredientes</h2>
+							<span class="precio">
+								Individuales <span></span>
+							</span>
+						</div>
+						<ul class="lista-productos">
+							<li>-Peperonni</li>
+							<li>-Piña</li>
+							<li>-Jamon</li>
+							<li>-Pollo</li>
+							<li>-Almejas</li>
+							<li>-Queso Mozzarella</li>
+							<li>-Champiñones</li>
+							<li>-Carne Molida</li>
+							<li>-Cebolla</li>
+							<li>-Salchicha</li>
+						</ul>
+						<a class="btn-pedir" href="#" role="button">Arma tu pedido</a>
+					</div>
+				</column>
+				
+
+
+				<column>
+					<div class="paquete">
+						<div class="paq-head" style="background: #212121;">
+							<h2>Ingredientes</h2>
+							<span class="precio">
+								Individuales <span></span>
+							</span>
+						</div>
+						<ul class="lista-productos">
+							
+							<li>-Queso Crema</li>
+							<li>-Parmesano</li>
+							<li>-Cheddar</li>
+							<li>-Aceitunas</li>
+							<li>-Chorizo</li>
+							<li>-Salsa Brava</li>
+							<li>-Uva</li>
+							<li>-Manzana</li>
+							<li>-Salsa Arandano</li>
+							<li>-Picante</li>
+						</ul>
+						<a class="btn-pedir" href="#" role="button">Arma tu pedido</a>
+					</div>
+				</column>
+
+
+			
+
+			
+
+			
+		</main>
+
+
+		
+	</body>
+
+
+</html>
