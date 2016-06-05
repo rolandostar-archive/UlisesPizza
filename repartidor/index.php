@@ -69,7 +69,7 @@
       <!---------------------- Contenido  ----------------------->
       <div data-role="main" class="ui-content">    
         <?php
-            $db -> query('SELECT p.descripcion, p.codigo, p.tiempoPedido, p.direccion, u.nombre, u.apellido, u.telefono FROM pedidos p, usuarios u WHERE p.id_usuario = u.id_user AND estado LIKE "2";');
+            $db -> query('SELECT p.descripcion, p.codigo, p.tiempoPedido, p.direccion, u.nombre, u.apellido, u.telefono, s.direccion AS direccion_sucursal FROM pedidos p, usuarios u, sucursales s WHERE p.id_usuario = u.id_user AND p.id_sucursal = s.id_sucursal AND estado LIKE "2";');
             $result = $db->resultset();
             if (!empty($result)) {
         ?>
@@ -80,6 +80,10 @@
                     //Cambio de espacios por '+' en la dirección
                     $dir = $row['direccion'];
                     $gmaps = str_replace(' ', '+', $dir);
+                    
+                    //Cambio de espacios por '+' para la dirección de la sucursal 
+                    $dir_sucursal = $row['direccion_sucursal'];
+                    $gmaps_sucursal = str_replace(' ', '+', $dir_sucursal);    
                     
                     //Agregar +30min a la hora de pedido para colocarla como tiempo máximo de entrega
                     $hora_pedido = $row['tiempoPedido'];
@@ -107,7 +111,9 @@
         <br>
           
         <!--- Botón Regresar a Sucursal Desde Ubicación Actual ---->
-        <a href="#pagetwo" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="a" data-inline="true" class="ui-btn ui-shadow ui-corner-all entrega" style="font-size:0.8em;" role="button">Regresar a Sucursal</a>
+        <?php
+        echo '<a href="https://maps.google.com?saddr=Current+Location&daddr='.$gmaps_sucursal.'" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="a" data-inline="true" class="ui-btn ui-shadow ui-corner-all entrega" style="font-size:0.8em;" role="button">Regresar a Sucursal</a>';
+        ?>
       </div>    
     </div>
 </body>
