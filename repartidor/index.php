@@ -112,6 +112,7 @@
           
         <!--- Botón Regresar a Sucursal Desde Ubicación Actual ---->
         <?php
+        // Modificar query para que en el caso de no haber más pedidos, sólo se muestre el botón de "Regresar a Sucursal"
         echo '<a href="https://maps.google.com?saddr=Current+Location&daddr='.$gmaps_sucursal.'" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="a" data-inline="true" class="ui-btn ui-shadow ui-corner-all entrega" style="font-size:0.8em;" role="button">Regresar a Sucursal</a>';
         ?>
       </div>    
