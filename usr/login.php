@@ -34,7 +34,7 @@
 				</div>
 				<hr>
 				<a href="#" class="form-forgotten-password">¿Olvidaste tu Contrase&ntilde;a? &middot;</a>
-				<a href="#" class="form-create-an-account">Registro &rarr;</a>
+				<a href="/usr/registrar.php" class="form-create-an-account">Registro &rarr;</a>
 			</div>
 		</form>
 	</body>
