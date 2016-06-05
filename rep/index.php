@@ -2,7 +2,7 @@
 session_start();
 $title = "Navegacion - Little Ulises Pizza&trade;";
 //$css = "./css/resumen.css";
-//if(isset($_SESSION['email'])) {
+if(isset($_SESSION['email'])) {
     require_once('db.class.php');
     $db = new database();
     ?>

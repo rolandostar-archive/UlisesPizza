@@ -77,15 +77,15 @@
                 foreach ($result as $index => $row) {
                     $phpdate = strtotime( $row['tiempoPedido'] );
                     echo'<div data-role="collapsible">';
-                        echo "<h3>Código de Pedido: ".$row['codigo']."</h3>";
-                        echo "<p>".$row['descripcion']."</p>";
-                        echo "<p>".$row['codigo']."</p>";
-                        echo "<p>".date('g:i A',$phpdate)."</p>";
-                        echo "<p>".$row['direccion']."</p>";
-                        echo "<p>".$row['nombre']." ".$row['apellido']."</p>";
-                        echo "<p>".$row['telefono']."</p>";
-                        echo "<br>";
-                        echo'<a href="#pagetwo" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="a" data-inline="true" class="ui-btn ui-shadow ui-corner-all entrega" style="font-size:0.6em;" role="button">Cómo llegar desde mi ubicación</a>';
+                        echo "<h3> ".$row['nombre']." ".$row['apellido']."  8:47 P.M.</h3>";
+                            echo'<br>';
+                            echo'<a href="#pagetwo" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="a" data-inline="true" class="ui-btn ui-shadow ui-corner-all entrega" style="font-size:0.7em;" role="button">¿Cómo llegar?</a><br>';
+                            echo "<p>".$row['descripcion']."</p><br>";
+                            echo "<p>".$row['direccion']."</p><br>";
+                            echo "<p><b>Hora de Pedido:</b> ".date('g:i A',$phpdate)."</p><br>";
+                            echo "<p><b>Teléfono:</b> ".$row['telefono']."</p><br>";
+                            echo "<p><b>Código:</b> ".$row['codigo']."</p><br>";
+                            echo'<a href="#pagetwo" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="a" data-inline="true" class="ui-btn ui-shadow ui-corner-all entrega" style="font-size:0.7em;" role="button">¿Entregaste la pizza?</a><br>';
                     echo'</div>';            
                 }
             ?>
@@ -94,8 +94,6 @@
         ?>    
         <br>
         <a href="#pagetwo" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="a" data-inline="true" class="ui-btn ui-shadow ui-corner-all entrega" style="font-size:0.8em;" role="button">Regresar a Sucursal</a>
-        <br>
-        <a href="#pageone">-Temporal- Regresar a pag 1</a>
       </div>    
     </div>
 </body>
