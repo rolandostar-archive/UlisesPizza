@@ -1,6 +1,8 @@
 <?php 
-require_once('db.class.php');
-$db = new database();
+    require_once('db.class.php');
+    $db = new database();
+    session_start();
+    if(isset($_SESSION['cargo'])){ 
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +29,7 @@ $db = new database();
 <!--------------------------------------- PANEL LATERAL ----------------------------------------->
       <div data-role="panel" id="myPanel" data-display="overlay" data-theme="a"> 
         <div class="panel-separador"></div>
-        <a href="#" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="a" data-inline="true" class="ui-btn ui-shadow ui-corner-all entrega" role="button">Cerrar Sesión</a>
+        <a href="/empleado/logout.php" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="a" data-inline="true" class="ui-btn ui-shadow ui-corner-all entrega" role="button">Cerrar Sesión</a>
       </div> 
 
 <!-------------------------------------- PANTALLA INICIAL --------------------------------------->
@@ -36,7 +38,7 @@ $db = new database();
     <div data-role="page" id="pageone">   
       <div data-role="header" class="header">
           <a href="#myPanel" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="a" data-inline="true" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-shadow ui-corner-all ui-btn-b" role="button">Panel</a>
-          <p>¡Bienvenido!</p>
+          <p>¡Bienvenido <?php echo $_SESSION["nombre"];?>!</p>
       </div>
         
       <!-------------- Contenido  ------------>
@@ -61,7 +63,7 @@ $db = new database();
     <div data-role="page" id="pagetwo">   
       <div data-role="header" class="header">
           <a href="#myPanel" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="a" data-inline="true" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-shadow ui-corner-all ui-btn-b" role="button">Panel</a>
-          <p>¡Bienvenido!</p>
+          <p>¡Bienvenido <?php echo $_SESSION["nombre"];?>!</p>
       </div>
 
       <!-------------- Contenido  ------------>
@@ -98,3 +100,8 @@ $db = new database();
     </div>
 </body>
 </html>
+<?php
+    }else{
+      echo '<script> window.location="/empleado/login.php"; </script>';
+    }
+?>

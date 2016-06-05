@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+    if(isset($_SESSION['cargo'])){ 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,9 +51,6 @@
 				cursor: pointer;
 			}
 		</style>
-
-
-
 	</head>
 
 	<body>
@@ -120,8 +121,10 @@
 				}
 			}
 		</script>
-
 	</body>
-
-
 </html>
+<?php
+    }else{
+      echo '<script> window.location="/empleado/login.php"; </script>';
+    }
+?>

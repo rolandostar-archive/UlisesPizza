@@ -1,6 +1,8 @@
 <?php
 	require_once('db.class.php');
 	$db = new database();
+    session_start();
+    if(isset($_SESSION['cargo'])){ 
 ?>
 
 <!DOCTYPE html>
@@ -59,8 +61,8 @@
 			<div class="nav-bar">
 				<div class="container">
 					<ul class="nav">
-						<li>¡Bienvenido Juan!</li>
-						<li><a href="./login.php">Salir</a></li>
+						<li>¡Hola <?php echo $_SESSION["nombre"];?>!</li>';
+						<li><a href="/empleado/logout.php">Cerrar Sesión</a></li>
 					</ul>
 				</div>
 			</div>
@@ -114,3 +116,8 @@
 		</script>
 	</body>
 </html>
+<?php
+}else{
+  echo '<script> window.location="/empleado/login.php"; </script>';
+}
+?>
