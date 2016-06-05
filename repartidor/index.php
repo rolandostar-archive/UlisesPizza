@@ -80,9 +80,14 @@
                     //Cambio de espacios por '+' en la dirección
                     $dir = $row['direccion'];
                     $gmaps = str_replace(' ', '+', $dir);
+                    
+                    //Agregar +30min a la hora de pedido para colocarla como tiempo máximo de entrega
+                    $hora_pedido = $row['tiempoPedido'];
+                    $hora_max = date("g:i A", strtotime($hora_pedido . "+30 minutes"));
+                
                     $phpdate = strtotime( $row['tiempoPedido'] );
                     echo'<div data-role="collapsible">';
-                        echo "<h3> ".$row['nombre']." ".$row['apellido']."  8:47 P.M.</h3>";
+                        echo "<h3> ".$row['nombre']." ".$row['apellido']."  ".$hora_max."</h3>";
                             echo'<br>';
                             // Botón de Google Maps
                             echo'<a href="https://maps.google.com?saddr=Current+Location&daddr='.$gmaps.'" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="a" data-inline="true" class="ui-btn ui-shadow ui-corner-all entrega" style="font-size:0.7em;" role="button">¿Cómo llegar?</a><br>';
