@@ -1,23 +1,27 @@
 <?php
 require("db.class.php");
+
+
 session_start();
 $title = "Little Ulises Pizza&trade; - Paquetes";
 $css = "./css/paquetes.css";
-if(isset($_SESSION['email'])) {
-    $db = new database();
-?>
+
+
+	if(isset($_SESSION['email'])) {
+    	$db = new database();
+	?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
+<?php requiere_once("header.php"); ?>
+
+<main class="container-narrow">
+
+<h1 class="header-secciones">Paquetes </h1><hr>
 	
-    <?php require_once("header.php"); ?>
-    
-    <main class="container-narrow">
-    
-    <center>
-    <h3 class="header-secciones">Paquetes</h3><hr>
-        </center>
-        
-    <head>
 		<script type="text/javascript">
 		function parcear(){
 			var enviar;
@@ -26,7 +30,7 @@ if(isset($_SESSION['email'])) {
 			if( document.getElementById("PG") )
 				enviar = "Pizza Grande " + $( "#PG option:selected" ).text() + " ";
 			if( document.getElementById("PM") )
-				enviar += "Pizza Mediana" + $( "#PG option:selected" ).text() + " ";
+				enviar += "Pizza Mediana " + $( "#PG option:selected" ).text() + " ";
 			if( document.getElementById("PC") )
 				enviar += "Pizza Personal " + $( "#PG option:selected" ).text() + " ";
 			alert("Quiero mandar: "+enviar);
@@ -34,7 +38,7 @@ if(isset($_SESSION['email'])) {
 		</script>
 	</head>
 	<body>
-	<p> RECIBIR EL ID DEL PAQUETE. Modificar linea 37. Y linea 5 - 6. </p>
+	
 	<select>
 	  <option value="MO">Masa Original</option>
 	  <option value="MC">Masa Crunchy</option>
